@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const statusBadge = {
   Active: "bg-green-50 text-green-700 border-green-200",
@@ -87,7 +88,7 @@ const UserManagementPage = () => {
         <aside className="hidden w-64 flex-col border-r border-slate-200 bg-white lg:flex">
           <div className="flex h-16 items-center justify-center border-b border-slate-200 px-6">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-lg font-bold text-white">S</div>
+                <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-lg font-bold text-white" />
               <span className="text-lg font-bold text-slate-800">SJCS Admin</span>
             </div>
           </div>
@@ -134,7 +135,7 @@ const UserManagementPage = () => {
         <div className="flex flex-1 flex-col overflow-hidden">
           <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-3 lg:hidden">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-lg font-bold text-white">S</div>
+                <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-lg font-bold text-white" />
               <span className="text-lg font-bold text-slate-800">SJCS</span>
             </div>
             <button className="text-slate-500" type="button">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const recentUploads = [
   {
@@ -68,9 +69,7 @@ const UploadLearningMaterialsPage = () => {
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-800 md:flex-row">
       <aside className="sticky top-0 hidden h-screen w-64 flex-col border-r border-slate-200 bg-white md:flex">
         <div className="flex items-center gap-3 p-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-xl font-bold text-white shadow-lg shadow-blue-500/30">
-            S
-          </div>
+          <RotatingLogo className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-xl font-bold text-white shadow-lg shadow-blue-500/30" />
           <div>
             <h1 className="text-lg font-bold text-slate-900">SJCS</h1>
             <p className="text-xs text-slate-500">Teacher Portal</p>
@@ -118,7 +117,7 @@ const UploadLearningMaterialsPage = () => {
         <header className="sticky top-0 z-20 border-b border-slate-200 bg-white p-4 md:hidden">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue text-white font-bold">S</div>
+              <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue text-white font-bold" />
               <span className="font-bold text-slate-900">SJCS</span>
             </div>
             <button className="text-slate-500" type="button">

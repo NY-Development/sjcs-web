@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const materialsSeed = [
   {
@@ -128,9 +129,7 @@ const LearningMaterialsLibraryPage = () => {
       <nav className="sticky top-0 z-50 h-16 border-b border-slate-200 bg-white shadow-sm">
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-white text-lg font-bold">
-              SJ
-            </div>
+            <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-white text-lg font-bold" />
             <span className="hidden text-lg font-semibold tracking-tight md:block">SJCS Resource Hub</span>
           </div>
           <div className="flex-1 px-4 lg:px-12">

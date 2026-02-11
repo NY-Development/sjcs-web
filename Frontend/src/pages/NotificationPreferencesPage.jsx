@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const defaultPrefs = {
   channels: {
@@ -110,11 +111,7 @@ const NotificationPreferencesPage = () => {
       <nav className="sticky top-0 z-30 border-b border-slate-200 bg-white">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <img
-              alt="SJCS logo"
-              className="h-10 w-auto rounded-lg"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQMik6S6HIHwSgKFUsQzJ7zOKIm1U62MEWm6U19jqaP3lejLDly4ngX77s5uK4c552aw_MdK5_ERL8wAcuZazi_HWsFrf-FsrV5eyMzQo5nARCDPRK7mmq5UP8DybFMKuzxYRTitrdTYkXQQX2AgCeMhc3t7pMR-Zqse5SFVUB6bQpjvpUd4F9hHmv2zU6KlgX4iZvKjgYHa8DcNGaAqST_ylO-A-k8MqVcn7Da0swQ65KfEPToiS_UJITXkbR1TqsRFsYOcrZoKt-"
-            />
+            <RotatingLogo className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-white font-bold" />
             <div>
               <span className="block text-lg font-bold text-slate-900">SJCS</span>
               <span className="text-xs text-slate-500">Parent Portal</span>

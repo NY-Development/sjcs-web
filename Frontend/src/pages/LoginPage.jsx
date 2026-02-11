@@ -6,6 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const loginSchema = z.object({
   email: z.string().email("Enter a valid email"),
@@ -68,9 +69,7 @@ const LoginPage = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
           <div className="relative z-10 flex h-full w-full flex-col justify-between p-12 text-white">
             <div className="flex items-center space-x-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/30 bg-white/20">
-                <span className="material-icons-round text-2xl">school</span>
-              </div>
+              <RotatingLogo className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/30 bg-white/20" />
               <span className="text-xl font-bold tracking-wide">SJCS Portal</span>
             </div>
             <div className="mb-12 max-w-lg">
@@ -98,9 +97,7 @@ const LoginPage = () => {
 
         <div className="relative flex w-full flex-col items-center justify-center bg-white p-8 lg:w-1/2 lg:p-24">
           <div className="absolute left-8 top-8 flex items-center space-x-2 lg:hidden">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue/10 text-sjcs-blue">
-              <span className="material-icons-round text-xl">school</span>
-            </div>
+            <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue/10 text-sjcs-blue" />
             <span className="font-bold text-sjcs-textPrimary">SJCS</span>
           </div>
           <div className="w-full max-w-md space-y-8">

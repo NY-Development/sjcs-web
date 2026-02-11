@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const AdminDashboardPage = () => {
   const { accessToken, user } = useAuthStore();
@@ -34,9 +35,7 @@ const AdminDashboardPage = () => {
       <aside className="hidden w-64 flex-shrink-0 flex-col border-r border-slate-200 bg-white md:flex">
         <div className="flex h-20 items-center border-b border-slate-100 px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-xl font-bold text-white shadow-sjcs-soft">
-              S
-            </div>
+            <RotatingLogo className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-xl font-bold text-white shadow-sjcs-soft" />
             <div>
               <h1 className="font-bold">SJCS</h1>
               <p className="text-[10px] font-medium uppercase tracking-wider text-sjcs-textSecondary">Admin Portal</p>

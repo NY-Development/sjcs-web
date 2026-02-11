@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const fallbackOverview = {
   greeting: "Good afternoon, Michael",
@@ -54,9 +55,7 @@ const StudyIntelligenceHubPage = () => {
       <aside className="fixed z-20 hidden h-screen w-20 flex-col border-r border-slate-200 bg-white lg:static lg:flex lg:w-64">
         <div className="flex h-20 items-center justify-center border-b border-slate-100 lg:justify-start lg:px-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-xl font-bold text-white shadow-lg shadow-blue-500/30">
-              S
-            </div>
+            <RotatingLogo className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-xl font-bold text-white shadow-lg shadow-blue-500/30" />
             <div className="hidden lg:block">
               <h1 className="font-bold text-slate-900">SJCS</h1>
               <p className="text-xs text-slate-500">Study Hub</p>

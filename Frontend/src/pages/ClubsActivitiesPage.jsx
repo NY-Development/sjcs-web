@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const fallbackClubs = [
   {
@@ -118,7 +119,7 @@ const ClubsActivitiesPage = () => {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-white font-bold">S</div>
+              <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-white font-bold" />
               <span className="font-bold text-lg text-slate-900">SJCS Portal</span>
             </div>
             <div className="hidden md:flex items-center gap-6 text-sm text-slate-500">

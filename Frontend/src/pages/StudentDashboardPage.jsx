@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const StudentDashboardPage = () => {
   const { accessToken, user } = useAuthStore();
@@ -35,9 +36,7 @@ const StudentDashboardPage = () => {
       <aside className="hidden h-full w-64 flex-shrink-0 flex-col border-r border-slate-200 bg-white lg:flex">
         <div className="flex h-20 items-center border-b border-slate-100 px-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sjcs-blue text-xl font-bold text-white shadow-sjcs-soft">
-              S
-            </div>
+            <RotatingLogo className="flex h-10 w-10 items-center justify-center rounded-xl bg-sjcs-blue text-xl font-bold text-white shadow-sjcs-soft" />
             <div className="flex flex-col">
               <span className="font-bold text-sjcs-textPrimary">Saint Joseph</span>
               <span className="text-xs text-sjcs-textSecondary">Catholic School</span>

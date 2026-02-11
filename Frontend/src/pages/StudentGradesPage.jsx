@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const gradeToLetter = (score) => {
   if (score >= 97) return "A+";
@@ -70,9 +71,7 @@ const StudentGradesPage = () => {
       <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white shadow-sm">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-xl font-bold text-white shadow-sjcs-soft">
-              S
-            </div>
+            <RotatingLogo className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue text-xl font-bold text-white shadow-sjcs-soft" />
             <div className="hidden md:block">
               <h1 className="text-sm font-bold uppercase tracking-wider text-sjcs-textPrimary">
                 Saint Joseph

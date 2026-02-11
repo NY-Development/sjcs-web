@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Container } from "../components/ui/Container.jsx";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const newsItems = [
   {
@@ -51,10 +52,12 @@ const LandingPage = () => {
       <nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur">
         <Container className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-gradient text-white shadow-sjcs-soft">
-              <span className="text-lg font-bold">SJ</span>
-              <Link to="/"><img src="/sjcs_logo.png" alt="School Logo"/></Link>
-            </div>
+            <Link
+              className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-gradient text-white shadow-sjcs-soft"
+              to="/"
+            >
+              <RotatingLogo className="h-full w-full" />
+            </Link>
             <span className="hidden text-xl font-bold text-sjcs-textPrimary sm:block">SJCS Portal</span>
           </div>
           <div className="hidden items-center gap-8 md:flex">
@@ -367,9 +370,7 @@ const LandingPage = () => {
           <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
             <div>
               <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-gradient text-xs font-bold text-white">
-                  SJ
-                </div>
+                <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-gradient text-xs font-bold text-white" />
                 <span className="text-lg font-bold text-white">Saint Joseph Catholic School</span>
               </div>
               <p className="mb-6 text-sm leading-relaxed text-slate-400">

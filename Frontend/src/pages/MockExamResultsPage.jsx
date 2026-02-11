@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const topicBreakdown = [
   { label: "Algebra & Functions", value: 92, tone: "primary" },
@@ -99,7 +100,7 @@ const MockExamResultsPage = () => {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <div className="rounded-lg bg-sjcs-blue/10 p-2">
-              <span className="material-icons text-sjcs-blue text-2xl">school</span>
+              <RotatingLogo className="h-6 w-6 text-sjcs-blue" />
             </div>
             <div>
               <span className="block text-lg font-bold text-slate-900">SJCS</span>

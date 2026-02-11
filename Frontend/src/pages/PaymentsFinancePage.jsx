@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const statusBadge = (status) => {
   if (status === "Paid") {
@@ -37,9 +38,7 @@ const PaymentsFinancePage = () => {
       <aside className="hidden h-full w-64 flex-col border-r border-slate-200 bg-white lg:flex">
         <div className="flex h-16 items-center border-b border-slate-200 px-6">
           <div className="flex items-center gap-2 text-xl font-bold">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue text-white">
-              <span className="material-icons text-sm">school</span>
-            </span>
+            <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue text-white" />
             SJCS Portal
           </div>
         </div>

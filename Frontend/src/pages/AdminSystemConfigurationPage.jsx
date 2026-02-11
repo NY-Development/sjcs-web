@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const AdminSystemConfigurationPage = () => {
   const { accessToken } = useAuthStore();
@@ -28,9 +29,7 @@ const AdminSystemConfigurationPage = () => {
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-slate-200 bg-white px-6">
         <div className="flex items-center gap-4">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue/10 text-sjcs-blue">
-            <span className="material-icons text-xl">school</span>
-          </div>
+          <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue/10 text-sjcs-blue" />
           <span className="text-lg font-semibold tracking-tight">SJCS Admin Console</span>
         </div>
         <div className="flex items-center gap-4">

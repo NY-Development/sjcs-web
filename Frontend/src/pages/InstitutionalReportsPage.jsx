@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const fallbackSummary = {
   enrollment: 1240,
@@ -93,7 +94,7 @@ const InstitutionalReportsPage = () => {
       <aside className="hidden w-64 flex-col border-r border-slate-200 bg-white md:flex">
         <div className="flex h-16 items-center border-b border-slate-100 px-6">
           <div className="flex items-center gap-2 text-sjcs-blue">
-            <span className="material-icons">school</span>
+            <RotatingLogo className="h-6 w-6 text-sjcs-blue" />
             <span className="text-xl font-bold text-slate-900">SJCS Admin</span>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const fallbackStatus = {
   name: "Sarah Jenkins",
@@ -28,7 +29,7 @@ const RegistrationSuccessPage = () => {
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <nav className="flex h-16 items-center justify-between border-b border-slate-200 bg-white px-4 lg:px-8">
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue text-white font-bold">S</div>
+          <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded-lg bg-sjcs-blue text-white font-bold" />
           <span className="text-lg font-bold text-slate-900">Saint Joseph Catholic School</span>
         </div>
         <div className="hidden sm:flex items-center gap-4 text-sm text-slate-500">

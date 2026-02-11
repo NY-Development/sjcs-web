@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const fallbackBoard = {
   project: {
@@ -85,7 +86,7 @@ const GroupProjectsKanbanPage = () => {
       <aside className="hidden w-64 flex-shrink-0 flex-col border-r border-slate-200 bg-white md:flex">
         <div className="flex h-16 items-center border-b border-slate-200 px-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-white font-bold">S</div>
+            <RotatingLogo className="flex h-8 w-8 items-center justify-center rounded bg-sjcs-blue text-white font-bold" />
             <span className="text-lg font-bold text-sjcs-blue">SJCS Portal</span>
           </div>
         </div>

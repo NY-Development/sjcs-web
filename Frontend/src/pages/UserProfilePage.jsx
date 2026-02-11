@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
+import RotatingLogo from "../components/RotatingLogo.jsx";
 
 const fallbackProfile = {
   fullName: "Johnathan Doe",
@@ -43,9 +44,7 @@ const UserProfilePage = () => {
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-white shadow-sm">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue/10 text-sjcs-blue">
-              <span className="material-icons">school</span>
-            </div>
+            <RotatingLogo className="flex h-10 w-10 items-center justify-center rounded-lg bg-sjcs-blue/10 text-sjcs-blue" />
             <div>
               <h1 className="text-xl font-bold text-slate-900">SJCS Portal</h1>
               <p className="text-xs font-medium text-slate-500">Saint Joseph Catholic School</p>
