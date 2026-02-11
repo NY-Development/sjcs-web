@@ -27,6 +27,48 @@ const PortalHome = () => {
           >
             Login Screen
           </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/student"
+          >
+            Student Dashboard
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/teacher"
+          >
+            Teacher Dashboard
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/admin"
+          >
+            Admin Dashboard
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/parent"
+          >
+            Parent Dashboard
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/grades"
+          >
+            Academic Grades
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/attendance"
+          >
+            Attendance Calendar
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/payments"
+          >
+            Payments & Finance
+          </Link>
         </div>
       </div>
     </div>
