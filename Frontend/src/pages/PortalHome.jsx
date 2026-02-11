@@ -69,6 +69,60 @@ const PortalHome = () => {
           >
             Payments & Finance
           </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/mock-exams"
+          >
+            Mock Exams Portal
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/mock-exams/results"
+          >
+            Mock Exam Results
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/materials"
+          >
+            Learning Materials Library
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/materials/upload"
+          >
+            Upload Learning Materials
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/admin/users"
+          >
+            User Management
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/admin/configuration"
+          >
+            Admin System Configuration
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/empty/grades"
+          >
+            Empty State (Grades)
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/empty/materials"
+          >
+            Empty State (Materials)
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/empty/notifications"
+          >
+            Empty State (Notifications)
+          </Link>
         </div>
       </div>
     </div>
