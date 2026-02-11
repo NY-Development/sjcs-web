@@ -8,6 +8,12 @@ import gradeRoutes from "./grade.routes.js";
 import paymentRoutes from "./payment.routes.js";
 import attendanceRoutes from "./attendance.routes.js";
 import notificationRoutes from "./notification.routes.js";
+import adminRoutes from "./admin.routes.js";
+import financeRoutes from "./finance.routes.js";
+import reportsRoutes from "./reports.routes.js";
+import settingsRoutes from "./settings.routes.js";
+import profileRoutes from "./profile.routes.js";
+import studyHubRoutes from "./studyHub.routes.js";
 
 const router = express.Router();
 
@@ -20,5 +26,11 @@ router.use("/grades", gradeRoutes);
 router.use("/payments", paymentRoutes);
 router.use("/attendance", attendanceRoutes);
 router.use("/notifications", notificationRoutes);
+router.use("/admin", adminRoutes);
+router.use("/finance", financeRoutes);
+router.use("/reports", reportsRoutes);
+router.use("/settings", settingsRoutes);
+router.use("/profile", profileRoutes);
+router.use("/study-hub", studyHubRoutes);
 
 export default router;

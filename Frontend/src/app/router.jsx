@@ -19,6 +19,13 @@ const LearningMaterialsLibraryPage = lazy(() => import("../pages/LearningMateria
 const UploadLearningMaterialsPage = lazy(() => import("../pages/UploadLearningMaterialsPage.jsx"));
 const UserManagementPage = lazy(() => import("../pages/UserManagementPage.jsx"));
 const AdminSystemConfigurationPage = lazy(() => import("../pages/AdminSystemConfigurationPage.jsx"));
+const AdminManagementDashboardPage = lazy(() => import("../pages/AdminManagementDashboardPage.jsx"));
+const AdminPaymentCollectionPage = lazy(() => import("../pages/AdminPaymentCollectionPage.jsx"));
+const InstitutionalReportsPage = lazy(() => import("../pages/InstitutionalReportsPage.jsx"));
+const AccountSecuritySettingsPage = lazy(() => import("../pages/AccountSecuritySettingsPage.jsx"));
+const UserProfilePage = lazy(() => import("../pages/UserProfilePage.jsx"));
+const NotificationPreferencesPage = lazy(() => import("../pages/NotificationPreferencesPage.jsx"));
+const StudyIntelligenceHubPage = lazy(() => import("../pages/StudyIntelligenceHubPage.jsx"));
 const EmptyStateGradesPage = lazy(() => import("../pages/EmptyStateGradesPage.jsx"));
 const EmptyStateMaterialsPage = lazy(() => import("../pages/EmptyStateMaterialsPage.jsx"));
 const EmptyStateNotificationsPage = lazy(() => import("../pages/EmptyStateNotificationsPage.jsx"));
@@ -43,8 +50,15 @@ const router = createBrowserRouter([
       { path: "/mock-exams/results", element: <MockExamResultsPage /> },
       { path: "/materials", element: <LearningMaterialsLibraryPage /> },
       { path: "/materials/upload", element: <UploadLearningMaterialsPage /> },
+      { path: "/study-hub", element: <StudyIntelligenceHubPage /> },
+      { path: "/settings/security", element: <AccountSecuritySettingsPage /> },
+      { path: "/settings/profile", element: <UserProfilePage /> },
+      { path: "/settings/notifications", element: <NotificationPreferencesPage /> },
       { path: "/admin/users", element: <UserManagementPage /> },
       { path: "/admin/configuration", element: <AdminSystemConfigurationPage /> },
+      { path: "/admin/management", element: <AdminManagementDashboardPage /> },
+      { path: "/admin/finance", element: <AdminPaymentCollectionPage /> },
+      { path: "/admin/reports", element: <InstitutionalReportsPage /> },
       { path: "/empty/grades", element: <EmptyStateGradesPage /> },
       { path: "/empty/materials", element: <EmptyStateMaterialsPage /> },
       { path: "/empty/notifications", element: <EmptyStateNotificationsPage /> }

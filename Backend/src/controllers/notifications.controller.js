@@ -29,3 +29,13 @@ export const deleteNotification = async (req, res) => {
   return successResponse(res, notification, "Notification deleted");
 };
 
+export const getPreferences = async (req, res) => {
+  const preferences = notificationService.getPreferencesForUser(req.user?.id);
+  return successResponse(res, preferences, "Notification preferences fetched");
+};
+
+export const updatePreferences = async (req, res) => {
+  const preferences = notificationService.updatePreferencesForUser(req.user?.id, req.body);
+  return successResponse(res, preferences, "Notification preferences updated");
+};
+
