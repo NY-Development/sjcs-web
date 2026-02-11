@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -7,6 +7,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
 import RotatingLogo from "../components/RotatingLogo.jsx";
+import {Eye, EyeOff} from "lucide-react";
 
 const loginSchema = z.object({
   email: z.string().email("Enter a valid email"),
@@ -18,6 +19,7 @@ const LoginPage = () => {
   const [searchParams] = useSearchParams();
   const roleHint = searchParams.get("role");
   const setAuth = useAuthStore((state) => state.setAuth);
+  const [showPassword, setShowPassword] = useState(false);
 
   const defaultValues = useMemo(
     () => ({
@@ -137,12 +139,17 @@ const LoginPage = () => {
                     <input
                       className="block w-full rounded-lg border border-slate-200 bg-slate-50 px-10 py-3 text-sm focus:border-sjcs-blue focus:outline-none focus:ring-2 focus:ring-sjcs-blue/20"
                       placeholder="••••••••"
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       {...register("password")}
                     />
-                    <span className="material-icons-round absolute right-3 top-1/2 -translate-y-1/2 text-xl text-slate-400">
-                      visibility_off
-                    </span>
+                    <button
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-slate-500"
+                      type="button"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                      onClick={() => setShowPassword((prev) => !prev)}
+                    >
+                      {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                    </button>
                   </div>
                   {errors.password ? (
                     <span className="mt-2 block text-xs text-sjcs-danger">{errors.password.message}</span>
