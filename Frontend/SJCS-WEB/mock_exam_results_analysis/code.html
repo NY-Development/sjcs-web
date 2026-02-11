@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mock Exam Results Analysis - SJCS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for the radial progress */
+        .radial-progress {
+            --value: 0;
+            --size: 12rem;
+            --thickness: 1rem;
+        }
+        
+        /* Simple circle chart logic for demo purposes */
+        .circle-chart {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(#135bec var(--percentage), #e2e8f0 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .circle-chart::before {
+            content: "";
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: white; /* Needs to match card bg */
+        }
+        .dark .circle-chart::before {
+            background-color: #1f2937; /* Matches dark mode card bg */
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 min-h-screen flex flex-col">
+<!-- Navbar -->
+<nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex">
+<div class="flex-shrink-0 flex items-center">
+<div class="bg-primary/10 p-2 rounded-lg mr-3">
+<span class="material-icons text-primary text-2xl">school</span>
+</div>
+<div>
+<span class="font-bold text-lg block leading-tight text-gray-900 dark:text-white">SJCS</span>
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Student Portal</span>
+</div>
+</div>
+<div class="hidden sm:ml-8 sm:flex sm:space-x-8 items-center">
+<a class="border-transparent text-gray-500 dark:text-gray-400 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Dashboard</a>
+<a class="border-transparent text-gray-500 dark:text-gray-400 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">My Courses</a>
+<a class="border-primary text-gray-900 dark:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Exam Results</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="bg-gray-100 dark:bg-gray-800 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons text-xl">notifications</span>
+</button>
+<div class="flex items-center">
+<img alt="Student Profile" class="h-8 w-8 rounded-full border border-gray-200 dark:border-gray-700 object-cover" data-alt="Portrait of a female student smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqVR0lZ_r4JDBCO6K0IHLTtNOd68sLIlRDZtUZh5KGa8pxDZiUrjfcemfvsIfpvMiaQVhg27GI4Jfe3pKmH24hgZBb7aFCpbPnG1tCplHWkF6z_UlyHoXUiSkwX41bK8Jxjp7nGwQ55lJDY0NLC9fb6WmMgmjbUoA4KWDKXE59zKquDBAZqwPrm4IKBWBPnQVAZLbIJlBDEk3oeesxRNhThr_sBpP4b4CyUDL1j1Pq9MP2yxYBUJYT7A9wgkteiDLgfE0kVhvTisZO"/>
+<span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-200 hidden md:block">Sarah Connor</span>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+<!-- Breadcrumb & Header -->
+<div class="mb-8">
+<nav aria-label="Breadcrumb" class="flex mb-4">
+<ol class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Exams</a></li>
+<li><span class="material-icons text-base mx-1">chevron_right</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">Mathematics</a></li>
+<li><span class="material-icons text-base mx-1">chevron_right</span></li>
+<li aria-current="page" class="font-medium text-gray-900 dark:text-white">Results</li>
+</ol>
+</nav>
+<div class="md:flex md:items-center md:justify-between">
+<div class="min-w-0 flex-1">
+<h2 class="text-3xl font-bold leading-7 text-gray-900 dark:text-white sm:truncate sm:text-4xl sm:tracking-tight">
+                        Year 10 Mathematics Mock
+                    </h2>
+<p class="mt-2 text-sm text-gray-500 dark:text-gray-400 flex items-center">
+<span class="material-icons text-base mr-1">calendar_today</span> Completed on October 24, 2023 at 10:30 AM
+                    </p>
+</div>
+<div class="mt-4 flex md:ml-4 md:mt-0 space-x-3">
+<button class="inline-flex items-center rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all" type="button">
+<span class="material-icons text-base mr-2">download</span>
+                        Download PDF
+                    </button>
+<button class="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all" type="button">
+<span class="material-icons text-base mr-2">refresh</span>
+                        Retake Exam
+                    </button>
+</div>
+</div>
+</div>
+<!-- Top Stats Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<!-- Overall Score Card -->
+<div class="col-span-1 lg:col-span-1 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-icons text-9xl text-primary">emoji_events</span>
+</div>
+<h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4 self-start w-full">Overall Score</h3>
+<div class="circle-chart mb-4" style="--percentage: 82%;">
+<div class="relative z-10 text-center">
+<span class="text-4xl font-bold text-gray-900 dark:text-white block">82%</span>
+<span class="text-sm font-medium text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded-full inline-block mt-1">PASSED</span>
+</div>
+</div>
+<p class="text-center text-gray-600 dark:text-gray-400 mt-2 text-sm">
+                    Great job! You scored higher than <span class="font-bold text-primary">76%</span> of your classmates.
+                </p>
+</div>
+<!-- Key Metrics -->
+<div class="col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
+<!-- Time Taken -->
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-icons text-primary">timer</span>
+</div>
+<span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Metrics</span>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Time Taken</p>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">45m 12s</p>
+<p class="text-xs text-gray-500 mt-1">vs 60m allowed</p>
+</div>
+</div>
+<!-- Correct Answers -->
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<div class="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
+<span class="material-icons text-green-600 dark:text-green-400">check_circle</span>
+</div>
+<span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Accuracy</span>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Correct Answers</p>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">41 <span class="text-lg text-gray-400 font-normal">/ 50</span></p>
+<p class="text-xs text-green-600 dark:text-green-400 mt-1 flex items-center">
+<span class="material-icons text-xs mr-0.5">trending_up</span> +5% vs last mock
+                        </p>
+</div>
+</div>
+<!-- Class Rank -->
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
+<span class="material-icons text-purple-600 dark:text-purple-400">leaderboard</span>
+</div>
+<span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Ranking</span>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Class Rank</p>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mt-1">Top 15%</p>
+<p class="text-xs text-gray-500 mt-1">Out of 124 students</p>
+</div>
+</div>
+<!-- Topic Breakdown Chart -->
+<div class="col-span-1 sm:col-span-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Performance by Topic</h3>
+<div class="space-y-4">
+<!-- Topic 1 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Algebra &amp; Functions</span>
+<span class="text-sm font-bold text-primary">92%</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- Topic 2 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Geometry &amp; Trigonometry</span>
+<span class="text-sm font-bold text-yellow-500">68%</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-yellow-500 h-2.5 rounded-full" style="width: 68%"></div>
+</div>
+</div>
+<!-- Topic 3 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Statistics &amp; Probability</span>
+<span class="text-sm font-bold text-primary">85%</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<!-- Feedback Box -->
+<div class="mt-6 bg-primary/5 border border-primary/20 rounded-lg p-4 flex gap-3 items-start">
+<span class="material-icons text-primary mt-0.5">lightbulb</span>
+<div>
+<h4 class="font-semibold text-primary text-sm">Instructor's Note</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                Excellent work on Algebra! Your understanding of quadratic equations is solid. However, try to revisit the <span class="font-medium text-gray-900 dark:text-white">Geometry</span> section, specifically circle theorems, as you missed a few key questions there.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Review Section -->
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+<div class="p-6 border-b border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white">Question Review</h3>
+<div class="flex space-x-1 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg self-start sm:self-auto">
+<button class="px-3 py-1.5 text-sm font-medium rounded-md bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm transition-all">All</button>
+<button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all">Incorrect</button>
+<button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all">Correct</button>
+<button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all flex items-center">
+<span class="material-icons text-xs mr-1">flag</span> Flagged
+                    </button>
+</div>
+</div>
+<div class="divide-y divide-gray-200 dark:divide-gray-700">
+<!-- Question Item: Correct -->
+<div class="p-6 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors group">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 font-bold text-sm">
+                            1
+                        </div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="text-base font-medium text-gray-900 dark:text-white mb-2">Solve for x: 2x + 5 = 15</h4>
+<span class="inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-700 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 ring-1 ring-inset ring-gray-500/10">Easy</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+<div class="p-3 rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/10">
+<span class="text-xs text-green-700 dark:text-green-400 font-semibold uppercase block mb-1">Your Answer</span>
+<span class="text-gray-900 dark:text-white font-medium">x = 5</span>
+<span class="material-icons text-green-600 text-sm ml-2 align-middle">check_circle</span>
+</div>
+</div>
+</div>
+<div class="self-center">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Question Item: Incorrect -->
+<div class="p-6 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors bg-red-50/30 dark:bg-red-900/5">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 font-bold text-sm">
+                            2
+                        </div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="text-base font-medium text-gray-900 dark:text-white mb-2">Calculate the area of a circle with radius 4cm (Use π = 3.14)</h4>
+<span class="inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-700 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 ring-1 ring-inset ring-gray-500/10">Medium</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+<div class="p-3 rounded-lg border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/10">
+<span class="text-xs text-red-700 dark:text-red-400 font-semibold uppercase block mb-1">Your Answer</span>
+<span class="text-gray-900 dark:text-white font-medium">25.12 cm²</span>
+<span class="material-icons text-red-600 text-sm ml-2 align-middle">cancel</span>
+</div>
+<div class="p-3 rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/10">
+<span class="text-xs text-green-700 dark:text-green-400 font-semibold uppercase block mb-1">Correct Answer</span>
+<span class="text-gray-900 dark:text-white font-medium">50.24 cm²</span>
+</div>
+</div>
+<!-- Expanded Explanation -->
+<div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+<p class="text-sm font-semibold text-gray-900 dark:text-white mb-1">Explanation:</p>
+<p class="text-sm text-gray-600 dark:text-gray-400">
+                                    The formula for the area of a circle is A = πr². <br/>
+                                    Here, r = 4. So, A = 3.14 × (4)² = 3.14 × 16 = 50.24 cm². <br/>
+                                    It looks like you calculated the circumference (C = 2πr) instead of the area.
+                                </p>
+</div>
+</div>
+<div class="self-start">
+<button class="text-gray-400 hover:text-primary transition-colors transform rotate-180">
+<span class="material-icons">expand_less</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Question Item: Correct -->
+<div class="p-6 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors group">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 font-bold text-sm">
+                            3
+                        </div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="text-base font-medium text-gray-900 dark:text-white mb-2">Identify the slope in the equation y = -3x + 7</h4>
+<span class="inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-700 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 ring-1 ring-inset ring-gray-500/10">Easy</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+<div class="p-3 rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/10">
+<span class="text-xs text-green-700 dark:text-green-400 font-semibold uppercase block mb-1">Your Answer</span>
+<span class="text-gray-900 dark:text-white font-medium">-3</span>
+<span class="material-icons text-green-600 text-sm ml-2 align-middle">check_circle</span>
+</div>
+</div>
+</div>
+<div class="self-center">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Question Item: Flagged -->
+<div class="p-6 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors group">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 font-bold text-sm relative">
+                            4
+                            <span class="absolute -top-1 -right-1 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<h4 class="text-base font-medium text-gray-900 dark:text-white mb-2">What is the probability of rolling a sum of 7 with two dice?</h4>
+<div class="flex items-center gap-2">
+<span class="material-icons text-orange-500 text-sm" title="Flagged for review">flag</span>
+<span class="inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-700 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 ring-1 ring-inset ring-gray-500/10">Hard</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+<div class="p-3 rounded-lg border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/10">
+<span class="text-xs text-green-700 dark:text-green-400 font-semibold uppercase block mb-1">Your Answer</span>
+<span class="text-gray-900 dark:text-white font-medium">1/6</span>
+<span class="material-icons text-green-600 text-sm ml-2 align-middle">check_circle</span>
+</div>
+</div>
+</div>
+<div class="self-center">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-700/50 px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex justify-center">
+<button class="text-sm text-primary font-medium hover:text-blue-700 transition-colors">View all 50 questions</button>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-8 mt-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<span class="text-sm text-gray-500 dark:text-gray-400">© 2023 Saint Joseph Catholic School. All rights reserved.</span>
+</div>
+<div class="flex space-x-6">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">Support</a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

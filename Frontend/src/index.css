@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+@theme {
+  /* Custom Colors */
+  --color-sjcs-red: #D32F2F;
+  --color-sjcs-blue: #1976D2;
+  --color-sjcs-gray: #F8F9FA;
+  --color-sjcs-white: #FFFFFF;
+  --color-sjcs-success: #2E7D32;
+  --color-sjcs-warning: #FBC02D;
+  --color-sjcs-danger: #C62828;
+  --color-sjcs-text-primary: #212121;
+  --color-sjcs-text-secondary: #757575;
+
+  /* Custom Gradient */
+  --background-image-sjcs-gradient: linear-gradient(to right, #D32F2F, #1976D2);
+
+  /* Shadows & Radius */
+  --radius-sjcs-card: 12px;
+  --shadow-sjcs-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* Font */
+  --font-display: "Lexend", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-sjcs-gray text-sjcs-text-primary antialiased;
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background: rgba(25, 118, 210, 0.2);
+  }
+}

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>School Clubs &amp; Activities - SJCS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#135bec",
+                "background-light": "#f6f6f8",
+                "background-dark": "#101622",
+                },
+                fontFamily: {
+                "display": ["Lexend"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display min-h-screen flex flex-col">
+<!-- Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center gap-4">
+<div class="flex-shrink-0 flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-lg">S</div>
+<span class="font-bold text-lg tracking-tight text-slate-900 dark:text-white">SJCS Portal</span>
+</div>
+<div class="hidden md:ml-6 md:flex md:space-x-8">
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:border-primary hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors" href="#">Dashboard</a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:border-primary hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors" href="#">Academics</a>
+<a aria-current="page" class="border-primary text-primary dark:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Clubs</a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:border-primary hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors" href="#">Events</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-1 rounded-full text-slate-400 hover:text-slate-500 focus:outline-none relative">
+<span class="sr-only">View notifications</span>
+<span class="material-icons text-xl">notifications</span>
+<span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-slate-900"></span>
+</button>
+<div class="flex items-center gap-2">
+<img alt="Student profile photo" class="h-8 w-8 rounded-full object-cover border border-slate-200 dark:border-slate-700" data-alt="Close up of a student's smiling face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ED9ldpOkzOp2AQZSr5U6-Apg3JAKMKL4T4cdpqlVjbSL8T-th-UCDbt6jRKeFOGPlu9k19lbRrR7fXFRtW63tI8xxGZ233LsDZ1MWRuAknxPhthd2vEpAbd4zQ9vcsg7RHpOPZ3xNq1mie3D52wYl3zrj1neCmgIzPDwxfuGl1qu96aNBUpBnKYSkuDihzlLfAdLWixGhuR6OK5U8O36mSOkDgS3GxshP9YUCKt2XvQ8XHOZH6Ez9F0p6q9xWLFjOzmMaTpCk-gc"/>
+<span class="hidden md:block text-sm font-medium text-slate-700 dark:text-slate-200">Alex Student</span>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 pb-12 pt-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="lg:flex lg:items-center lg:justify-between">
+<div class="min-w-0 flex-1">
+<h2 class="text-3xl font-bold leading-7 text-slate-900 dark:text-white sm:truncate sm:text-4xl sm:tracking-tight">
+                            Clubs &amp; Activities
+                        </h2>
+<p class="mt-2 text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
+                            Discover your passion at SJCS. Join one of our 30+ student-led organizations and make your mark.
+                        </p>
+</div>
+<div class="mt-5 flex lg:ml-4 lg:mt-0">
+<div class="relative w-full max-w-md">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-slate-400">search</span>
+</div>
+<input class="block w-full rounded-md border-0 py-3 pl-10 pr-4 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 bg-slate-50 dark:bg-slate-800 dark:text-white" id="search" name="search" placeholder="Search clubs (e.g. Debate, Robotics...)" type="text"/>
+</div>
+</div>
+</div>
+<!-- Filters -->
+<div class="mt-8 border-b border-slate-200 dark:border-slate-800">
+<div class="sm:flex sm:items-baseline">
+<h3 class="text-base font-semibold leading-6 text-slate-900 dark:text-white mr-6">Categories</h3>
+<div class="mt-4 sm:ml-4 sm:mt-0">
+<nav class="-mb-px flex space-x-6 overflow-x-auto pb-2 scrollbar-hide">
+<a aria-current="page" class="border-primary text-primary whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium" href="#">All Clubs</a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 hover:text-slate-700 whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium" href="#">Academic</a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 hover:text-slate-700 whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium" href="#">Sports</a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 hover:text-slate-700 whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium" href="#">Arts &amp; Music</a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 hover:text-slate-700 whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium" href="#">Service &amp; Community</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Main Grid -->
+<div class="lg:col-span-3">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Debate Club -->
+<div class="group relative flex flex-col overflow-hidden bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-all hover:shadow-md hover:border-primary/50">
+<div class="aspect-h-3 aspect-w-5 bg-gray-200 group-hover:opacity-90 sm:aspect-none sm:h-40 overflow-hidden">
+<img alt="Students debating in a classroom" class="h-full w-full object-cover object-center sm:h-full sm:w-full transition-transform duration-300 group-hover:scale-105" data-alt="Students debating at podiums in a formal setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCauhI5uhErshU4icRIPHwvPpaMmiW9TUIenLUGC663JJEli_h1EHwVAHAgmMv1V2OOJZNcqZJHkVctoY-FW695CqM91UHb8jWqhzWyukRYFh5qXvtABJUZiG9Pmv8tOfJBS_k8HXEp_qGoX_g11Unr4E_CelL0z7QC85jSMRzeGvIg8Ds7scIA9GuSg1ZVUmHQOaQTm3JtYEp2EBeI87vUfTPm936t8jhEpok1bCnF2LE88dF7NTmvgFC98zPLARCVSOcGgrzrdAeX"/>
+<div class="absolute top-2 right-2">
+<span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Academic</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">
+<a href="#">
+<span aria-hidden="true" class="absolute inset-0"></span>
+                                        Debate Club
+                                    </a>
+</h3>
+<p class="mt-2 text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Sharpen your rhetoric and public speaking skills through competitive discourse and regional tournaments.</p>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-base mr-1 text-slate-400">group</span>
+                                        24 Members
+                                    </div>
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Member" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-800" data-alt="Portrait of a young male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3qN5E4audw2Ckb5On_rcr2Zr7fQ6renDrdVMi3NsobisW2lM2kr0zlV__wKzdFGTnATeg8ja9LS_lrZ5s2M1Yc5B6uPW17k75wtohYtkwzCSoCRSBMnFQH9ilMBKJCw4g7PDv71omvuc5tz2yzzph4lu8FkKtiAcjNLgDI_GqoZp0tlEzldRGZEDtw1drOBz0lp48aAR_pCYuoNtYCxOX8eF2N42AGJfaZk6WmDHfY9bG66cGBzPLAnoN03AkZxoxSB1wyelp1BQN"/>
+<img alt="Member" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-800" data-alt="Portrait of a young female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ3XjPHMYDJSgV3bArb50eDHgbrU5rgWhdNM_XeYPtpt74K75CLw-5-oEmShLj5Y1Y2Lw3Ja0FwFXrNpCn22gb-tQSCgbP1o1A7AMmEN0HvIuHYisVR9rIsnMK4NayGbb0u68D317T9sHVokmRPZP0BDlhg6j3TlEB5GyV0ZHkpZ_DF2GF6XlslBdbOkIquj5pmCJikbN_NPp0ViRCUXAvyfPijdBrE3VtL0x6A8wmUZuYp-pOW-CD-y7swwHJ3wfigCcJQvxNWMuw"/>
+<span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-800 text-[10px] font-medium text-slate-500 dark:text-slate-300 leading-none">+22</span>
+</div>
+</div>
+<button class="mt-4 w-full rounded-md bg-primary/10 px-3 py-2 text-sm font-semibold text-primary shadow-sm hover:bg-primary hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary relative z-10">Join Club</button>
+</div>
+</div>
+<!-- Card 2: Robotics Team -->
+<div class="group relative flex flex-col overflow-hidden bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-all hover:shadow-md hover:border-primary/50">
+<div class="aspect-h-3 aspect-w-5 bg-gray-200 group-hover:opacity-90 sm:aspect-none sm:h-40 overflow-hidden">
+<img alt="Students working on a robot" class="h-full w-full object-cover object-center sm:h-full sm:w-full transition-transform duration-300 group-hover:scale-105" data-alt="Close up of mechanical parts and robot arm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARoZGuTodyDlm84eunt7Twa8PgbP9ccSJB17HTwfadrZ2qdDbSDf5DB1e-KuKNLtFSUjItFcgIk4CVaBIrVk5Sd55OHSWLzEkDLRof0ePCAwOZlbrI_L5AueWu5vUGCrhpvFgwvJ-8POA_FbK8hTSaFHCl_gx32OiZ1MMg3uoCb047QcXWLybOLxFRv-pkFhvlz-gvhC_7dhlANTqnA20ohCO-tgss9RCJwwOa5Ef2yQNQavuQz8JPYIRWi3Ol9hETMr2ZmJwZmyqI"/>
+<div class="absolute top-2 right-2">
+<span class="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10">STEM</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">
+<a href="#">
+<span aria-hidden="true" class="absolute inset-0"></span>
+                                        SJCS Robotics
+                                    </a>
+</h3>
+<p class="mt-2 text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Design, build, and code robots to compete in the regional FIRST Robotics competition.</p>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-base mr-1 text-slate-400">group</span>
+                                        18 Members
+                                    </div>
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Member" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-800" data-alt="Portrait of a male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU90PssnSzSJq7ROy_Tok-uAQXUg9EY8tthWEU7tBTHXM-2pxhdOrLVTbUIfH34eq9fFXysYAXai157AymUpWu09nP032PhjuzOV-2A7jtM-cQPHhIOcBSAyuLtIC-jewg4TEUncFCJXE1ZvA9mkZLpju5dW7p7p_PxW4ygtfG3shH1sdMZ1vYEFcO9XggxYEeW6O2FMG1mGs1EP1mN-_IjKIcMYmoKblq9zL66k0D_eJt0wSG4Gbe1pZ_cUtd2J9gQ75b4g-YeRdM"/>
+<span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-800 text-[10px] font-medium text-slate-500 dark:text-slate-300 leading-none">+17</span>
+</div>
+</div>
+<button class="mt-4 w-full rounded-md bg-primary/10 px-3 py-2 text-sm font-semibold text-primary shadow-sm hover:bg-primary hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary relative z-10">Join Club</button>
+</div>
+</div>
+<!-- Card 3: Varsity Football -->
+<div class="group relative flex flex-col overflow-hidden bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-all hover:shadow-md hover:border-primary/50">
+<div class="aspect-h-3 aspect-w-5 bg-gray-200 group-hover:opacity-90 sm:aspect-none sm:h-40 overflow-hidden">
+<img alt="American football on field" class="h-full w-full object-cover object-center sm:h-full sm:w-full transition-transform duration-300 group-hover:scale-105" data-alt="Football on grass field during game" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Q1zLSFqh002kFYCcNTSWQJ7MM8lNo06pwZWEEWEo6m3xZtFZOzAMUX-cRKQzhOpoW48q9sTP9tS3XGmDQHBSsbFuOV1z7NuitE6v4juVEDMMn0z9J82puAjvs2mqFdkG2Ry_iHbk2KxPOsuz3I-GA-gyS8zQPHfSwfRJ4SKuMI4hUViDPGByU7KhF1AExwS_E2phWDmMIjvL0NinydW1jmh3WABIiRSsqTvtHKvqdJNs3ky-Es6ahUD5fznEddlQ5btFvdXmrtao"/>
+<div class="absolute top-2 right-2">
+<span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700/10">Sports</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">
+<a href="#">
+<span aria-hidden="true" class="absolute inset-0"></span>
+                                        Varsity Football
+                                    </a>
+</h3>
+<p class="mt-2 text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Go Jaguars! Join the team for the fall season. Tryouts begin in late August.</p>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-base mr-1 text-slate-400">group</span>
+                                        45 Members
+                                    </div>
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Member" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-800" data-alt="Portrait of a student athlete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHMdBWUDAXaQIVShM41MYYzzBLn7um0h2vV_hIxqMh2_WVY0D5znrKFpFPoQaTTrh3FdWw8XRIqMD7wtQjcQAo_EeFjbn9ddQAoSalljNeK_uR0RhGcCCWpp9Ww1kOOu4blZlcSI22RCtmylRxC0fxKmt5rV49Skcgr1_Mg1v-Zei-eqW748aYcnt4LPPCm2eCtZoBm4WiY-gonhvRMiLUJA5NpXJVmoqDyjc7CeOhVU1-rVFgcH90psL7JbYnGiPfx6Bz0d3_Wala"/>
+<span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-800 text-[10px] font-medium text-slate-500 dark:text-slate-300 leading-none">+44</span>
+</div>
+</div>
+<button class="mt-4 w-full rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary relative z-10">View Details</button>
+</div>
+</div>
+<!-- Card 4: Art Society -->
+<div class="group relative flex flex-col overflow-hidden bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-all hover:shadow-md hover:border-primary/50">
+<div class="aspect-h-3 aspect-w-5 bg-gray-200 group-hover:opacity-90 sm:aspect-none sm:h-40 overflow-hidden">
+<img alt="Art supplies and painting" class="h-full w-full object-cover object-center sm:h-full sm:w-full transition-transform duration-300 group-hover:scale-105" data-alt="Colorful paint palette and brushes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN59NLDh6ZKWg_MGLm55OitCYpXHjYsDizpzT9cozKGJ5nzzBxNI0j9VfpjkIaMERMNe-yNKaMX93yJUVSpCwbttnLdXoJbG4tYetq9fWiJjMfAE82OcsoNiJTrmRnuY41bq80qgUg02CT64o8eKPOyhQaNTuHKcXVeFGZRPePAZjLqyUCin3JIsoAeKyvm6jfwGquNiGhYF4sRg6H6YjoWbRKcCs8F1oq6x6lmae7FhqSGlTao-BeyaZiNQJLzxTUarcfs0KoWgIQ"/>
+<div class="absolute top-2 right-2">
+<span class="inline-flex items-center rounded-md bg-pink-50 px-2 py-1 text-xs font-medium text-pink-700 ring-1 ring-inset ring-pink-700/10">Arts</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">
+<a href="#">
+<span aria-hidden="true" class="absolute inset-0"></span>
+                                        Art Society
+                                    </a>
+</h3>
+<p class="mt-2 text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Explore various mediums from watercolor to digital art. Weekly studio sessions.</p>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-base mr-1 text-slate-400">group</span>
+                                        32 Members
+                                    </div>
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Member" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-800" data-alt="Portrait of a female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiwNdnMjPrXdMmgVgz6aOybNA137p90BJdLgQ062co4OPbbvURefID0V_nrCVLfcH6fob2UNhkLnrkWlezsnmG4D0fwtQ_efq3Zh4T8dD94XZiU7pVkNamlcvDrtfXBkuVunieNhiz2wy1bXm7L6UGwXB1CfWuXTHJHYMEURk8Vt4TtChddPYo3M7fIlcUd7bfhZEAUrdIxuX0Loy-Ze8ZoF24GQcn-0BhxuLEtXeUkVTH0xNbkxbGYUoNg7MVx10tN43-XHPzT0QF"/>
+<span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-800 text-[10px] font-medium text-slate-500 dark:text-slate-300 leading-none">+31</span>
+</div>
+</div>
+<button class="mt-4 w-full rounded-md bg-primary/10 px-3 py-2 text-sm font-semibold text-primary shadow-sm hover:bg-primary hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary relative z-10">Join Club</button>
+</div>
+</div>
+<!-- Card 5: Student Council -->
+<div class="group relative flex flex-col overflow-hidden bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-all hover:shadow-md hover:border-primary/50">
+<div class="aspect-h-3 aspect-w-5 bg-gray-200 group-hover:opacity-90 sm:aspect-none sm:h-40 overflow-hidden">
+<div class="h-full w-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500">
+<span class="material-icons text-6xl">account_balance</span>
+</div>
+<div class="absolute top-2 right-2">
+<span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-700/10">Leadership</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">
+<a href="#">
+<span aria-hidden="true" class="absolute inset-0"></span>
+                                        Student Council
+                                    </a>
+</h3>
+<p class="mt-2 text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Be the voice of the student body. Organize events and lead school initiatives.</p>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-base mr-1 text-slate-400">group</span>
+                                        12 Members
+                                    </div>
+<div class="flex -space-x-2 overflow-hidden">
+<span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-800 text-[10px] font-medium text-slate-500 dark:text-slate-300 leading-none">+12</span>
+</div>
+</div>
+<button class="mt-4 w-full rounded-md bg-slate-100 dark:bg-slate-700 px-3 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 shadow-sm hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors relative z-10">Application Closed</button>
+</div>
+</div>
+<!-- Card 6: Chess Club -->
+<div class="group relative flex flex-col overflow-hidden bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-all hover:shadow-md hover:border-primary/50">
+<div class="aspect-h-3 aspect-w-5 bg-gray-200 group-hover:opacity-90 sm:aspect-none sm:h-40 overflow-hidden">
+<img alt="Chess board close up" class="h-full w-full object-cover object-center sm:h-full sm:w-full transition-transform duration-300 group-hover:scale-105" data-alt="Wooden chess pieces on a board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLWSuBavNuhlP7MGGO5ujLoM_5KWvA1vg0TyNpr8WTcHT4zXbNInKdx-JDbS93l18PVMOXaUCYHqdMw1hZnszKH74vBlr7zR7dzBaLsW-VydEIInFGfPmEewt_giYhgLSQgYtT00j_QD7nUKpcjzcdzC02kUicfygmZg2BFitsWYvzM-zvEIfunk_lblI3prHY1JJZQhJD5so5cNQtARGf9ijhXjwSNoNob_Ebd7aOGT911-3opBIRo6EZJo7snGfXg9inDElpa5a3"/>
+<div class="absolute top-2 right-2">
+<span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Academic</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">
+<a href="#">
+<span aria-hidden="true" class="absolute inset-0"></span>
+                                        Chess Club
+                                    </a>
+</h3>
+<p class="mt-2 text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Strategy, tactics, and fun. All skill levels welcome from beginner to grandmaster.</p>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons text-base mr-1 text-slate-400">group</span>
+                                        15 Members
+                                    </div>
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="Member" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-800" data-alt="Portrait of a female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJvm7O3LMshXTsSeYDvE8wXXy9z4hxi9AZ4bRktplPOAxl5xwFP6r9PN7beC8-1KmqSab_rbyCMliKcuWbcZyFMzD5Rpnfq6FRUMiw-VI_BoqfPwdMRLrkj5G3p7n71UYrXRN87oLgyI2TuUGx5ph3PcQathtt1xZ6zjpPthRkXaEHw4--W5WEzuRr2ZBtDHDUzM6M0hhBwHWv5alTygNyCDbAVzkWrQLwA3-ThhnjpZO9Fh4xbaX3Yp_vknSeuR1oXfVe5SEzfj90"/>
+<span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 ring-2 ring-white dark:ring-slate-800 text-[10px] font-medium text-slate-500 dark:text-slate-300 leading-none">+14</span>
+</div>
+</div>
+<button class="mt-4 w-full rounded-md bg-primary/10 px-3 py-2 text-sm font-semibold text-primary shadow-sm hover:bg-primary hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary relative z-10">Join Club</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex items-center justify-center">
+<nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+<a class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0" href="#">
+<span class="sr-only">Previous</span>
+<span class="material-icons text-sm">chevron_left</span>
+</a>
+<a aria-current="page" class="relative z-10 inline-flex items-center bg-primary px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="#">1</a>
+<a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 dark:text-gray-100 dark:ring-slate-700 dark:hover:bg-slate-800" href="#">2</a>
+<a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 dark:text-gray-100 dark:ring-slate-700 dark:hover:bg-slate-800" href="#">3</a>
+<a class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0" href="#">
+<span class="sr-only">Next</span>
+<span class="material-icons text-sm">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Sidebar -->
+<div class="lg:col-span-1 space-y-6">
+<!-- My Clubs Widget -->
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-6">
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-icons text-primary text-xl">school</span>
+                            My Clubs
+                        </h3>
+<ul class="space-y-4" role="list">
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="h-10 w-10 flex-shrink-0 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold group-hover:bg-indigo-100 transition-colors">
+                                    M
+                                </div>
+<div class="min-w-0 flex-1">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">Math Olympiad</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">Meeting: Tue, 3PM</p>
+</div>
+<span class="material-icons text-slate-300 text-sm">chevron_right</span>
+</li>
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="h-10 w-10 flex-shrink-0 rounded-lg bg-green-50 flex items-center justify-center text-green-600 font-bold group-hover:bg-green-100 transition-colors">
+                                    E
+                                </div>
+<div class="min-w-0 flex-1">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">Eco Warriors</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">Meeting: Thu, 4PM</p>
+</div>
+<span class="material-icons text-slate-300 text-sm">chevron_right</span>
+</li>
+</ul>
+<div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700">
+<a class="text-sm font-medium text-primary hover:text-primary/80 flex items-center gap-1" href="#">
+                                View schedule <span class="material-icons text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Upcoming Events Widget -->
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-6">
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-icons text-primary text-xl">event</span>
+                            Upcoming Events
+                        </h3>
+<div class="space-y-4">
+<div class="relative pl-4 border-l-2 border-primary/20 hover:border-primary transition-colors">
+<p class="text-xs font-semibold text-primary">Sep 15</p>
+<p class="text-sm font-medium text-slate-900 dark:text-white mt-0.5">Club Fair 2023</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Gymnasium • 12:00 PM</p>
+</div>
+<div class="relative pl-4 border-l-2 border-primary/20 hover:border-primary transition-colors">
+<p class="text-xs font-semibold text-primary">Sep 22</p>
+<p class="text-sm font-medium text-slate-900 dark:text-white mt-0.5">Debate Regionals</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Auditorium • 9:00 AM</p>
+</div>
+<div class="relative pl-4 border-l-2 border-primary/20 hover:border-primary transition-colors">
+<p class="text-xs font-semibold text-primary">Oct 05</p>
+<p class="text-sm font-medium text-slate-900 dark:text-white mt-0.5">Homecoming Game</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Stadium • 6:00 PM</p>
+</div>
+</div>
+</div>
+<!-- CTA Widget -->
+<div class="rounded-xl overflow-hidden relative group">
+<div class="absolute inset-0 bg-primary mix-blend-multiply opacity-90 z-10"></div>
+<img alt="Students walking on campus" class="w-full h-full object-cover absolute inset-0 group-hover:scale-110 transition-transform duration-700" data-alt="Blurry background of students interacting on campus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfzCois3Chd_jOja3v4dyoIbWZ5qq1EtuPZYJYkPCug_BwUBry_OHUytxMrbeWcHfbDzZpkAqDFYQdPG-ZcnLqaWerx3yROoW_qroTCjoPk4tBpumCiVT0YzhOgUofUK5uRglX8qkYe0lo8jrSfgm1z8X3uzfSCnOZ6p2uD8vQHt1Q4UilWV6Hc_ni_6o1jfiCM8w0UR__2FKA0W0gcjVHLkqy6Us1xcdJmZGuEYH2QUmXnkEi1IecI4VXmjoXGknj70sZ21viUDIo"/>
+<div class="relative z-20 p-6 text-center">
+<h3 class="text-white font-bold text-lg">Start a New Club</h3>
+<p class="text-white/80 text-sm mt-2 mb-4">Have an idea? Gather 5 friends and a faculty advisor to start your own organization.</p>
+<button class="bg-white text-primary text-sm font-semibold py-2 px-4 rounded-md shadow-lg hover:bg-gray-50 transition-colors w-full">Proposal Form</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+<div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+<div class="md:flex md:items-center md:justify-between">
+<div class="flex justify-center md:justify-start gap-6">
+<a class="text-slate-400 hover:text-slate-500" href="#">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-slate-400 hover:text-slate-500" href="#">
+<span class="sr-only">Instagram</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.48 2h-.165zm-2.37 6.37a6.002 6.002 0 018.064 8.064 6.002 6.002 0 01-8.064-8.064z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+<div class="mt-8 md:mt-0">
+<p class="text-center text-sm text-slate-400">
+                        © 2023 Saint Joseph Catholic School. All rights reserved.
+                    </p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

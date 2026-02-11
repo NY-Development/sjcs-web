@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SJCS Group Projects Kanban Board</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#135bec",
+                "background-light": "#f6f6f8",
+                "background-dark": "#101622",
+                "neutral-tint": "#eef2fb", // Derived from primary hue for light backgrounds
+                "neutral-border": "#dbe4f9", // Derived from primary hue
+              },
+              fontFamily: {
+                "display": ["Lexend", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+              boxShadow: {
+                  'soft': '0 4px 20px -2px rgba(19, 91, 236, 0.08)',
+                  'card': '0 2px 8px -2px rgba(19, 91, 236, 0.05)',
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for Kanban columns */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .kanban-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .kanban-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .kanban-scroll::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-neutral-border dark:border-slate-800 hidden md:flex flex-col flex-shrink-0 z-20">
+<div class="h-16 flex items-center px-6 border-b border-neutral-border dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-lg">S</div>
+<span class="font-bold text-lg tracking-tight text-primary dark:text-white">SJCS Portal</span>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+<a class="flex items-center px-3 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-lg hover:bg-neutral-tint dark:hover:bg-slate-800 group transition-colors" href="#">
+<span class="material-icons-round text-slate-400 group-hover:text-primary mr-3">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-3 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-lg hover:bg-neutral-tint dark:hover:bg-slate-800 group transition-colors" href="#">
+<span class="material-icons-round text-slate-400 group-hover:text-primary mr-3">school</span>
+                My Classes
+            </a>
+<div class="pt-4 pb-2">
+<p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Workspace</p>
+</div>
+<a class="flex items-center px-3 py-2.5 text-sm font-medium bg-primary/10 text-primary rounded-lg group transition-colors" href="#">
+<span class="material-icons-round text-primary mr-3">view_kanban</span>
+                Projects Board
+            </a>
+<a class="flex items-center px-3 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-lg hover:bg-neutral-tint dark:hover:bg-slate-800 group transition-colors" href="#">
+<span class="material-icons-round text-slate-400 group-hover:text-primary mr-3">calendar_today</span>
+                Calendar
+            </a>
+<a class="flex items-center px-3 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-lg hover:bg-neutral-tint dark:hover:bg-slate-800 group transition-colors" href="#">
+<span class="material-icons-round text-slate-400 group-hover:text-primary mr-3">chat_bubble_outline</span>
+                Chat
+                <span class="ml-auto bg-primary text-white py-0.5 px-2 rounded-full text-xs">3</span>
+</a>
+</nav>
+<div class="p-4 border-t border-neutral-border dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Student Profile" class="h-9 w-9 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Close up portrait of a smiling female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOXqll0BBFqof7JgZYo8eckdfOWIfNyeh-qKl_oFeJ23JziemsGCqNEdiHt6Q7pQqQJqWq24yZFNUIuEMwYLi5vEvX7FAGEl_637PU8zINHaS3skwJK1TMPIq-H_KTw0dTXFKeIOdpqMOda3DiUr65z06mj9E1Pasia09YetNRT9aEDEg5qamdNSmuXreTIyPTjf6Punz9z6usclzRylgRF9D5XbCVzpkI2lT99ilFi9nfCza0_qwzWno7exBQfYBLUV6An8T3IzOV"/>
+<span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-white dark:ring-slate-900"></span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">Mia Wallace</p>
+<p class="text-xs text-slate-500 truncate">Grade 11 Student</p>
+</div>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round">settings</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Top Header -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-neutral-border dark:border-slate-800 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-10">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-slate-500 hover:text-primary">
+<span class="material-icons-round">menu</span>
+</button>
+<div class="hidden sm:flex items-center text-sm text-slate-500">
+<span class="hover:text-primary cursor-pointer">History 101</span>
+<span class="material-icons-round text-base mx-2">chevron_right</span>
+<span class="font-medium text-slate-900 dark:text-white">WWII Timeline Project</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-primary hover:bg-neutral-tint dark:hover:bg-slate-800 rounded-full transition-colors relative">
+<span class="material-icons-round">notifications_none</span>
+<span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 border border-white dark:border-slate-900"></span>
+</button>
+<button class="hidden sm:flex bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors items-center gap-2 shadow-soft">
+<span class="material-icons-round text-lg">add</span>
+                    New Project
+                </button>
+</div>
+</header>
+<!-- Project Toolbar -->
+<div class="bg-white dark:bg-slate-900 px-4 sm:px-6 lg:px-8 py-5 border-b border-neutral-border dark:border-slate-800">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        WWII Timeline Project
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 border border-green-200 dark:border-green-800">Active</span>
+</h1>
+<p class="text-sm text-slate-500 mt-1 flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-icons-round text-base">calendar_today</span> Due: Nov 15th, 2023</span>
+<span class="flex items-center gap-1"><span class="material-icons-round text-base">visibility</span> Teacher Visibility: On</span>
+</p>
+</div>
+<div class="flex items-center gap-6">
+<!-- Team Members -->
+<div class="flex -space-x-3 overflow-hidden p-1">
+<img alt="Mia" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover" data-alt="Portrait of a female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIi4MT4KqotWvNuJuM5fvp_MtSDncfEExXkKuBDvu0HK69XBHmsygMq_JmZ6XnrPHK4SwGnFrT8X6tQAl579woNYm6Zk5YYqBZZ_oNGX8C8pTunD3uuqnAcf1BXPhmLHVAU6r8MFZS5OXILomsF_YKTqVWGgCjRur59B95L_0YsVwW2LuZ7oSYSM2INmAZAQU9Kt4OtcJ2XLiy6r5E-2d8SS4GqHXe6cDjRO8bfrIvUlpOJbRQZ1kzETpV1gblaR30wwINbp4cfYTw"/>
+<img alt="Liam" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover" data-alt="Portrait of a male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI7wet4pdT5CPMl0zvFR79tsOdiwngXkHnwk-QgVZQhAoaQIKDUh7fqALUGVDeXL0dGa3T9xDJZ1B6cgdpkobeck8q1R4p3Sf9zmTspVqAEyGXho6_Lv30uJBSN4qTnI4_iunTxzRGyVrghn8czs16wzHJFtdyAq25pEgpS7Vw6fHb8z2NI_vKvmpItwptI5o-V9BLTRxGCwnY0QspijAZlWrmK87xwC3ZSX5O8xGnz__DbdrmFzA40eLpPnGuBZtQqvKS3_uRCaFg"/>
+<img alt="Sophia" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover" data-alt="Portrait of a female student with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF61hIFsthshGPVdjbB2kWqSErXP31FhRmnDIRKohVz3aLVD9R6pVnOW_qMM9RmlbwhnDv7CHrxLegScuyYe5QU4aO0uNMf7J_vbUxe4sS5i9TQm_iW3ptjj2MPF1MRstbio3LhQC6F_q85Qrhmz41Ic-pSgg_FStN0TUKYwaj5mqQ8DcvPU8dxZTfpMSARLVDWVWOmC7pz4pQGR6Q1RgxX4169oa2tTrGTgcNMp4Fp6Tp4Dwla1IhzD8YgM5q9Ki1KXj9wrGGHKQJ"/>
+<button class="inline-flex items-center justify-center h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 bg-neutral-tint text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors">
+                            +2
+                        </button>
+</div>
+<!-- Progress Bar -->
+<div class="w-32 hidden lg:block">
+<div class="flex justify-between text-xs mb-1">
+<span class="font-medium text-slate-600 dark:text-slate-400">Progress</span>
+<span class="font-bold text-primary">65%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<button class="bg-primary/10 hover:bg-primary/20 text-primary p-2 rounded-lg transition-colors">
+<span class="material-icons-round">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Kanban Board Area -->
+<div class="flex-1 overflow-x-auto overflow-y-hidden bg-background-light dark:bg-background-dark p-4 sm:p-6 lg:p-8">
+<div class="h-full flex gap-6 min-w-[1000px]">
+<!-- Column: To Do -->
+<div class="flex-1 flex flex-col min-w-[320px] h-full">
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="font-semibold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-slate-400"></span>
+                            To Do
+                            <span class="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs py-0.5 px-2 rounded-full font-medium">3</span>
+</h3>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons-round text-lg">add</span></button>
+</div>
+<div class="flex-1 bg-neutral-tint/50 dark:bg-slate-800/50 rounded-xl p-3 kanban-scroll overflow-y-auto space-y-3 border border-dashed border-neutral-border dark:border-slate-700">
+<!-- Task Card -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card hover:shadow-soft border border-neutral-border/50 dark:border-slate-700 cursor-pointer group transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wide">Research</span>
+<button class="text-slate-300 hover:text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-icons-round text-base">more_horiz</span></button>
+</div>
+<h4 class="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2 leading-tight">Gather primary sources on Pearl Harbor</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-3">Find at least 3 newspaper clippings and 2 official government documents from 1941.</p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
+<div class="flex -space-x-2">
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-white dark:border-slate-800" data-alt="Portrait of male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLoYD96jeNzH6HyANKypq6YCoZiSWZfk76AjbgCbPf20aAG1bTRaEvTo9k-0C5d7GOogpBTVD5KotxtNengaMOi0MDpGbQpp0OF7SgD8s3hF6jik3RwCWWi7DI3H5oTO_i34322GKCydGMY7vatyIYGPvc7iKO-g4wAUrvaM6xIyUB21GkmCZdIHIBYBMD8rvwoKczCJKT0DZeMk1YfGkmF4GQD6ElWcws7kalJrBPKnBJ2f7ISQgG-NLK5R0NsqjjknN1bmeBOHBa"/>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center text-xs text-amber-600 bg-amber-50 dark:bg-amber-900/20 px-1.5 py-0.5 rounded">
+<span class="material-icons-round text-[14px] mr-1">schedule</span>
+                                        Nov 10
+                                    </div>
+</div>
+</div>
+</div>
+<!-- Task Card -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card hover:shadow-soft border border-neutral-border/50 dark:border-slate-700 cursor-pointer group transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wide">Writing</span>
+</div>
+<h4 class="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2 leading-tight">Draft Introduction Section</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-3">Outline the thesis statement and key points for the timeline narrative.</p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-[10px] font-bold border border-white dark:border-slate-800">?</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center text-xs text-slate-400">
+<span class="material-icons-round text-[14px] mr-1">schedule</span>
+                                        Nov 12
+                                    </div>
+</div>
+</div>
+</div>
+<!-- Add Button at bottom of column -->
+<button class="w-full py-2 border-2 border-dashed border-neutral-border dark:border-slate-700 rounded-lg text-sm text-slate-400 hover:text-primary hover:border-primary hover:bg-primary/5 transition-all flex items-center justify-center gap-1">
+<span class="material-icons-round text-lg">add</span>
+                            Add Task
+                        </button>
+</div>
+</div>
+<!-- Column: In Progress -->
+<div class="flex-1 flex flex-col min-w-[320px] h-full">
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="font-semibold text-primary dark:text-blue-400 flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary animate-pulse"></span>
+                            In Progress
+                            <span class="bg-primary/10 text-primary dark:text-blue-300 text-xs py-0.5 px-2 rounded-full font-medium">2</span>
+</h3>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons-round text-lg">add</span></button>
+</div>
+<div class="flex-1 bg-neutral-tint/50 dark:bg-slate-800/50 rounded-xl p-3 kanban-scroll overflow-y-auto space-y-3 border border-transparent dark:border-slate-700">
+<!-- Task Card (Active Teacher Vis) -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card hover:shadow-soft border-l-4 border-primary dark:border-blue-500 cursor-pointer group transition-all relative overflow-hidden">
+<!-- Teacher Visibility Badge -->
+<div class="absolute top-0 right-0 bg-primary/10 text-primary px-2 py-1 rounded-bl-lg">
+<span class="material-icons-round text-[14px]" title="Teacher is monitoring this task">visibility</span>
+</div>
+<div class="flex justify-between items-start mb-2 mt-1">
+<span class="bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wide">Media</span>
+</div>
+<h4 class="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2 leading-tight">Create Presentation Slides</h4>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-1.5 mb-3">
+<div class="bg-primary h-1.5 rounded-full" style="width: 40%"></div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
+<div class="flex -space-x-2">
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-white dark:border-slate-800" data-alt="Portrait of female student with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG09ZhYsuHPw9TNBemeeGtJSrOuLzS-GiR5WRuUWT5uUTVeEuyh7D7lI327oIgVERo-Zf3-a_m6JszpC0gE1WY6IDO0t7pKMMmYm1eXebpVDnC6Vb40p3RGZPuDzh8TrJLPB1C7E4EolUO74XYoYW5kzNHR6Mamvr15nCrdmgwbH9mQI_xg7oZlxOQdh8l4ju04cvmCakwmiRphTA9qX3isORsAnhjhds3cPFWSGi_z_mSTb-UH9KdOdD9Zw0PNzY_QsUVQSyBKEqs"/>
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-white dark:border-slate-800" data-alt="Portrait of female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYeWJUFjxwK-K-pvMJh8O3f6aCLCKuCuEPjNoE6nwdM7WuhVEQh1qxyAcuVUPTLFrqTHBICd4edP77AEkMPvxukNo82aXGM4vnB_sG1p5i5CvdHjJFPXUssx4yu566bU-nIcBJDLUqSv1rozc1Zrwe4gGkdLxEUvj2nCnM8gDfK2J4LgPPq3E7ALd3jfgGog_msPREB0bEdRM9XQQT_Sa9FCxut9CqqPL6MQSABB2tX5AQIaEoZVCzTXCf8yCcCROxGbITu4a1p5hs"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-slate-400 text-sm">chat_bubble</span>
+<span class="text-xs text-slate-500">2</span>
+</div>
+</div>
+</div>
+<!-- Task Card -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card hover:shadow-soft border border-neutral-border/50 dark:border-slate-700 cursor-pointer group transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wide">Interview</span>
+</div>
+<h4 class="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2 leading-tight">Interview Local Veteran</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-3">Recorded session scheduled for Zoom at 4PM.</p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
+<div class="flex -space-x-2">
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-white dark:border-slate-800" data-alt="Portrait of male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvXH-QJLd4laNs9Zl7JCk4YfBPWsydDoUjckGPRgQrx3GlsPy5hYvJRHQyePnu5p4BNkzMqKFYVFuStocKZxphdSseJy5i7MNV99yxyp5Iw-eiSKF30NU1nAV1GJGYjCjBUPClIV1qVudUYB6JgZGwTBE9J8BhbrkYwquyqfNZKkyOhquQD6qabxM5yOeyk7Un-mD0zKb9izqczgdn8W_KyuZoSsefJkcsnFzfJ5F2hLwn3259XHHsh24kytoZYG2ggIsD6vztcq1D"/>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center text-xs text-red-500 bg-red-50 dark:bg-red-900/20 px-1.5 py-0.5 rounded font-medium">
+<span class="material-icons-round text-[14px] mr-1">priority_high</span>
+                                        Today
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Completed -->
+<div class="flex-1 flex flex-col min-w-[320px] h-full">
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="font-semibold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            Completed
+                            <span class="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs py-0.5 px-2 rounded-full font-medium">2</span>
+</h3>
+</div>
+<div class="flex-1 bg-neutral-tint/50 dark:bg-slate-800/50 rounded-xl p-3 kanban-scroll overflow-y-auto space-y-3 border border-transparent dark:border-slate-700">
+<!-- Task Card (Completed) -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-neutral-border/50 dark:border-slate-700 opacity-75 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wide">Admin</span>
+<span class="material-icons-round text-green-500 text-lg">check_circle</span>
+</div>
+<h4 class="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2 line-through decoration-slate-400">Submit Topic Proposal</h4>
+<div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
+<div class="flex -space-x-2">
+<img alt="Assignee" class="w-6 h-6 rounded-full border border-white dark:border-slate-800 grayscale" data-alt="Portrait of female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1HEdqwFrjI7xPGJPEEcfB1UezafkK4SFT8IhuCgRFMjgMTA4j8jfwqnQOkvRRXPuF5GMobuXXPJWUduWfqEORIV8RFwAENVorpGso0jBenvdwFyl4UydZpX6PRnsOjkwQFWVTHJ2lfuvCqGvPwrOFZTMe2-HCQxf1v8u1nfDGMH1HWrSxvCZMgMaHIUOq1tD8AHVo8BfZVmWjZf7x-9fIWFUFq27P1V2wQKS42CWKzsdqU0Uih_P9aZSJjFOQxb81C8_DW-P4i_2T"/>
+</div>
+<div class="text-xs text-slate-400 italic">Oct 28</div>
+</div>
+</div>
+<!-- Task Card (Completed with Teacher Feedback) -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-neutral-border/50 dark:border-slate-700 opacity-75 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wide">Admin</span>
+<span class="material-icons-round text-green-500 text-lg">check_circle</span>
+</div>
+<h4 class="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2 line-through decoration-slate-400">Group Charter Signed</h4>
+<div class="bg-green-50 dark:bg-green-900/20 p-2 rounded text-xs text-green-800 dark:text-green-200 mb-2 flex gap-1 items-start">
+<span class="material-icons-round text-[14px] mt-0.5">thumb_up</span>
+                                "Great start team! Remember the deadline." - Mr. Davis
+                            </div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-[10px] font-bold border border-white dark:border-slate-800">M</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-[10px] font-bold border border-white dark:border-slate-800">L</div>
+</div>
+<div class="text-xs text-slate-400 italic">Oct 25</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

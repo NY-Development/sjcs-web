@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Attendance Calendar - SJCS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-dark": "#0e47b8",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                        "status-present": "#10b981",
+                        "status-absent": "#ef4444",
+                        "status-late": "#f59e0b",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="bg-surface-light dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<!-- Logo & School Name -->
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-icons">school</span>
+</div>
+<div>
+<h1 class="font-bold text-lg tracking-tight text-slate-900 dark:text-white leading-tight">SJCS Portal</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Saint Joseph Catholic School</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary font-medium text-sm transition-colors" href="#">Dashboard</a>
+<a class="text-primary font-medium text-sm border-b-2 border-primary pb-5 mt-5" href="#">Attendance</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary font-medium text-sm transition-colors" href="#">Grades</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary font-medium text-sm transition-colors" href="#">Schedule</a>
+</nav>
+<!-- User Profile -->
+<div class="flex items-center gap-4">
+<div class="hidden sm:block text-right">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Alex Johnson</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Grade 10 - Class B</p>
+</div>
+<button class="h-10 w-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border-2 border-slate-100 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-surface-dark">
+<img alt="Student profile photo" class="h-full w-full object-cover" data-alt="Close up portrait of a young student smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7lxDqjFmyhAKsQfnasqFQM2kNsSL-6Flx1rtR5yVxkr2bcPLmojq91eOe9tViELSVCLwWFcZZNb-SrySgJJ3S7v5YBvjL6a_CWCcKVA1PHVaFOJkiL2Iw10Lm7qjjmw7FRtfW7ex47W27v8Sk5ubg8GCMnwBECjvicHnCg00jTqgZcahztYEa6J293FvLlRT_cZ4dig32ymVndWTiVfhihZKdbV1Gqqyntzlhr0f_MF3HlcilwKnU2v1yKVgmfOKFZNDi0IwzGEgw"/>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+<!-- Page Title & Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Attendance Record</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Track daily attendance status and history.</p>
+</div>
+<div class="flex items-center gap-3">
+<select class="bg-surface-light dark:bg-surface-dark border border-slate-300 dark:border-slate-700 rounded-lg text-sm px-3 py-2 text-slate-700 dark:text-slate-200 focus:ring-primary focus:border-primary outline-none">
+<option>Fall Semester 2023</option>
+<option>Spring Semester 2024</option>
+</select>
+<button class="flex items-center gap-2 bg-surface-light dark:bg-surface-dark border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm">
+<span class="material-icons text-sm">print</span>
+                    Print
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Calendar Grid (8 cols wide on large screens) -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Calendar Controls -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-4 flex items-center justify-between">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500 transition-colors">
+<span class="material-icons">chevron_left</span>
+</button>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">October 2023</h3>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500 transition-colors">
+<span class="material-icons">chevron_right</span>
+</button>
+</div>
+<!-- Calendar Grid Component -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<!-- Days of Week Header -->
+<div class="grid grid-cols-7 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+<div class="py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Sun</div>
+<div class="py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Mon</div>
+<div class="py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Tue</div>
+<div class="py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Wed</div>
+<div class="py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Thu</div>
+<div class="py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Fri</div>
+<div class="py-3 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Sat</div>
+</div>
+<!-- Days Grid -->
+<div class="grid grid-cols-7 auto-rows-fr bg-slate-200 dark:bg-slate-800 gap-[1px]">
+<!-- Previous Month Days -->
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end opacity-50">
+<span class="text-sm text-slate-400 font-medium">29</span>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end opacity-50">
+<span class="text-sm text-slate-400 font-medium">30</span>
+</div>
+<!-- Current Month Days -->
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">1</span>
+<div class="w-full">
+<span class="bg-status-present/10 text-status-present text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-present/20">Present</span>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">2</span>
+<div class="w-full">
+<span class="bg-status-present/10 text-status-present text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-present/20">Present</span>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">3</span>
+<div class="w-full">
+<span class="bg-status-late/10 text-status-late text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-late/20">Late (15m)</span>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">4</span>
+<div class="w-full">
+<span class="bg-status-present/10 text-status-present text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-present/20">Present</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end">
+<span class="text-sm text-slate-400 font-medium">5</span>
+</div>
+<!-- Week 2 -->
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end">
+<span class="text-sm text-slate-400 font-medium">6</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">7</span>
+<div class="w-full">
+<span class="bg-status-absent/10 text-status-absent text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-absent/20">Absent</span>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">8</span>
+<div class="w-full">
+<span class="bg-status-present/10 text-status-present text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-present/20">Present</span>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">9</span>
+<div class="w-full">
+<span class="bg-status-present/10 text-status-present text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-present/20">Present</span>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">10</span>
+<div class="w-full">
+<span class="bg-status-present/10 text-status-present text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-present/20">Present</span>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 self-end">11</span>
+<div class="w-full">
+<span class="bg-status-present/10 text-status-present text-xs font-bold px-2 py-1 rounded w-full block text-center truncate border border-status-present/20">Present</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end">
+<span class="text-sm text-slate-400 font-medium">12</span>
+</div>
+<!-- Week 3 -->
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end">
+<span class="text-sm text-slate-400 font-medium">13</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors relative overflow-hidden">
+<div class="absolute top-0 right-0 p-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<span class="text-sm font-bold text-primary self-end">14</span>
+<div class="w-full">
+<span class="bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-medium px-2 py-1 rounded w-full block text-center border border-slate-200 dark:border-slate-600">Pending</span>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">15</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">16</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">17</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">18</span>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end">
+<span class="text-sm text-slate-400 font-medium">19</span>
+</div>
+<!-- Week 4 -->
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end">
+<span class="text-sm text-slate-400 font-medium">20</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">21</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">22</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">23</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">24</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">25</span>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end">
+<span class="text-sm text-slate-400 font-medium">26</span>
+</div>
+<!-- Week 5 -->
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end">
+<span class="text-sm text-slate-400 font-medium">27</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">28</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">29</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">30</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 sm:p-3 min-h-[100px] flex flex-col items-end hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">31</span>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end opacity-50">
+<span class="text-sm text-slate-400 font-medium">1</span>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900 p-2 sm:p-3 min-h-[100px] flex flex-col items-end opacity-50">
+<span class="text-sm text-slate-400 font-medium">2</span>
+</div>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex flex-wrap gap-4 px-2">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-status-present"></span>
+<span class="text-sm text-slate-600 dark:text-slate-400">Present</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-status-absent"></span>
+<span class="text-sm text-slate-600 dark:text-slate-400">Absent</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-status-late"></span>
+<span class="text-sm text-slate-600 dark:text-slate-400">Late</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-slate-400"></span>
+<span class="text-sm text-slate-600 dark:text-slate-400">Weekend/Holiday</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar Statistics (4 cols wide on large screens) -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Attendance Summary Card -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">October Summary</h3>
+<div class="flex items-center justify-center mb-8 relative">
+<!-- Donut Chart Representation -->
+<div class="w-48 h-48 rounded-full border-[16px] border-slate-100 dark:border-slate-800 flex items-center justify-center relative">
+<div class="absolute inset-0 rounded-full border-[16px] border-primary border-t-transparent border-l-transparent -rotate-45" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);"></div>
+<div class="text-center">
+<span class="block text-4xl font-bold text-slate-900 dark:text-white">92%</span>
+<span class="text-xs text-slate-500 uppercase tracking-wide font-medium">Attendance</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-status-present/10 text-status-present flex items-center justify-center">
+<span class="material-icons text-xl">check_circle</span>
+</div>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Days Present</span>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">18</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-status-absent/10 text-status-absent flex items-center justify-center">
+<span class="material-icons text-xl">cancel</span>
+</div>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Days Absent</span>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">1</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-status-late/10 text-status-late flex items-center justify-center">
+<span class="material-icons text-xl">schedule</span>
+</div>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Late Arrivals</span>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">2</span>
+</div>
+</div>
+</div>
+<!-- Export Action Card -->
+<div class="bg-primary/5 rounded-xl border border-primary/20 p-6 text-center">
+<div class="mx-auto w-12 h-12 bg-primary/20 text-primary rounded-full flex items-center justify-center mb-4">
+<span class="material-icons">download</span>
+</div>
+<h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">Need a formal report?</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-5">Download a PDF version of the attendance record for this semester.</p>
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-4 rounded-lg shadow-md transition-colors flex items-center justify-center gap-2">
+                        Export Report
+                        <span class="material-icons text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Upcoming Holidays Card -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
+<h3 class="text-sm uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 mb-4">Upcoming Holidays</h3>
+<ul class="space-y-3">
+<li class="flex gap-3">
+<div class="flex-shrink-0 w-12 text-center bg-slate-100 dark:bg-slate-800 rounded p-1">
+<span class="block text-xs text-slate-500 uppercase font-bold">Nov</span>
+<span class="block text-sm font-bold text-slate-900 dark:text-white">23</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Thanksgiving Break</p>
+<p class="text-xs text-slate-500">School Closed</p>
+</div>
+</li>
+<li class="flex gap-3">
+<div class="flex-shrink-0 w-12 text-center bg-slate-100 dark:bg-slate-800 rounded p-1">
+<span class="block text-xs text-slate-500 uppercase font-bold">Dec</span>
+<span class="block text-sm font-bold text-slate-900 dark:text-white">18</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Christmas Break</p>
+<p class="text-xs text-slate-500">Starts</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</body></html>

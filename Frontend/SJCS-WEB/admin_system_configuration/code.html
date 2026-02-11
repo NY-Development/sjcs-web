@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin System Configuration - SJCS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-16 flex items-center justify-between px-6 sticky top-0 z-20">
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-icons text-xl">school</span>
+</div>
+<span class="font-semibold text-lg tracking-tight">SJCS Admin Console</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors">
+<span class="material-icons">notifications</span>
+</button>
+<div class="h-8 w-8 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden border border-slate-300 dark:border-slate-600">
+<img alt="Admin Profile" class="h-full w-full object-cover" data-alt="User avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYrFDax1gjSoiI6HNoaD-3pYLDO09Hg_QgH9lQY1SzFeTYUZaAzHYR-QjQ1SDogURphMgH92onxFAARK4hyexdh3ix3v8oh0TIRd7kggLxUQ7uxuaTu9jq4bOp39UXqfFg1tBfROrTTWq_StCQFNyAN-iMF2b4gIzr6mRHMQMeBXTOx6kb17GBdExcbPj2Kgn3rXffmaF9lDtmu5KTAYw4G3hftHF_a0-XhTFbiNJsm4Nyyt_qTQLfFaBa9VkwATRnCD9-OnIO2Zcf"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 hidden md:flex flex-col">
+<div class="p-6">
+<h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Settings Menu</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg font-medium transition-colors" href="#">
+<span class="material-icons text-[20px]">tune</span>
+                        General
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200 rounded-lg font-medium transition-colors" href="#">
+<span class="material-icons text-[20px]">calendar_today</span>
+                        Academic Years
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200 rounded-lg font-medium transition-colors" href="#">
+<span class="material-icons text-[20px]">people_alt</span>
+                        User Roles
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200 rounded-lg font-medium transition-colors" href="#">
+<span class="material-icons text-[20px]">integration_instructions</span>
+                        API Integrations
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200 rounded-lg font-medium transition-colors" href="#">
+<span class="material-icons text-[20px]">history</span>
+                        System Logs
+                    </a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-slate-200 dark:border-slate-800">
+<div class="bg-primary/5 rounded-xl p-4 border border-primary/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-icons text-primary text-sm">verified_user</span>
+<span class="text-sm font-semibold text-primary">System Status</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400">All services operational. Last backup: 2h ago.</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-6 lg:p-10">
+<div class="max-w-5xl mx-auto space-y-8">
+<!-- Page Header & Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<nav aria-label="Breadcrumb" class="flex text-sm text-slate-500 dark:text-slate-400 mb-1">
+<ol class="flex items-center space-x-2">
+<li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li><span class="text-slate-300 dark:text-slate-600">/</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">Admin</a></li>
+<li><span class="text-slate-300 dark:text-slate-600">/</span></li>
+<li class="text-slate-800 dark:text-white font-medium">Configuration</li>
+</ol>
+</nav>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">System Configuration</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Manage global settings for Saint Joseph Catholic School portal.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm">
+                            Discard
+                        </button>
+<button class="px-4 py-2 bg-primary hover:bg-blue-700 text-white rounded-lg text-sm font-medium shadow-md shadow-primary/20 transition-all flex items-center gap-2">
+<span class="material-icons text-sm">save</span>
+                            Save Changes
+                        </button>
+</div>
+</div>
+<!-- Grid Layout for Settings -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Left Column: School Profile -->
+<div class="xl:col-span-2 space-y-6">
+<!-- School Identity Card -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<h2 class="text-lg font-semibold text-slate-800 dark:text-white">School Identity</h2>
+<span class="material-icons text-slate-300 dark:text-slate-600">badge</span>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-1 md:col-span-2">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">School Name</label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm" type="text" value="Saint Joseph Catholic School"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">School Code</label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 shadow-sm focus:border-primary focus:ring-primary sm:text-sm cursor-not-allowed" disabled="" type="text" value="SJCS-2024"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Administrator Contact</label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm" type="email" value="admin@sjcs.edu"/>
+</div>
+<div class="col-span-1 md:col-span-2">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">School Logo</label>
+<div class="flex items-center gap-6">
+<div class="relative h-24 w-24 shrink-0 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img alt="SJCS School Logo Crest" class="h-16 w-16 object-contain opacity-80" data-alt="School logo placeholder showing a minimalist crest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAejQfg9tt3doqwSniRG7iK5vGz7rW2vCHnkKJHAnWVz90ZV8l3_QTlYpuWYipThZM-13eNWNzV6ArKfr73tARoSNWIxYqYIUABBrB8w7o-Opi2fDnGFifWHLKYEJvgwQ5ZQciFx6XGby-7besr8Hex-b9R2bwYS1NW_jFKsuvIKfCoYh-w48MoO0a5of23l9J4Bf0ob9stmNGT4mH-3TC9SQVSDNp-Mp6lJFB2ynfU6BFDqxAojCPi6J21_MjyPm4233DH8-umZJPv"/>
+<div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center group cursor-pointer">
+<span class="material-icons text-white opacity-0 group-hover:opacity-100 drop-shadow-md">edit</span>
+</div>
+</div>
+<div class="flex-1 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-primary hover:bg-primary/5 transition-colors cursor-pointer">
+<span class="material-icons text-slate-400 mb-2">cloud_upload</span>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Click to upload or drag and drop</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">SVG, PNG, JPG or GIF (max. 2MB)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Academic Calendar Card -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<h2 class="text-lg font-semibold text-slate-800 dark:text-white">Academic Calendar</h2>
+<span class="material-icons text-slate-300 dark:text-slate-600">date_range</span>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Current Academic Year</label>
+<select class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+<option>2023 - 2024</option>
+<option>2024 - 2025</option>
+<option>2022 - 2023 (Archived)</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Active Term</label>
+<select class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm">
+<option>Fall Semester</option>
+<option selected="">Spring Semester</option>
+<option>Summer Session</option>
+</select>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-4 border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h4 class="text-sm font-medium text-slate-900 dark:text-white">Upcoming Holiday</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Easter Break starts in 14 days</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 px-2 py-1 rounded text-slate-600 dark:text-slate-300">Mar 29 - Apr 5</span>
+<button class="text-primary text-sm hover:underline font-medium">Edit Calendar</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: System Controls -->
+<div class="xl:col-span-1 space-y-6">
+<!-- Global Switches -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden h-fit">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<h2 class="text-lg font-semibold text-slate-800 dark:text-white">System Controls</h2>
+<span class="material-icons text-slate-300 dark:text-slate-600">settings_power</span>
+</div>
+<div class="p-0">
+<!-- Switch Item 1 -->
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex items-center justify-between">
+<div class="pr-4">
+<p class="text-sm font-medium text-slate-900 dark:text-white">Maintenance Mode</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Restrict access to admins only</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Switch Item 2 -->
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex items-center justify-between">
+<div class="pr-4">
+<p class="text-sm font-medium text-slate-900 dark:text-white">Parent Portal Access</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Allow parents to view grades</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Switch Item 3 -->
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex items-center justify-between">
+<div class="pr-4">
+<p class="text-sm font-medium text-slate-900 dark:text-white">Email Notifications</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Send system alerts via SMTP</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Switch Item 4 -->
+<div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors flex items-center justify-between">
+<div class="pr-4">
+<p class="text-sm font-medium text-slate-900 dark:text-white">Public Registration</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Open enrollment for new students</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/20 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Quick Stats / Info -->
+<section class="bg-primary bg-gradient-to-br from-primary to-blue-600 rounded-xl shadow-lg p-6 text-white relative overflow-hidden">
+<!-- Background decoration -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+<h3 class="font-semibold text-lg relative z-10 mb-4">License Information</h3>
+<div class="space-y-4 relative z-10">
+<div class="flex justify-between items-center text-sm border-b border-white/20 pb-2">
+<span class="text-blue-100">Plan</span>
+<span class="font-medium">Enterprise EDU</span>
+</div>
+<div class="flex justify-between items-center text-sm border-b border-white/20 pb-2">
+<span class="text-blue-100">Expires</span>
+<span class="font-medium">Dec 31, 2024</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-blue-100">Users</span>
+<span class="font-medium">450 / 500</span>
+</div>
+</div>
+<button class="w-full mt-6 bg-white text-primary py-2 rounded-lg text-sm font-semibold hover:bg-blue-50 transition-colors">
+                                Manage Subscription
+                            </button>
+</section>
+</div>
+</div>
+<!-- Bottom Section: Danger Zone -->
+<section class="mt-8 border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-900/10 rounded-xl p-6">
+<h3 class="text-red-700 dark:text-red-400 font-semibold mb-2">Danger Zone</h3>
+<p class="text-sm text-red-600/80 dark:text-red-400/70 mb-4">Irreversible actions regarding the school system data.</p>
+<div class="flex flex-wrap gap-4">
+<button class="px-4 py-2 bg-white dark:bg-red-900/20 border border-red-300 dark:border-red-800 text-red-600 dark:text-red-400 rounded-lg text-sm font-medium hover:bg-red-50 dark:hover:bg-red-900/40 transition-colors">
+                            Reset All Configurations
+                        </button>
+<button class="px-4 py-2 bg-white dark:bg-red-900/20 border border-red-300 dark:border-red-800 text-red-600 dark:text-red-400 rounded-lg text-sm font-medium hover:bg-red-50 dark:hover:bg-red-900/40 transition-colors">
+                            Archive Current Year Data
+                        </button>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

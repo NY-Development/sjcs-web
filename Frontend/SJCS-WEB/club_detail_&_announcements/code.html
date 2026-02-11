@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Club Detail &amp; Announcements - SJCS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-light": "#e0eafc", // Derived light shade
+                        "primary-dark": "#0d42b0", // Derived dark shade
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "neutral-50": "#f8fafc",
+                        "neutral-100": "#f1f5f9",
+                        "neutral-200": "#e2e8f0",
+                        "neutral-300": "#cbd5e1",
+                        "neutral-400": "#94a3b8",
+                        "neutral-500": "#64748b",
+                        "neutral-600": "#475569",
+                        "neutral-700": "#334155",
+                        "neutral-800": "#1e293b",
+                        "neutral-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-neutral-800 dark:text-neutral-100 min-h-screen transition-colors duration-200">
+<!-- Navigation Bar (Simplified for context) -->
+<nav class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex">
+<div class="flex-shrink-0 flex items-center">
+<span class="text-primary text-2xl font-bold tracking-tight">SJCS Connect</span>
+</div>
+<div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+<a class="border-transparent text-neutral-500 dark:text-neutral-400 hover:border-neutral-300 hover:text-neutral-700 dark:hover:text-neutral-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Dashboard</a>
+<a class="border-primary text-neutral-900 dark:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Clubs &amp; Org</a>
+<a class="border-transparent text-neutral-500 dark:text-neutral-400 hover:border-neutral-300 hover:text-neutral-700 dark:hover:text-neutral-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Calendar</a>
+</div>
+</div>
+<div class="flex items-center">
+<button class="bg-primary/10 p-2 rounded-full text-primary hover:bg-primary/20 focus:outline-none dark:bg-neutral-700 dark:text-primary-light">
+<span class="material-icons text-xl">notifications</span>
+</button>
+<div class="ml-4 flex items-center">
+<img alt="User avatar" class="h-8 w-8 rounded-full border border-neutral-200 dark:border-neutral-600" data-alt="Profile picture of a smiling student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdWP7weMEOD8Ebl1qbeuJJb0NywfEqGRcKezERMRnaHcxeOXJxCQ_TmItt-GxZR4Si-0tC1gcsBa_1mNBL-5ssBkqvp4S-vn-Q2ULIWhSRbSRp1Og3Au1uwK3AxNyzSm1Y_f7101uKlaRLmha6msxMtLo_qQdyzDUxi4OoChY11Tg8wi8BGRJpCcRplJFVcpzy6xI-Zwc0k9iJ-TeHIMnS4ey0q8qiyJI4DcqTPjHJud50gtF6hmnNS-ErHkXYsu0l12hQ7_XxuTO4"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="flex mb-6">
+<ol class="flex items-center space-x-2">
+<li>
+<div>
+<a class="text-neutral-400 hover:text-neutral-500" href="#">
+<span class="material-icons text-lg align-middle">home</span>
+<span class="sr-only">Home</span>
+</a>
+</div>
+</li>
+<li>
+<div class="flex items-center">
+<span class="material-icons text-neutral-400 text-lg">chevron_right</span>
+<a class="ml-2 text-sm font-medium text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200" href="#">Clubs</a>
+</div>
+</li>
+<li>
+<div class="flex items-center">
+<span class="material-icons text-neutral-400 text-lg">chevron_right</span>
+<span aria-current="page" class="ml-2 text-sm font-medium text-primary">Robotics Team</span>
+</div>
+</li>
+</ol>
+</nav>
+<!-- Hero Section -->
+<div class="relative rounded-2xl overflow-hidden bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 mb-8">
+<div class="h-48 sm:h-64 w-full relative">
+<img alt="Robotics club students working on a project" class="w-full h-full object-cover" data-alt="Students collaborating on a robotics project in a workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRTUV7Pun2XNecOdlYuAL62hobXkzWVs2xCyk_GPc5sYoEGXE311Ih691i5Ri3zZm1AKavuE6fgVuj3Tu-m12owtv8ypoYA2cQofjhJq1SCtOnOsLKZvbLhfv8ld8qIQAQ7k7vYsuC4npQQADykemUqCtg67GNKLg7fqnqrEi7Z6zK7Ul4xqfewAwsudY0oB-6-B2T6uD_Ssz_HhWXT6DR_TROWovHXABHl_kEMO6I6l0IthhcXpUoVGy0RM-fSBA5Q6tZtENajkrv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 text-white">
+<div class="flex items-center gap-4">
+<div class="h-16 w-16 sm:h-20 sm:w-20 rounded-xl bg-white p-1 shadow-lg flex items-center justify-center shrink-0">
+<!-- Club Logo Placeholder using primary color -->
+<div class="w-full h-full bg-primary rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+<span class="material-icons" style="font-size: 32px;">smart_toy</span>
+</div>
+</div>
+<div>
+<h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">SJCS Robotics Team</h1>
+<p class="text-neutral-200 text-sm sm:text-base font-medium max-w-2xl">Innovating for the future, one bot at a time. Join us to learn engineering, coding, and teamwork.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Actions Bar -->
+<div class="px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-neutral-100 dark:border-neutral-700">
+<div class="flex items-center gap-6 text-sm text-neutral-500 dark:text-neutral-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-neutral-400 text-lg">groups</span>
+<span class="font-semibold text-neutral-700 dark:text-neutral-200">28 Members</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-neutral-400 text-lg">location_on</span>
+<span>Room 304 (Science Wing)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-neutral-400 text-lg">schedule</span>
+<span>Tue &amp; Thu, 3:30 PM</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center px-4 py-2 border border-neutral-300 dark:border-neutral-600 shadow-sm text-sm font-medium rounded-lg text-neutral-700 dark:text-neutral-200 bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+<span class="material-icons text-lg mr-2">mail_outline</span>
+                        Contact Advisor
+                    </button>
+<button class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all">
+<span class="material-icons text-lg mr-2">notifications_active</span>
+                        Subscribe
+                    </button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Announcements Feed -->
+<div class="lg:col-span-2 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white flex items-center gap-2">
+<span class="material-icons text-primary">campaign</span>
+                        Announcements
+                    </h2>
+<!-- Admin Only Action - Visually hidden/subtle for demo -->
+<button class="text-sm text-primary font-medium hover:text-primary-dark flex items-center gap-1 opacity-0 hover:opacity-100 transition-opacity">
+<span class="material-icons text-sm">edit</span>
+                        Manage Posts
+                    </button>
+</div>
+<!-- Pinned Announcement -->
+<div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm border-l-4 border-primary p-6 relative">
+<div class="absolute top-4 right-4 text-primary/40 rotate-12">
+<span class="material-icons" style="font-size: 24px;">push_pin</span>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0">
+<img alt="Author avatar" class="h-10 w-10 rounded-full" data-alt="Portrait of Mr. Davidson, the club advisor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSeZknzVdptw-im8KZ-M5pyzJ6QcdDVVNi6TkoUawi2c5l4b3xZdgD_Shs6Qxk6ztUDRgLPcz_X2Ac5wpfTg7G85XpwgTd7NCb8CJq1qJgnNNj0YkVPWn0uX6rEdmKpsutnnPe6zgzlpASFvoUFmQaRGcrVtFY0L-6hX21lZQEm9C5uZPxqTSrJ2fDR4kFgbj8vf_nWTnlNs2O8GE94tKJw0lMwc9hNA1F-QJZlru1Na3QTTrYYHXT8ly2yqeEoAjLd3L5s2FOp4-0"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-neutral-900 dark:text-white">Mr. Davidson <span class="text-primary text-xs font-normal px-2 py-0.5 bg-primary/10 rounded-full ml-1">Advisor</span></p>
+<p class="text-xs text-neutral-500 dark:text-neutral-400">Posted Today, 8:30 AM</p>
+</div>
+</div>
+<h3 class="mt-2 text-lg font-bold text-neutral-900 dark:text-white">IMPORTANT: Meeting moved to Room 304</h3>
+<p class="mt-2 text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
+                                Due to the A/V setup for the upcoming assembly in the auditorium, we are moving today's practice session back to our home base in Room 304. Please enter through the side door. We will be finalizing the chassis design today!
+                            </p>
+<div class="mt-4 flex gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                                    Urgent
+                                </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-100 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-300">
+                                     Logistics
+                                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Announcement 2 (Rich Media) -->
+<div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 p-6">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0">
+<img alt="Author avatar" class="h-10 w-10 rounded-full" data-alt="Portrait of Sarah J, club president" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWrxKeSgLasrGUFNrF8XWgMP9UPlWH8zsVB_dz5eqJI2s9nzDSchUV0DPDzDeHbljS3xgwN9f4E-x7oZrSXzgWZa80QIUSyYhdySDRl1tR9XGuczVDm2Vj_JUylOXEZOVS1hBkP-xz3xPpx1KgDcph7Ypm4a1y0rfKh8I7gzsaiXvFWH_akUtYFMZ8GhVDGDkD_cVBFgvmgfm16XNkUTqFkQh3iVO-XXAtpY3icDQ9zdG-oDUqbw_nFKlcBFLYUK23KhIAV-HoeLEI"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-neutral-900 dark:text-white">Sarah Jenkins <span class="text-neutral-500 font-normal ml-1">• President</span></p>
+<p class="text-xs text-neutral-500 dark:text-neutral-400">Yesterday, 4:15 PM</p>
+</div>
+</div>
+<h3 class="mt-2 text-lg font-bold text-neutral-900 dark:text-white">Great job at the Regional Qualifier! 🏆</h3>
+<p class="mt-2 text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
+                                I'm so proud of everyone's performance yesterday. We placed 3rd overall and qualified for the state championship! Here are a few snapshots from the event. Let's keep this momentum going.
+                            </p>
+<!-- Image Grid -->
+<div class="mt-4 grid grid-cols-2 gap-2 rounded-lg overflow-hidden">
+<div class="h-48 relative">
+<img alt="Event photo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" data-alt="Robotics competition field with robots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNkO0N6eX6EulGre6Qdo2JQi9ey2iE4I0qNMmT16X7ww0QX5HbV_F_Ev0WjrgMjMf1Qb3mH8XuWyz20Jp_QNajbxE94DVMbTEFPIJhK9s1VVk5sNKhigHGAJv_6yxF91PGvlU8VHozn1xoDOJSdulJ-HhzqIdnuevVgVbRIaY2vnty32ttHtWraeUUZaHkrnJeGKzlKdQNFw-kOPIb5ywzjUgy1AdSV5pNkpqfpJJKDslk3gq7Ht7lHi370Qr285E6b8BuxBzbldZh"/>
+</div>
+<div class="h-48 relative">
+<img alt="Event photo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" data-alt="Team members celebrating with a trophy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZIcBOpRpMhmoP51veQ7YBZQu3uUadC1UvKAU6XKHwg_TuRlpmEmYo51II7gVB94wkx43jM9wGtKfvkPPfgcjauQYhp1fprJ5Itq3VrWSdKpmzRyaNEDbbFts9yyWEgJIR1zX7yKbQu6c4qWRi7Mn3vI3X1z9v4v7Sjs9TSBa-zTXgdA4Kv3zwV-I9d8Ll8AbjBUM2drjyQRVoaiC0avigSlG44nP4rYhfyy5pz_dlujCCbhY1gtr2qm2iSQubj4bHiLu1UPe8UvtZ"/>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-neutral-100 dark:border-neutral-700">
+<div class="flex -space-x-2">
+<img alt="Liker" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-neutral-800" data-alt="Small avatar of a student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD8chRLI5l9BA0toCI9AcHkofS2qLn3-Mp03DO5t3K3sreAckswKtpZg4BcTlczGH3cdvqqukdjQ9TMPmsyvDLQGoTQ27fgDUsr4On9PBgMf0QsrOi3BqTRtedbOUjYIbYZhseWmV427jDPrfzqzxrRailwFbQMpyqmwaBdwul9RNdpuhQUDRNLiVb8UayzWLo0mtTwHyU6TuJRwJJAAyK6HbGXwvawRrYK7KaXRYWn2LkPeKNNbyhx_4eUUyt1TsvhNUzP2wtkpmp"/>
+<img alt="Liker" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-neutral-800" data-alt="Small avatar of a student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCslrvsD5dKKKnKyCcbuHWzaGuJetFoHERagHQro4dPJJAb34X7sR9-4um3UDqeyljM7UsjWFZTV-d77qw5vITHtRJGWgomwvRXHYJ_lLAxTaAwINYTJFnHPkPqELyBvsECLPtjUBLqLsk-ZgiFtFVbOD_NGx61GcfMH_gz_W5DiA2yiFpj7BrJfO-m5BbyrB4-HyN9BdTHjlDjTHSbpxwfknjfmqIpRB_HCCvJMG3upJgJOPv2_4SaO0d4cNoIqzDvKIEDogdhlIMj"/>
+<span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-700 ring-2 ring-white dark:ring-neutral-800">
+<span class="text-[10px] font-medium leading-none text-neutral-500 dark:text-neutral-300">+12</span>
+</span>
+</div>
+<div class="flex gap-4">
+<button class="text-neutral-500 hover:text-primary flex items-center gap-1 text-sm font-medium transition-colors">
+<span class="material-icons text-base">favorite_border</span>
+                                        Like
+                                    </button>
+<button class="text-neutral-500 hover:text-primary flex items-center gap-1 text-sm font-medium transition-colors">
+<span class="material-icons text-base">chat_bubble_outline</span>
+                                        Comment
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Announcement 3 (Standard) -->
+<div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 p-6">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
+                            SJ
+                        </div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-neutral-900 dark:text-white">SJCS Admin</p>
+<p class="text-xs text-neutral-500 dark:text-neutral-400">Last Week, Oct 28</p>
+</div>
+</div>
+<h3 class="mt-2 text-lg font-bold text-neutral-900 dark:text-white">Fundraiser Forms Due Friday</h3>
+<p class="mt-2 text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
+                                Just a reminder that all chocolate bar fundraiser forms need to be turned in to the front office by this Friday at 3:00 PM. We need these funds for the new servo motors!
+                            </p>
+<div class="mt-3">
+<a class="inline-flex items-center gap-2 text-sm text-primary hover:underline font-medium p-2 bg-primary/5 rounded-lg border border-primary/10 hover:bg-primary/10 transition-colors" href="#">
+<span class="material-icons text-lg">description</span>
+                                    Download Fundraiser_Sheet_v2.pdf
+                                </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar Widgets -->
+<div class="space-y-6">
+<!-- Events Widget -->
+<div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="px-6 py-4 border-b border-neutral-100 dark:border-neutral-700 flex justify-between items-center bg-neutral-50 dark:bg-neutral-800/50">
+<h3 class="text-base font-bold text-neutral-900 dark:text-white flex items-center gap-2">
+<span class="material-icons text-primary text-lg">event</span>
+                            Upcoming Events
+                        </h3>
+<a class="text-xs font-semibold text-primary hover:text-primary-dark" href="#">View All</a>
+</div>
+<div class="p-4 space-y-4">
+<!-- Event Item -->
+<div class="flex gap-3 items-start group cursor-pointer">
+<div class="flex-shrink-0 w-12 h-14 bg-primary/10 rounded-lg flex flex-col items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="text-xs font-semibold uppercase mt-1">Nov</span>
+<span class="text-xl font-bold leading-none mb-1">12</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-neutral-900 dark:text-white group-hover:text-primary transition-colors">Fall Bake Sale</h4>
+<p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Cafeteria • 11:30 AM</p>
+<span class="inline-flex mt-1 items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                    Fundraising
+                                </span>
+</div>
+</div>
+<!-- Event Item -->
+<div class="flex gap-3 items-start group cursor-pointer">
+<div class="flex-shrink-0 w-12 h-14 bg-primary/10 rounded-lg flex flex-col items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="text-xs font-semibold uppercase mt-1">Dec</span>
+<span class="text-xl font-bold leading-none mb-1">05</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-neutral-900 dark:text-white group-hover:text-primary transition-colors">Regional Finals</h4>
+<p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Convention Center • 8:00 AM</p>
+<span class="inline-flex mt-1 items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-primary/10 text-primary dark:bg-primary/20">
+                                    Competition
+                                </span>
+</div>
+</div>
+<!-- Event Item -->
+<div class="flex gap-3 items-start group cursor-pointer">
+<div class="flex-shrink-0 w-12 h-14 bg-neutral-100 dark:bg-neutral-700 rounded-lg flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-600 transition-colors">
+<span class="text-xs font-semibold uppercase mt-1">Dec</span>
+<span class="text-xl font-bold leading-none mb-1">14</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-neutral-900 dark:text-white group-hover:text-primary transition-colors">Holiday Party</h4>
+<p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Room 304 • 3:30 PM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Members Widget -->
+<div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="px-6 py-4 border-b border-neutral-100 dark:border-neutral-700 flex justify-between items-center bg-neutral-50 dark:bg-neutral-800/50">
+<h3 class="text-base font-bold text-neutral-900 dark:text-white flex items-center gap-2">
+<span class="material-icons text-primary text-lg">people</span>
+                             Leadership
+                        </h3>
+</div>
+<ul class="divide-y divide-neutral-100 dark:divide-neutral-700">
+<li class="flex items-center gap-3 p-4 hover:bg-neutral-50 dark:hover:bg-neutral-700/50 transition-colors cursor-pointer">
+<img alt="Member" class="h-10 w-10 rounded-full object-cover" data-alt="Advisor profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4C907pcOxJ2GsXaI4BfhUmHJ-arbMwEqT7MSoGxHefFW7h5eEhzEfSTtqdmMuywudPETW7f8EZ2pFUSFRbBCULOkE9y7M8ASmZZLaoIG-FQ2qx5mcZNjXeQJ1kOe34sAw7NkkJJ1Nnx6Zv6zSIeFPq24U3qFBKIghWYcCEQGJuyZXJ9nIZhBjCJ0HSLsEbZH83bfRfPGjJzNJOmMqEztcDpaMAEz9irHk1tnk27LloN5wyQFK3GpFe6oVXS6R_UdDxIUgWKUGVg9d"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-neutral-900 dark:text-white truncate">Mr. Davidson</p>
+<p class="text-xs text-neutral-500 dark:text-neutral-400 truncate">Faculty Advisor</p>
+</div>
+</li>
+<li class="flex items-center gap-3 p-4 hover:bg-neutral-50 dark:hover:bg-neutral-700/50 transition-colors cursor-pointer">
+<img alt="Member" class="h-10 w-10 rounded-full object-cover" data-alt="President profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrpwE_wqVLg2TqbGBuSHo7LS-VqA3AaN_kppfa0SnV7Fjf2axsYDAhzXjvMGVsrDU2gw7jlhTpXDlp0ugm_hmb_vU6ErOPjM4uAZaiwEJHUCDIIZbvnrUgGeqYPj44dBmdyviV_KXtQGwLXJOmhNIKc3cKBi1uCq8v96JCD51-WuwWBUz9d1oNoAtu4eanBOOKRBrNcmo7wjmc57NlkEk-kL9aCHoD1FkUkt5m2wc06jGNEL60TfUTFXjQJ_Mz40P-cfyvwri_q8Es"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-neutral-900 dark:text-white truncate">Sarah Jenkins</p>
+<p class="text-xs text-neutral-500 dark:text-neutral-400 truncate">President • Grade 12</p>
+</div>
+</li>
+<li class="flex items-center gap-3 p-4 hover:bg-neutral-50 dark:hover:bg-neutral-700/50 transition-colors cursor-pointer">
+<img alt="Member" class="h-10 w-10 rounded-full object-cover" data-alt="VP profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm9KMIiFWq-066Gcj9euSskysIdRX5UjoBxUa4JMgEnjQJht9PBr3OUpWjfCX7dalyWJEv7tfhrMQtBzsNh2yHB5M_AMIzaEmed2qi-PV8ApPLGk8HgZgv3Cl9fkL79uE5K5SyJOB4P0uU50QYs0OEmQ6sIi9aS7IvyzMlEFzWa3PFqhDua7tfhKJ14Ov7RInXsxBQRv99fEgvCvGNeE9Dts7zxRkV-cEqF9pSdBP40rnzCrlN--cLNHV3kXn0FdbmI4COxpBQEBU4"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-neutral-900 dark:text-white truncate">Michael Chen</p>
+<p class="text-xs text-neutral-500 dark:text-neutral-400 truncate">VP of Engineering • Grade 11</p>
+</div>
+</li>
+</ul>
+<div class="p-3 bg-neutral-50 dark:bg-neutral-800/50 text-center border-t border-neutral-100 dark:border-neutral-700">
+<a class="text-xs font-semibold text-primary hover:text-primary-dark" href="#">View all 28 Members</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="bg-white dark:bg-neutral-800 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-700 p-5">
+<h3 class="text-sm font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3">Resources</h3>
+<div class="space-y-2">
+<a class="block p-3 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all group" href="#">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-neutral-700 dark:text-neutral-300 group-hover:text-primary">Club Constitution</span>
+<span class="material-icons text-neutral-400 text-sm group-hover:text-primary">arrow_forward</span>
+</div>
+</a>
+<a class="block p-3 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all group" href="#">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-neutral-700 dark:text-neutral-300 group-hover:text-primary">Safety Waiver Form</span>
+<span class="material-icons text-neutral-400 text-sm group-hover:text-primary">arrow_forward</span>
+</div>
+</a>
+<a class="block p-3 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all group" href="#">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-neutral-700 dark:text-neutral-300 group-hover:text-primary">Expense Report Template</span>
+<span class="material-icons text-neutral-400 text-sm group-hover:text-primary">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payments &amp; Finance - Saint Joseph Catholic School</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#135bec",
+                "background-light": "#f6f6f8",
+                "background-dark": "#101622",
+                },
+                fontFamily: {
+                "display": ["Lexend"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<script>
+        // Simple dark mode toggle logic for demonstration
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-600 dark:text-slate-300 font-display min-h-screen flex antialiased">
+<!-- Sidebar -->
+<aside class="w-64 bg-white dark:bg-[#1a202c] border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full z-10 hidden lg:flex">
+<div class="h-16 flex items-center px-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-2 font-bold text-xl text-slate-800 dark:text-white">
+<span class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-icons text-sm">school</span>
+</span>
+<span>SJCS Portal</span>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto py-6 px-3 space-y-1">
+<a class="flex items-center px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary hover:bg-primary/5 rounded-lg transition-colors group" href="#">
+<span class="material-icons mr-3 group-hover:text-primary">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary hover:bg-primary/5 rounded-lg transition-colors group" href="#">
+<span class="material-icons mr-3 group-hover:text-primary">person</span>
+                Student Profile
+            </a>
+<a class="flex items-center px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary hover:bg-primary/5 rounded-lg transition-colors group" href="#">
+<span class="material-icons mr-3 group-hover:text-primary">school</span>
+                Academics
+            </a>
+<a class="flex items-center px-3 py-2.5 bg-primary/10 text-primary dark:text-primary font-medium rounded-lg" href="#">
+<span class="material-icons mr-3 text-primary">payments</span>
+                Payments &amp; Finance
+            </a>
+<a class="flex items-center px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary hover:bg-primary/5 rounded-lg transition-colors group" href="#">
+<span class="material-icons mr-3 group-hover:text-primary">event</span>
+                Calendar
+            </a>
+<a class="flex items-center px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary hover:bg-primary/5 rounded-lg transition-colors group" href="#">
+<span class="material-icons mr-3 group-hover:text-primary">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<img alt="Profile picture of Sarah Miller" class="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Profile picture of Sarah Miller" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCl1rxbbc8vQClWgxUA08YWufK6ua4XXJOdJbiQda-lY2-PsodbeN1rV-gxmJD9B6NCeOmuyfgIbvjfEVyT48KnnisNe3tgs0HSNBf5oeSYxyToZz2udYtbW46sjeivQ2SZC5NvPH1Cbd0vWEn-D0CctSdcu1BO6Ktz6Qkxu4nRkvmIDuPYlmBskLO-jLz7XvYxSMYTX64Sg11Y_CVRpQQUJdK0BWmWFN05RSrHWw95-XCm6Y7s_w-8MdEoR5kqFwt2U1WmyOvoBDB"/>
+<div>
+<p class="text-sm font-semibold text-slate-800 dark:text-white">Sarah Miller</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Parent</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 p-4 lg:p-8 overflow-y-auto">
+<!-- Header -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Payments &amp; Finance</h1>
+<p class="text-slate-500 dark:text-slate-400">Manage tuition fees, view history, and download receipts for <span class="font-medium text-primary">Lucas Miller (Grade 10)</span>.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg flex items-center gap-2 shadow-sm transition-all">
+<span class="material-icons text-sm">download</span>
+<span>Statement</span>
+</button>
+<button class="bg-gradient-to-r from-primary to-blue-500 hover:from-blue-600 hover:to-blue-400 text-white px-6 py-2 rounded-lg shadow-lg shadow-primary/30 flex items-center gap-2 transition-all font-medium">
+<span class="material-icons text-sm">lock</span>
+<span>Pay Outstanding</span>
+</button>
+</div>
+</header>
+<!-- Stats Overview -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Total Outstanding Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-red-50 dark:bg-red-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="relative">
+<div class="flex items-center gap-2 mb-2">
+<span class="p-2 bg-red-100 dark:bg-red-500/20 text-red-600 dark:text-red-400 rounded-lg">
+<span class="material-icons text-lg">warning</span>
+</span>
+<h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Outstanding Balance</h3>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">$1,200.00</span>
+<span class="text-xs font-medium text-red-500 bg-red-50 dark:bg-red-900/30 px-2 py-0.5 rounded-full">Due in 5 days</span>
+</div>
+<p class="text-sm text-slate-400 mt-2">Includes Tuition &amp; Lab Fees</p>
+</div>
+</div>
+<!-- Paid YTD Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-green-50 dark:bg-green-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="relative">
+<div class="flex items-center gap-2 mb-2">
+<span class="p-2 bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 rounded-lg">
+<span class="material-icons text-lg">check_circle</span>
+</span>
+<h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Paid YTD</h3>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">$4,500.00</span>
+</div>
+<p class="text-sm text-slate-400 mt-2">Academic Year 2023-2024</p>
+</div>
+</div>
+<!-- Upcoming Due Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-blue-50 dark:bg-blue-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="relative">
+<div class="flex items-center gap-2 mb-2">
+<span class="p-2 bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded-lg">
+<span class="material-icons text-lg">calendar_today</span>
+</span>
+<h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Next Due Date</h3>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">Oct 15</span>
+</div>
+<p class="text-sm text-slate-400 mt-2">October Tuition ($350.00)</p>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Graph & Table -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Payment Trend Chart -->
+<section class="xl:col-span-1 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-slate-800 dark:text-white text-lg">Payment Trends</h3>
+<select class="text-sm border-none bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg py-1 pl-3 pr-8 focus:ring-1 focus:ring-primary cursor-pointer">
+<option>This Year</option>
+<option>Last Year</option>
+</select>
+</div>
+<div class="relative flex-1 flex items-end gap-2 h-64 w-full px-2">
+<!-- Simple CSS Bar Chart -->
+<!-- Month 1 -->
+<div class="group relative flex-1 bg-primary/10 hover:bg-primary/20 rounded-t-lg transition-all h-[40%]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$500</div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-500">Aug</span>
+</div>
+<!-- Month 2 -->
+<div class="group relative flex-1 bg-primary/10 hover:bg-primary/20 rounded-t-lg transition-all h-[30%]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$350</div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-500">Sep</span>
+</div>
+<!-- Month 3 -->
+<div class="group relative flex-1 bg-primary hover:bg-primary/90 rounded-t-lg transition-all h-[30%] shadow-lg shadow-primary/20">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$350</div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-bold text-primary dark:text-white">Oct</span>
+</div>
+<!-- Month 4 -->
+<div class="group relative flex-1 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-t-lg transition-all h-[30%] opacity-50 border border-dashed border-slate-300 dark:border-slate-500">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-400">Nov</span>
+</div>
+<!-- Month 5 -->
+<div class="group relative flex-1 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-t-lg transition-all h-[30%] opacity-50 border border-dashed border-slate-300 dark:border-slate-500">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-400">Dec</span>
+</div>
+<!-- Month 6 -->
+<div class="group relative flex-1 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-t-lg transition-all h-[30%] opacity-50 border border-dashed border-slate-300 dark:border-slate-500">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-400">Jan</span>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span>Paid</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-600"></span>
+<span>Projected</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Transactions Table -->
+<section class="xl:col-span-2 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header/Filter -->
+<div class="p-5 border-b border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h3 class="font-bold text-slate-800 dark:text-white text-lg">Transaction History</h3>
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none w-full sm:w-auto placeholder-slate-400" placeholder="Search..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+<span class="material-icons">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider font-semibold">
+<th class="p-5">Fee Description</th>
+<th class="p-5">Due Date</th>
+<th class="p-5">Amount</th>
+<th class="p-5">Status</th>
+<th class="p-5 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-700 text-sm">
+<!-- Row 1: Unpaid -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+<td class="p-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons">school</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">October Tuition</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Monthly Fee</p>
+</div>
+</div>
+</td>
+<td class="p-5 text-slate-600 dark:text-slate-300">
+                                    Oct 15, 2023
+                                </td>
+<td class="p-5 font-semibold text-slate-900 dark:text-white">
+                                    $350.00
+                                </td>
+<td class="p-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-100 dark:bg-red-500/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                        Unpaid
+                                    </span>
+</td>
+<td class="p-5 text-right">
+<button class="bg-primary hover:bg-blue-600 text-white text-xs px-4 py-2 rounded-lg font-medium shadow-sm transition-all hover:shadow-md inline-flex items-center gap-1">
+<span>Pay Now</span>
+<span class="material-icons text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Unpaid -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+<td class="p-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center text-orange-600 dark:text-orange-400">
+<span class="material-icons">science</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">Lab Fees - Term 1</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Material Costs</p>
+</div>
+</div>
+</td>
+<td class="p-5 text-slate-600 dark:text-slate-300">
+                                    Oct 15, 2023
+                                </td>
+<td class="p-5 font-semibold text-slate-900 dark:text-white">
+                                    $850.00
+                                </td>
+<td class="p-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-red-100 dark:bg-red-500/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                        Unpaid
+                                    </span>
+</td>
+<td class="p-5 text-right">
+<button class="bg-primary hover:bg-blue-600 text-white text-xs px-4 py-2 rounded-lg font-medium shadow-sm transition-all hover:shadow-md inline-flex items-center gap-1">
+<span>Pay Now</span>
+<span class="material-icons text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Paid -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+<td class="p-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons">school</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">September Tuition</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Monthly Fee</p>
+</div>
+</div>
+</td>
+<td class="p-5 text-slate-600 dark:text-slate-300">
+                                    Sept 01, 2023
+                                </td>
+<td class="p-5 font-semibold text-slate-900 dark:text-white">
+                                    $350.00
+                                </td>
+<td class="p-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                        Paid
+                                    </span>
+</td>
+<td class="p-5 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors flex items-center justify-end gap-1 w-full" title="Download Receipt">
+<span class="text-xs font-medium hidden group-hover:inline-block">Receipt</span>
+<span class="material-icons text-xl">description</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Paid -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+<td class="p-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+<span class="material-icons">assignment_ind</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">Registration Fee</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Annual</p>
+</div>
+</div>
+</td>
+<td class="p-5 text-slate-600 dark:text-slate-300">
+                                    Aug 15, 2023
+                                </td>
+<td class="p-5 font-semibold text-slate-900 dark:text-white">
+                                    $500.00
+                                </td>
+<td class="p-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                        Paid
+                                    </span>
+</td>
+<td class="p-5 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors flex items-center justify-end gap-1 w-full" title="Download Receipt">
+<span class="text-xs font-medium hidden group-hover:inline-block">Receipt</span>
+<span class="material-icons text-xl">description</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+<p class="text-xs text-slate-500 dark:text-slate-400">Showing 1-4 of 12 transactions</p>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 disabled:opacity-50">
+<span class="material-icons text-lg">chevron_left</span>
+</button>
+<button class="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">
+<span class="material-icons text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

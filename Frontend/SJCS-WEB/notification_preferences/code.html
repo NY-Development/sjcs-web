@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Preferences - Saint Joseph Catholic School</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom toggle switch styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #135bec;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #135bec;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display min-h-screen flex flex-col">
+<!-- Top Navigation / Header -->
+<nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex">
+<div class="flex-shrink-0 flex items-center gap-3">
+<img alt="Saint Joseph Catholic School Logo" class="h-10 w-auto rounded-lg" data-alt="School crest or logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQMik6S6HIHwSgKFUsQzJ7zOKIm1U62MEWm6U19jqaP3lejLDly4ngX77s5uK4c552aw_MdK5_ERL8wAcuZazi_HWsFrf-FsrV5eyMzQo5nARCDPRK7mmq5UP8DybFMKuzxYRTitrdTYkXQQX2AgCeMhc3t7pMR-Zqse5SFVUB6bQpjvpUd4F9hHmv2zU6KlgX4iZvKjgYHa8DcNGaAqST_ylO-A-k8MqVcn7Da0swQ65KfEPToiS_UJITXkbR1TqsRFsYOcrZoKt-"/>
+<div>
+<span class="block font-bold text-lg leading-none text-slate-900 dark:text-white">SJCS</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Parent Portal</span>
+</div>
+</div>
+<div class="hidden sm:ml-8 sm:flex sm:space-x-8">
+<a class="border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Dashboard</a>
+<a class="border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Students</a>
+<a class="border-primary text-slate-900 dark:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-1 rounded-full text-slate-400 hover:text-slate-500 focus:outline-none">
+<span class="sr-only">View notifications</span>
+<span class="material-icons text-2xl">notifications</span>
+</button>
+<div class="flex items-center gap-2">
+<img alt="User avatar" class="h-8 w-8 rounded-full bg-slate-100" data-alt="Portrait of a smiling parent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEjYZ11e_aGsFZ1orVBcQNx55C381XwWPxdaFjSHhqaZbE9GEoctnQbTo4joBhYN99Xecu4nW_xdwszF_CHM55ihuJT0s_-KUeIXCGHFYuCho7BvRKeOnk2SVjC9n9HMcirVXIlkkSENRzz8LNMifC79StW5j4newMaxy63M9f7TrIpl2DaqXKoRbe2r3b65rGglUk5j8B3Yn9LfbOcBczDxejiAsF_K4t2ZhnjGx6O7TCwMHvYQPF-TCs6I2cgJS1vd_uM1aaBoxG"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 py-10">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="flex mb-5">
+<ol class="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400" role="list">
+<li><a class="hover:text-primary transition-colors" href="#">Settings</a></li>
+<li><span class="material-icons text-base">chevron_right</span></li>
+<li class="font-medium text-slate-800 dark:text-slate-200">Notification Preferences</li>
+</ol>
+</nav>
+<div class="md:flex md:items-center md:justify-between mb-8">
+<div class="flex-1 min-w-0">
+<h2 class="text-2xl font-bold leading-7 text-slate-900 dark:text-white sm:text-3xl sm:truncate">Notification Preferences</h2>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Manage how and when you receive updates regarding your student's activities at Saint Joseph Catholic School.</p>
+</div>
+</div>
+<!-- Global Alert Banner -->
+<div class="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4 mb-8 border border-blue-100 dark:border-blue-900/50">
+<div class="flex">
+<div class="flex-shrink-0">
+<span class="material-icons text-primary text-xl">info</span>
+</div>
+<div class="ml-3 flex-1 md:flex md:justify-between">
+<p class="text-sm text-blue-700 dark:text-blue-300">Emergency alerts regarding school safety and closures cannot be disabled and will be sent to all verified contacts.</p>
+</div>
+</div>
+</div>
+<form action="#" class="space-y-8" method="POST">
+<!-- Section 1: Delivery Channels -->
+<div class="bg-white dark:bg-slate-900 shadow-sm rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="px-6 py-5 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+<h3 class="text-lg leading-6 font-medium text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-icons text-primary">devices</span>
+                            Delivery Channels
+                        </h3>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Where would you like to receive your notifications?</p>
+</div>
+<div class="px-6 py-6 space-y-6">
+<!-- Email Setting -->
+<div class="flex items-start">
+<div class="flex items-center h-5">
+<input checked="" class="focus:ring-primary h-5 w-5 text-primary border-slate-300 rounded dark:bg-slate-800 dark:border-slate-600" id="channel-email" name="channel-email" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-medium text-slate-900 dark:text-white" for="channel-email">Email Notifications</label>
+<p class="text-slate-500 dark:text-slate-400">Sent to <span class="font-medium text-slate-700 dark:text-slate-300">parent@example.com</span></p>
+</div>
+<div class="ml-auto">
+<button class="text-sm text-primary hover:text-blue-700 font-medium" type="button">Edit</button>
+</div>
+</div>
+<hr class="border-slate-100 dark:border-slate-800"/>
+<!-- SMS Setting -->
+<div class="flex items-start">
+<div class="flex items-center h-5">
+<input checked="" class="focus:ring-primary h-5 w-5 text-primary border-slate-300 rounded dark:bg-slate-800 dark:border-slate-600" id="channel-sms" name="channel-sms" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-medium text-slate-900 dark:text-white" for="channel-sms">SMS / Text Messages</label>
+<p class="text-slate-500 dark:text-slate-400">Sent to <span class="font-medium text-slate-700 dark:text-slate-300">+1 (555) 123-4567</span></p>
+</div>
+<div class="ml-auto">
+<button class="text-sm text-primary hover:text-blue-700 font-medium" type="button">Edit</button>
+</div>
+</div>
+<hr class="border-slate-100 dark:border-slate-800"/>
+<!-- Push Setting -->
+<div class="flex items-start">
+<div class="flex items-center h-5">
+<input checked="" class="focus:ring-primary h-5 w-5 text-primary border-slate-300 rounded dark:bg-slate-800 dark:border-slate-600" id="channel-push" name="channel-push" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-medium text-slate-900 dark:text-white" for="channel-push">In-App Push Notifications</label>
+<p class="text-slate-500 dark:text-slate-400">Received on your mobile device via the SJCS App.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Notification Categories -->
+<div class="space-y-6">
+<h3 class="text-lg font-medium text-slate-900 dark:text-white px-1">Notification Categories</h3>
+<!-- Academic Alerts Card -->
+<div class="bg-white dark:bg-slate-900 shadow-sm rounded-xl border border-slate-200 dark:border-slate-800 p-6 transition-all hover:shadow-md">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-primary">
+<span class="material-icons">school</span>
+</div>
+<div>
+<h4 class="text-base font-semibold text-slate-900 dark:text-white">Academic Alerts</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Grade updates, assignment deadlines, and attendance.</p>
+</div>
+</div>
+<!-- Master Toggle -->
+<label class="flex items-center cursor-pointer relative" for="toggle-academic">
+<input checked="" class="sr-only toggle-checkbox" id="toggle-academic" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 rounded-full border border-slate-200 dark:border-slate-600 toggle-label transition-colors"></div>
+<div class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition transform duration-200 ease-in-out shadow-sm"></div>
+</label>
+<style>
+                                #toggle-academic:checked ~ .toggle-label { background-color: #135bec; border-color: #135bec; }
+                                #toggle-academic:checked ~ .dot { transform: translateX(100%); }
+                            </style>
+</div>
+<!-- Granular options inside card -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">New Grade Posted</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Assignment Due Tomorrow</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Absence Notification</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Teacher Messages</span>
+</label>
+</div>
+</div>
+<!-- Financial Reminders Card -->
+<div class="bg-white dark:bg-slate-900 shadow-sm rounded-xl border border-slate-200 dark:border-slate-800 p-6 transition-all hover:shadow-md">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-green-50 dark:bg-green-900/30 rounded-lg text-green-600">
+<span class="material-icons">attach_money</span>
+</div>
+<div>
+<h4 class="text-base font-semibold text-slate-900 dark:text-white">Financial Reminders</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Tuition due dates, tax documents, and payment receipts.</p>
+</div>
+</div>
+<label class="flex items-center cursor-pointer relative" for="toggle-financial">
+<input checked="" class="sr-only toggle-checkbox" id="toggle-financial" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 rounded-full border border-slate-200 dark:border-slate-600 toggle-label transition-colors"></div>
+<div class="dot-financial absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition transform duration-200 ease-in-out shadow-sm"></div>
+</label>
+<style>
+                                #toggle-financial:checked ~ .toggle-label { background-color: #135bec; border-color: #135bec; }
+                                #toggle-financial:checked ~ .dot-financial { transform: translateX(100%); }
+                            </style>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Invoice Available</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Payment Success</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Payment Overdue Alert</span>
+</label>
+</div>
+</div>
+<!-- Club Announcements Card -->
+<div class="bg-white dark:bg-slate-900 shadow-sm rounded-xl border border-slate-200 dark:border-slate-800 p-6 transition-all hover:shadow-md">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-purple-50 dark:bg-purple-900/30 rounded-lg text-purple-600">
+<span class="material-icons">sports_soccer</span>
+</div>
+<div>
+<h4 class="text-base font-semibold text-slate-900 dark:text-white">Club &amp; Sports Announcements</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Game schedules, practice changes, and event invites.</p>
+</div>
+</div>
+<label class="flex items-center cursor-pointer relative" for="toggle-club">
+<input class="sr-only toggle-checkbox" id="toggle-club" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 rounded-full border border-slate-200 dark:border-slate-600 toggle-label transition-colors"></div>
+<div class="dot-club absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition transform duration-200 ease-in-out shadow-sm"></div>
+</label>
+<style>
+                                #toggle-club:checked ~ .toggle-label { background-color: #135bec; border-color: #135bec; }
+                                #toggle-club:checked ~ .dot-club { transform: translateX(100%); }
+                            </style>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 opacity-50 pointer-events-none" id="club-options">
+<label class="flex items-center space-x-3">
+<input class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" disabled="" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300">New Event Added</span>
+</label>
+<label class="flex items-center space-x-3">
+<input class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" disabled="" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300">Schedule Changes</span>
+</label>
+</div>
+</div>
+<!-- System Updates Card -->
+<div class="bg-white dark:bg-slate-900 shadow-sm rounded-xl border border-slate-200 dark:border-slate-800 p-6 transition-all hover:shadow-md">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-orange-50 dark:bg-orange-900/30 rounded-lg text-orange-600">
+<span class="material-icons">settings_suggest</span>
+</div>
+<div>
+<h4 class="text-base font-semibold text-slate-900 dark:text-white">System Updates</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Platform maintenance and school policy updates.</p>
+</div>
+</div>
+<label class="flex items-center cursor-pointer relative" for="toggle-system">
+<input checked="" class="sr-only toggle-checkbox" id="toggle-system" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 rounded-full border border-slate-200 dark:border-slate-600 toggle-label transition-colors"></div>
+<div class="dot-system absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition transform duration-200 ease-in-out shadow-sm"></div>
+</label>
+<style>
+                                #toggle-system:checked ~ .toggle-label { background-color: #135bec; border-color: #135bec; }
+                                #toggle-system:checked ~ .dot-system { transform: translateX(100%); }
+                            </style>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input checked="" class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Maintenance Alerts</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="form-checkbox h-4 w-4 text-primary rounded border-slate-300 focus:ring-primary dark:bg-slate-800 dark:border-slate-600" type="checkbox"/>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Feature Announcements</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center justify-end gap-4 pt-6 pb-20 sm:pb-6 border-t border-slate-200 dark:border-slate-800">
+<button class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white px-4 py-2 rounded-lg transition-colors" type="button">
+                        Reset to Default
+                    </button>
+<button class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 px-6 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-sm" type="button">
+                        Cancel
+                    </button>
+<button class="bg-primary hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-md shadow-blue-500/20" type="submit">
+                        Save Preferences
+                    </button>
+</div>
+</form>
+</div>
+</main>
+<!-- Simple Toast Notification (Visual only) -->
+<div class="fixed bottom-4 right-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 transform translate-y-20 transition-transform duration-500 ease-in-out opacity-0 pointer-events-none z-50">
+<span class="material-icons text-green-400 dark:text-green-600">check_circle</span>
+<span class="font-medium text-sm">Settings saved successfully</span>
+</div>
+</body></html>

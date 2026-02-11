@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registration Success &amp; Verification - SJCS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-hover": "#0e4ac4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 min-h-screen flex flex-col antialiased selection:bg-primary/30">
+<!-- Navbar (Simplified for this context) -->
+<nav class="w-full bg-white dark:bg-[#151c2c] border-b border-gray-200 dark:border-gray-800 h-16 flex items-center justify-between px-4 lg:px-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">S</div>
+<span class="font-bold text-lg tracking-tight text-gray-900 dark:text-white">Saint Joseph Catholic School</span>
+</div>
+<div class="hidden sm:flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+<span>Need help?</span>
+<a class="text-primary hover:text-primary-hover font-medium flex items-center gap-1" href="#">
+                Contact Support
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
+<!-- Success Card Container -->
+<div class="w-full max-w-2xl bg-white dark:bg-[#151c2c] rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden relative">
+<!-- Decorative Top Pattern -->
+<div class="h-2 w-full bg-gradient-to-r from-primary/60 via-primary to-blue-400"></div>
+<div class="p-8 sm:p-12">
+<!-- Success Header Section -->
+<div class="text-center mb-10">
+<div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-50 dark:bg-green-900/20 text-green-500 mb-6 relative">
+<!-- Ripple effect decoration -->
+<div class="absolute inset-0 rounded-full border-4 border-green-100 dark:border-green-900/30 opacity-50 animate-pulse"></div>
+<span class="material-icons text-5xl">check_circle</span>
+</div>
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-3">Registration Received</h1>
+<p class="text-gray-500 dark:text-gray-400 max-w-lg mx-auto text-lg leading-relaxed">
+                        Welcome to the SJCS family, <span class="text-gray-900 dark:text-white font-semibold">Sarah Jenkins</span>. Your teacher application has been successfully submitted.
+                    </p>
+</div>
+<!-- Status & Steps Container -->
+<div class="bg-background-light dark:bg-background-dark/50 rounded-xl p-6 mb-8 border border-gray-200 dark:border-gray-700">
+<!-- Status Badge Block -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-6 border-b border-gray-200 dark:border-gray-700 gap-4">
+<div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Current Status</p>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400 border border-amber-100 dark:border-amber-800/30">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+</span>
+                                    Pending Approval
+                                </span>
+</div>
+</div>
+<div class="text-left sm:text-right">
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Reference ID</p>
+<p class="font-mono text-gray-900 dark:text-white font-medium">#TR-2023-8492</p>
+</div>
+</div>
+<!-- Steps Visualizer -->
+<div class="relative">
+<!-- Connecting Line -->
+<div class="absolute left-4 top-4 bottom-4 w-0.5 bg-gray-200 dark:bg-gray-700 sm:hidden"></div> <!-- Vertical line for mobile -->
+<div class="absolute top-3 left-6 right-6 h-0.5 bg-gray-200 dark:bg-gray-700 hidden sm:block"></div> <!-- Horizontal line for desktop -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 relative">
+<!-- Step 1: Completed -->
+<div class="flex sm:flex-col items-center sm:text-center gap-4 sm:gap-2 relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-sm ring-4 ring-background-light dark:ring-[#1a2333]">
+<span class="material-icons text-base">check</span>
+</div>
+<div class="flex-1 sm:flex-none">
+<p class="text-sm font-semibold text-primary">Registration</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Submitted today</p>
+</div>
+</div>
+<!-- Step 2: Active -->
+<div class="flex sm:flex-col items-center sm:text-center gap-4 sm:gap-2 relative z-10">
+<div class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-sm ring-4 ring-background-light dark:ring-[#1a2333]">
+<span class="material-icons text-base animate-pulse">sync</span>
+</div>
+<div class="flex-1 sm:flex-none">
+<p class="text-sm font-semibold text-gray-900 dark:text-white">Admin Review</p>
+<p class="text-xs text-amber-600 dark:text-amber-400 font-medium">In Progress</p>
+</div>
+</div>
+<!-- Step 3: Future -->
+<div class="flex sm:flex-col items-center sm:text-center gap-4 sm:gap-2 relative z-10">
+<div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 flex items-center justify-center shadow-sm ring-4 ring-background-light dark:ring-[#1a2333]">
+<span class="material-icons text-base">lock_open</span>
+</div>
+<div class="flex-1 sm:flex-none">
+<p class="text-sm font-medium text-gray-400 dark:text-gray-500">Activation</p>
+<p class="text-xs text-gray-400 dark:text-gray-600">Awaiting approval</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Informational Body -->
+<div class="space-y-4 mb-10">
+<div class="flex gap-4 p-4 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-100 dark:border-blue-800/30">
+<span class="material-icons text-primary mt-0.5">info</span>
+<div>
+<h3 class="font-semibold text-gray-900 dark:text-white text-sm mb-1">What happens next?</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                To ensure the security of our students and data, all teacher accounts must be manually verified by the school administration. You will receive an email notification at <strong class="text-gray-900 dark:text-white">sarah.j@example.com</strong> once your account is active (typically within 24-48 hours).
+                            </p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="w-full sm:w-auto px-8 py-3 bg-primary hover:bg-primary-hover text-white rounded-lg font-semibold shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-[#151c2c]">
+                        Return to Home Page
+                    </button>
+<button class="w-full sm:w-auto px-8 py-3 bg-white dark:bg-transparent border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 dark:focus:ring-offset-[#151c2c]">
+                        Contact IT Support
+                    </button>
+</div>
+<!-- Footer Help Text -->
+<p class="mt-8 text-center text-xs text-gray-400 dark:text-gray-500">
+                    If you believe you've made a mistake in your registration, please contact the IT office immediately at <a class="underline hover:text-primary" href="#">support@sjcs.edu</a>.
+                </p>
+</div>
+</div>
+<!-- Background Decor elements -->
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+<div class="absolute top-[10%] left-[5%] w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-[10%] right-[5%] w-96 h-96 bg-blue-400/5 rounded-full blur-3xl"></div>
+</div>
+</main>
+</body></html>

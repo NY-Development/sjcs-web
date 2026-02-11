@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account &amp; Security Settings - SJCS Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-hover": "#0e47b8",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "neutral-surface": "#ffffff",
+                        "neutral-surface-dark": "#1a2233",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="bg-white dark:bg-neutral-surface-dark border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center gap-4">
+<!-- Logo / Branding -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold">
+                            SJ
+                        </div>
+<span class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white">SJCS Portal</span>
+</div>
+<!-- Breadcrumbs -->
+<nav class="hidden md:flex items-center text-sm text-slate-500 dark:text-slate-400 ml-8 border-l border-slate-200 dark:border-slate-700 pl-6 h-8">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="mx-2">/</span>
+<a class="hover:text-primary transition-colors" href="#">Settings</a>
+<span class="mx-2">/</span>
+<span class="text-slate-800 dark:text-slate-200 font-medium">Security</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative">
+<span class="material-icons text-[20px]">notifications_none</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-neutral-surface-dark"></span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-slate-200 border border-slate-200 dark:border-slate-600">
+<img alt="User Avatar" class="h-full w-full object-cover" data-alt="Close up portrait of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWbb8U4GwLPe1pLLge2Uu4TEc81pBa3Aj4dR_-M77uBbVgp78p2bB6BkCsP-GsmFOM2wnj52ynlAER8zkJTp9GtxxcKh7gEwYUmTsNNXEE7AsS5w6JNZuR1g9vv7zYWO5zlnfDe1ErvC8edlrwICr2ixNJ5i06MK3rmY_Be2urUiLZrqs7eUGw0I6WMu9TU_7M9HbIpQlEzVcuABqKnLgb-_Roon5Vdwy5rZkmRAk2AzrI819Qm6xDuabv0iMGoanIw1UVxbK6n6rA"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow py-8 px-4 sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto">
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Account Settings</h1>
+<p class="mt-2 text-slate-500 dark:text-slate-400">Manage your profile, security preferences, and system notifications for the Saint Joseph Catholic School portal.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Sidebar Navigation (Vertical Tabs) -->
+<aside class="w-full lg:w-64 flex-shrink-0">
+<nav class="space-y-1">
+<!-- Account Tab -->
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-primary/5 dark:hover:bg-white/5 transition-all" href="#">
+<span class="material-icons mr-3 text-[20px] text-slate-400 group-hover:text-primary transition-colors">person_outline</span>
+                            My Profile
+                        </a>
+<!-- Notifications Tab -->
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-primary/5 dark:hover:bg-white/5 transition-all" href="#">
+<span class="material-icons mr-3 text-[20px] text-slate-400 group-hover:text-primary transition-colors">notifications_none</span>
+                            Notifications
+                        </a>
+<!-- Security Tab (Active) -->
+<a aria-current="page" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg bg-primary/10 text-primary dark:text-primary dark:bg-primary/20 transition-all border-l-4 border-primary" href="#">
+<span class="material-icons mr-3 text-[20px] text-primary">lock_outline</span>
+                            Security
+                        </a>
+<!-- System Preferences Tab -->
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-primary/5 dark:hover:bg-white/5 transition-all" href="#">
+<span class="material-icons mr-3 text-[20px] text-slate-400 group-hover:text-primary transition-colors">settings_suggest</span>
+                            System Preferences
+                        </a>
+<!-- Data & Privacy Tab -->
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary hover:bg-primary/5 dark:hover:bg-white/5 transition-all" href="#">
+<span class="material-icons mr-3 text-[20px] text-slate-400 group-hover:text-primary transition-colors">privacy_tip</span>
+                            Data &amp; Privacy
+                        </a>
+</nav>
+<div class="mt-8 p-4 bg-primary/5 rounded-xl border border-primary/10">
+<div class="flex items-start gap-3">
+<span class="material-icons text-primary text-sm mt-0.5">info</span>
+<div>
+<h4 class="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Need Help?</h4>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    Contact the IT Support desk at <a class="text-primary underline hover:text-primary-hover" href="#">support@sjcs.edu</a> for assistance with account lockouts.
+                                </p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Active Content Panel -->
+<div class="flex-1 space-y-6">
+<!-- Section: Change Password -->
+<section class="bg-white dark:bg-neutral-surface-dark shadow-sm border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-700/50">
+<h2 class="text-lg font-semibold text-slate-900 dark:text-white">Password Management</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Update your password to keep your account secure.</p>
+</div>
+<div class="p-6 grid gap-6 max-w-2xl">
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="current-password">Current Password</label>
+<input class="mt-1 block w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-background-dark text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-2.5 px-3" id="current-password" placeholder="••••••••" type="password"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="new-password">New Password</label>
+<input class="mt-1 block w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-background-dark text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-2.5 px-3" id="new-password" placeholder="••••••••" type="password"/>
+</div>
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="confirm-password">Confirm New Password</label>
+<input class="mt-1 block w-full rounded-lg border-slate-300 dark:border-slate-600 bg-white dark:bg-background-dark text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-2.5 px-3" id="confirm-password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Password Requirements Helper -->
+<div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg border border-slate-100 dark:border-slate-700">
+<h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-3">Password Requirements</h4>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-600 dark:text-slate-400">
+<li class="flex items-center gap-2">
+<span class="material-icons text-green-500 text-[16px]">check_circle</span>
+<span>Minimum 8 characters</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-[16px]">radio_button_unchecked</span>
+<span>One uppercase character</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-[16px]">radio_button_unchecked</span>
+<span>One number</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-[16px]">radio_button_unchecked</span>
+<span>One special character</span>
+</li>
+</ul>
+</div>
+<div class="flex justify-end pt-2">
+<button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" type="button">
+                                    Update Password
+                                </button>
+</div>
+</div>
+</section>
+<!-- Section: Two-Factor Authentication (2FA) -->
+<section class="bg-white dark:bg-neutral-surface-dark shadow-sm border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-700/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                                    Two-Factor Authentication (2FA)
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                                        Disabled
+                                    </span>
+</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Add an extra layer of security to your account by requiring a code to sign in.</p>
+</div>
+<!-- Toggle Switch -->
+<div class="flex items-center">
+<button aria-checked="false" class="bg-slate-200 dark:bg-slate-700 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" role="switch" type="button">
+<span class="sr-only">Enable 2FA</span>
+<span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-background-dark/30">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0">
+<div class="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+<span class="material-icons text-primary text-xl">phonelink_lock</span>
+</div>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-medium text-slate-900 dark:text-white">Authenticator App</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Use an app like Google Authenticator or Microsoft Authenticator to generate verification codes. This is the recommended method for SJCS staff.
+                                    </p>
+<button class="mt-3 text-sm text-slate-400 dark:text-slate-600 font-medium cursor-not-allowed" disabled="">Configure (Enable 2FA first)</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Login Sessions -->
+<section class="bg-white dark:bg-neutral-surface-dark shadow-sm border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-700/50">
+<h2 class="text-lg font-semibold text-slate-900 dark:text-white">Active Sessions</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Devices currently logged into your account.</p>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-700/50">
+<!-- Current Session -->
+<div class="p-6 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-icons text-slate-400 text-2xl">desktop_windows</span>
+<div>
+<div class="flex items-center gap-2">
+<p class="text-sm font-medium text-slate-900 dark:text-white">Windows PC - Chrome</p>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                                Current Device
+                                            </span>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">San Francisco, CA • IP: 192.168.1.1</p>
+</div>
+</div>
+<span class="text-xs text-green-600 font-medium">Active now</span>
+</div>
+<!-- Old Session -->
+<div class="p-6 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-icons text-slate-400 text-2xl">smartphone</span>
+<div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">iPhone 13 - Safari</p>
+<p class="text-xs text-slate-500 mt-0.5">San Francisco, CA • IP: 172.16.0.45</p>
+</div>
+</div>
+<button class="text-sm text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium">Revoke</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-neutral-surface-dark py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                © 2023 Saint Joseph Catholic School. All rights reserved.
+            </p>
+<div class="flex gap-6 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

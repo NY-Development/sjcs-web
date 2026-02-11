@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SJCS - Student Registration Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-dark": "#0e45b5",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "sjcs-red": "#d32f2f", // Adding a specific red for the gradient requirement
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex items-center justify-center relative overflow-hidden">
+<!-- Subtle Background Illustration -->
+<!-- Using an abstract geometric pattern to represent academic structure without distraction -->
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#135bec 1px, transparent 1px); background-size: 32px 32px;"></div>
+<!-- Large faint background icon for context -->
+<div class="absolute -right-20 -bottom-20 z-0 opacity-5 dark:opacity-10 text-primary pointer-events-none transform rotate-12">
+<span class="material-icons" style="font-size: 400px;">school</span>
+</div>
+<div class="w-full max-w-lg z-10 p-4">
+<!-- Logo & Branding Area -->
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-sjcs-red text-white shadow-lg mb-4">
+<span class="material-icons text-4xl">local_library</span>
+</div>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Saint Joseph Catholic School</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2">Student Management Portal</p>
+</div>
+<!-- Main Form Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+<!-- Progress Indicator -->
+<div class="bg-slate-50 dark:bg-slate-900/50 px-8 py-4 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+<div>
+<h2 class="font-bold text-lg text-slate-800 dark:text-white">Complete Registration</h2>
+<p class="text-xs text-slate-500">Enter your personal details below</p>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">Step 2 of 2</span>
+<div class="flex space-x-1">
+<div class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+</div>
+</div>
+<form class="p-8 space-y-5">
+<!-- Full Name -->
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="fullName">Full Name</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-icons text-xl">person_outline</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-slate-50 dark:bg-slate-900/50 transition-all duration-200" id="fullName" placeholder="e.g. Johnathan Doe" type="text"/>
+</div>
+</div>
+<!-- Email & Phone Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Email Address -->
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="email">Email Address</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-icons text-xl">mail_outline</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-slate-50 dark:bg-slate-900/50 transition-all duration-200" id="email" placeholder="student@sjcs.edu" type="email"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="phone">Phone Number</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-icons text-xl">phone_iphone</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-slate-50 dark:bg-slate-900/50 transition-all duration-200" id="phone" placeholder="(555) 123-4567" type="tel"/>
+</div>
+</div>
+</div>
+<!-- Password -->
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="password">Create Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-icons text-xl">lock_outline</span>
+</div>
+<input class="block w-full pl-10 pr-10 py-2.5 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-slate-50 dark:bg-slate-900/50 transition-all duration-200" id="password" placeholder="Min. 8 characters" type="password"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons text-xl">visibility_off</span>
+</div>
+</div>
+<!-- Password Strength Meter (Visual only) -->
+<div class="flex gap-1 mt-1 h-1">
+<div class="w-1/4 bg-green-500 rounded-full h-full"></div>
+<div class="w-1/4 bg-green-500 rounded-full h-full"></div>
+<div class="w-1/4 bg-slate-200 dark:bg-slate-700 rounded-full h-full"></div>
+<div class="w-1/4 bg-slate-200 dark:bg-slate-700 rounded-full h-full"></div>
+</div>
+<p class="text-[10px] text-slate-500 text-right pt-0.5">Moderate</p>
+</div>
+<!-- Confirm Password -->
+<div class="space-y-1">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300" for="confirmPassword">Confirm Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-icons text-xl">lock_reset</span>
+</div>
+<input class="block w-full pl-10 pr-10 py-2.5 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-slate-50 dark:bg-slate-900/50 transition-all duration-200" id="confirmPassword" placeholder="Re-enter password" type="password"/>
+<!-- Visual Validation Checkmark -->
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-green-500 opacity-0 group-focus-within:opacity-100 transition-opacity">
+<span class="material-icons text-xl">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Terms & Conditions -->
+<div class="flex items-start pt-2">
+<div class="flex items-center h-5">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded bg-slate-50 dark:bg-slate-800 dark:border-slate-600" id="terms" name="terms" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-medium text-slate-700 dark:text-slate-300" for="terms">I agree to the <a class="text-primary hover:text-primary-dark underline decoration-1 underline-offset-2" href="#">Terms &amp; Conditions</a> and <a class="text-primary hover:text-primary-dark underline decoration-1 underline-offset-2" href="#">Privacy Policy</a>.</label>
+</div>
+</div>
+<!-- CTA Button -->
+<!-- The gradient required: Red (#d32f2f) to Blue (#135bec) -->
+<button class="w-full relative group overflow-hidden rounded-lg p-0.5 shadow-lg shadow-blue-500/20 active:scale-[0.99] transition-transform duration-100 mt-4" type="button">
+<span class="absolute inset-0 bg-gradient-to-r from-sjcs-red to-primary group-hover:from-red-600 group-hover:to-blue-700 transition-all duration-300"></span>
+<div class="relative bg-transparent rounded-[inherit] py-3.5 px-4 flex items-center justify-center space-x-2">
+<span class="text-white font-bold tracking-wide text-base">Create Account</span>
+<span class="material-icons text-white text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</button>
+</form>
+<!-- Footer Link -->
+<div class="bg-slate-50 dark:bg-slate-900/30 px-8 py-4 text-center border-t border-slate-100 dark:border-slate-700">
+<p class="text-sm text-slate-600 dark:text-slate-400">
+                    Need to correct something? 
+                    <a class="font-semibold text-primary hover:text-primary-dark ml-1" href="#">Go Back to Step 1</a>
+</p>
+</div>
+</div>
+<!-- Help/Contact -->
+<div class="text-center mt-6">
+<p class="text-xs text-slate-400 dark:text-slate-500">© 2023 Saint Joseph Catholic School. Need help? <a class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 underline" href="#">Contact Administration</a>.</p>
+</div>
+</div>
+</body></html>

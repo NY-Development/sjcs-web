@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Learning Materials Library - SJCS</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#135bec",
+                "primary-dark": "#0e45b5",
+                "background-light": "#f6f6f8",
+                "background-dark": "#101622",
+                "surface-light": "#ffffff",
+                "surface-dark": "#1a2234",
+                "border-light": "#e2e8f0",
+                "border-dark": "#2d3748",
+                },
+                fontFamily: {
+                "display": ["Lexend", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display transition-colors duration-200 antialiased min-h-screen flex flex-col">
+<!-- Navbar -->
+<nav class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark border-b border-border-light dark:border-border-dark shadow-sm h-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+<div class="flex justify-between items-center h-full">
+<!-- Logo & Brand -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-lg">
+                        SJ
+                    </div>
+<span class="font-semibold text-lg tracking-tight hidden md:block">SJCS Resource Hub</span>
+</div>
+<!-- Search Bar -->
+<div class="flex-1 max-w-2xl mx-4 lg:mx-12">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons-outlined text-slate-400 group-focus-within:text-primary">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-border-light dark:border-border-dark rounded-lg leading-5 bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out" placeholder="Search by title, author, or topic..." type="text"/>
+</div>
+</div>
+<!-- User Actions -->
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative">
+<span class="material-icons-outlined">notifications</span>
+<span class="absolute top-2 right-2 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-surface-dark"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-border-light dark:border-border-dark">
+<div class="text-right hidden sm:block">
+<div class="text-sm font-medium">Mrs. Sarah Connor</div>
+<div class="text-xs text-slate-500 dark:text-slate-400">Head of Science</div>
+</div>
+<img alt="Profile" class="h-9 w-9 rounded-full object-cover border border-border-light dark:border-border-dark" data-alt="Portrait of a smiling woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdQOkmvDrbJqr5vREmhOVzdWOlnXFO8dYE8ab0bNjZjYK4ryxvEgUaJAU3sU4j1QHfhQgJ6x7qE3xTg02lJxj4mK_ppMuFDS6dTQOZaVlPyAspusdY7Z1nj08M5E6xDcsXzEUYbjc3UHXjJbUxAYhaHV-vygmJb_mh26Fdzoc6EihbqftVjuo7eSNKTpF3NXx-kmGuUdk1ZoyU8YFmm5Ap-HaHw7XJ1skXH-_At_grCy0ZxEewwix-_K-gtJdQBYgXv6n_DteuXZvy"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-64 flex-shrink-0 space-y-8">
+<!-- Filter Group: Category -->
+<div>
+<h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Resource Type</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-2 rounded-lg bg-primary/10 text-primary cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary border-slate-300 focus:ring-primary" name="resource_type" type="radio"/>
+<span class="text-sm font-medium">All Materials</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<input class="w-4 h-4 text-primary border-slate-300 focus:ring-primary" name="resource_type" type="radio"/>
+<span class="text-sm">E-Books</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<input class="w-4 h-4 text-primary border-slate-300 focus:ring-primary" name="resource_type" type="radio"/>
+<span class="text-sm">Worksheets</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<input class="w-4 h-4 text-primary border-slate-300 focus:ring-primary" name="resource_type" type="radio"/>
+<span class="text-sm">Question Bank</span>
+</label>
+</div>
+</div>
+<div class="h-px bg-border-light dark:bg-border-dark"></div>
+<!-- Filter Group: Grade Level -->
+<div>
+<h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Grade Level</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">Grade 7</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">Grade 8</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">Grade 9</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">Grade 10</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">Senior High</span>
+</label>
+</div>
+</div>
+<div class="h-px bg-border-light dark:bg-border-dark"></div>
+<!-- Filter Group: Subject -->
+<div>
+<h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Subject</h3>
+<div class="space-y-2">
+<label class="flex items-center justify-between cursor-pointer group p-1 -ml-1 hover:bg-slate-50 dark:hover:bg-slate-800 rounded">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<span class="text-sm text-slate-600 dark:text-slate-300">Mathematics</span>
+</div>
+<span class="text-xs text-slate-400">124</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group p-1 -ml-1 hover:bg-slate-50 dark:hover:bg-slate-800 rounded">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-sm text-slate-600 dark:text-slate-300">Science</span>
+</div>
+<span class="text-xs text-slate-400">85</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group p-1 -ml-1 hover:bg-slate-50 dark:hover:bg-slate-800 rounded">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-orange-500"></span>
+<span class="text-sm text-slate-600 dark:text-slate-300">English</span>
+</div>
+<span class="text-xs text-slate-400">62</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group p-1 -ml-1 hover:bg-slate-50 dark:hover:bg-slate-800 rounded">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-purple-500"></span>
+<span class="text-sm text-slate-600 dark:text-slate-300">History</span>
+</div>
+<span class="text-xs text-slate-400">41</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group p-1 -ml-1 hover:bg-slate-50 dark:hover:bg-slate-800 rounded">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-red-500"></span>
+<span class="text-sm text-slate-600 dark:text-slate-300">Religion</span>
+</div>
+<span class="text-xs text-slate-400">28</span>
+</label>
+</div>
+</div>
+</aside>
+<!-- Main Listing -->
+<main class="flex-1">
+<!-- Header -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 gap-4">
+<div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Learning Materials</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Browse and manage academic resources for your classes.</p>
+</div>
+<div class="flex items-center bg-surface-light dark:bg-surface-dark rounded-lg p-1 border border-border-light dark:border-border-dark shadow-sm">
+<button class="px-4 py-1.5 text-sm font-medium rounded-md bg-primary text-white shadow-sm">Grid</button>
+<button class="px-4 py-1.5 text-sm font-medium rounded-md text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">List</button>
+</div>
+</div>
+<!-- Active Filters Pills -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                        Grade 8
+                        <button class="hover:bg-primary/20 rounded-full p-0.5"><span class="material-icons-outlined text-[14px]">close</span></button>
+</span>
+<button class="text-xs text-slate-500 hover:text-primary underline decoration-dotted underline-offset-2 ml-2">Clear all filters</button>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Card 1: Math -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg transition-shadow duration-300 group flex flex-col">
+<div class="h-32 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center relative p-4">
+<span class="absolute top-3 right-3 bg-white dark:bg-slate-800 rounded px-2 py-1 text-[10px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide border border-border-light dark:border-border-dark shadow-sm">PDF</span>
+<!-- Icon/Preview -->
+<img alt="Algebra textbook cover abstract" class="w-20 h-24 object-cover rounded shadow-md transform group-hover:-translate-y-1 transition-transform duration-300" data-alt="Abstract math shapes on blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBQAhM4d2HrPuZNs-2CFtKvkVIKCJuvI8459jR0eXlgPTAeQsnnVsRdQAgG88lwSA-CqRyTsowuJbra4K2ShwcPwMsU087QJl0nXzTEtCUoj9X6sCkc3oHGllE69Er6QFJqgYPQO8Z2pdsvm5c8jjbfbcjaPp4zugTQpuK5XP08EjnN7Z3vMjEuwWYVC0uSEnJPz-YniLwasNpG8DN4IWbafBCBcp_xxKV8eCl1WWnauYDGtSuzRXt0Z0G2fxADZV33IV1u7GRLY14"/>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex items-start justify-between mb-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+                                    Mathematics
+                                </span>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons-outlined">bookmark_border</span></button>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 line-clamp-1" title="Introduction to Algebra II">Introduction to Algebra II</h3>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-icons-outlined text-[16px]">person</span>
+<span>Mr. J. Anderson</span>
+</div>
+<div class="mt-auto pt-4 border-t border-border-light dark:border-border-dark flex items-center justify-between">
+<span class="text-xs text-slate-400">2.4 MB • Oct 24</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-lg transition-colors shadow-sm shadow-blue-500/30">
+<span class="material-icons-outlined text-[18px]">download</span>
+                                    Download
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 2: Science -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg transition-shadow duration-300 group flex flex-col">
+<div class="h-32 bg-gradient-to-br from-green-50 to-green-100 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center relative p-4">
+<span class="absolute top-3 right-3 bg-white dark:bg-slate-800 rounded px-2 py-1 text-[10px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide border border-border-light dark:border-border-dark shadow-sm">DOCX</span>
+<img alt="Chemistry lab equipment" class="w-20 h-24 object-cover rounded shadow-md transform group-hover:-translate-y-1 transition-transform duration-300" data-alt="Chemistry beaker with green liquid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI85dab8jHVMRSv_SCNnkLxXfjntdCUGNmryRwaZMWKYjTl6_K94zBOHxi5xWJ8GUF9D7Dbcx5RHTiIRCzyclAkb4FdAoQZpyxMtCYpcPuxe-Sio7yzzB2KaDf36mSr1MUyP_pSa1quEJlOw8jTR3BoRTgTlzxWLYFm_poxWjcKgiNG5rCAjaKwP9QCtR-Gk7R0Psb2XtcvnP6Dcu3NSiqSRwgMitEmlFzSU0r9t3q_TLE1pm14umbb-1LCHrdJT8rnOKFhN6PJpgu"/>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex items-start justify-between mb-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                    Science
+                                </span>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons-outlined">bookmark_border</span></button>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 line-clamp-1">Periodic Table Worksheet</h3>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-icons-outlined text-[16px]">person</span>
+<span>Mrs. S. Connor</span>
+</div>
+<div class="mt-auto pt-4 border-t border-border-light dark:border-border-dark flex items-center justify-between">
+<span class="text-xs text-slate-400">145 KB • Oct 22</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-lg transition-colors shadow-sm shadow-blue-500/30">
+<span class="material-icons-outlined text-[18px]">download</span>
+                                    Download
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 3: History -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg transition-shadow duration-300 group flex flex-col">
+<div class="h-32 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center relative p-4">
+<span class="absolute top-3 right-3 bg-white dark:bg-slate-800 rounded px-2 py-1 text-[10px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide border border-border-light dark:border-border-dark shadow-sm">PDF</span>
+<img alt="Vintage map style image" class="w-20 h-24 object-cover rounded shadow-md transform group-hover:-translate-y-1 transition-transform duration-300" data-alt="Old map texture background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN2CXtjQn9gTbdwq3EPM3KZMxrUmejj6k-tcIgRhl40q9FKQVv9JcRbZghNjy5UxOWD5JBMBNiC8kXfTdxSo4Fz3NaRlUu1wFeVygYWHzkwi6vgsy727kSAE-AFrwlyZJSgG-GiM09dVpCpLHfhAhXcw3CVMUBURgO-WejK7FZGgsOvhMrUC-TcsTHBpldZcFTcE6hYa1A5tdJbh49MPqeKdBpjVEEd8apqKjZEfisJ89izuoMLbMC4LaquDHv-83u6-VbzaQOMBGu"/>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex items-start justify-between mb-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">
+                                    History
+                                </span>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons-outlined">bookmark_border</span></button>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 line-clamp-1">World War II Timeline</h3>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-icons-outlined text-[16px]">person</span>
+<span>Mr. D. Williams</span>
+</div>
+<div class="mt-auto pt-4 border-t border-border-light dark:border-border-dark flex items-center justify-between">
+<span class="text-xs text-slate-400">3.1 MB • Oct 20</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-lg transition-colors shadow-sm shadow-blue-500/30">
+<span class="material-icons-outlined text-[18px]">download</span>
+                                    Download
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 4: English -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg transition-shadow duration-300 group flex flex-col">
+<div class="h-32 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center relative p-4">
+<span class="absolute top-3 right-3 bg-white dark:bg-slate-800 rounded px-2 py-1 text-[10px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide border border-border-light dark:border-border-dark shadow-sm">EPUB</span>
+<img alt="Books stacked neatly" class="w-20 h-24 object-cover rounded shadow-md transform group-hover:-translate-y-1 transition-transform duration-300" data-alt="Stack of books on wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrZlZN9oOn5QmcpiGEt5ux3xNWO57ltMrYQPacoZtcbTQsUbgCjI1SL0ZRf2zo2wb22vygL0hoThDqB1B5X-GCHAu3rLHiyL3tguHc17OHiZiXSm18AXKy2rddUPKPr9cAVYutGrRON6COa6qT77hcGyn-q8Z65acMFA35Oqz-xcPfQ2J2WGgoOQmgsJ5VeXq4cB_CKhOv4de-Ky_iYlKp6cE_P7UBGyNIAA49sQd-PciF6wTFsfmQlH7NvgBTBlNn9IZuaIoECspJ"/>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex items-start justify-between mb-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300">
+                                    English
+                                </span>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons-outlined">bookmark_border</span></button>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 line-clamp-1">Shakespeare: Hamlet Analysis</h3>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-icons-outlined text-[16px]">person</span>
+<span>Ms. K. Johnson</span>
+</div>
+<div class="mt-auto pt-4 border-t border-border-light dark:border-border-dark flex items-center justify-between">
+<span class="text-xs text-slate-400">1.2 MB • Oct 18</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-lg transition-colors shadow-sm shadow-blue-500/30">
+<span class="material-icons-outlined text-[18px]">download</span>
+                                    Download
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 5: Religion -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg transition-shadow duration-300 group flex flex-col">
+<div class="h-32 bg-gradient-to-br from-red-50 to-red-100 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center relative p-4">
+<span class="absolute top-3 right-3 bg-white dark:bg-slate-800 rounded px-2 py-1 text-[10px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide border border-border-light dark:border-border-dark shadow-sm">PDF</span>
+<img alt="Stained glass abstract" class="w-20 h-24 object-cover rounded shadow-md transform group-hover:-translate-y-1 transition-transform duration-300" data-alt="Abstract stained glass pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZa4OGiR-Q9t-6VMfzSlte-BvAUASLZPjrGnDwH0KFrrA5cM3XGJjRJcgPgNVunFg179wBP1Wa5l9fFiOEaHp0XXVdpF0TmHZ4DOUQZPUm7UwBOUR-erVfxlj_IS3vgXSgt4oBUXDXSY0MnJy9sYLw1vCAR8yoqTPb8SVvlolETDAv6qHmtLv2reMG5Vga8GlVSOCBTOsIV_aO9PEziAlDYalN6xSF_Zt4iaaq24d0hYfoWHxrLYJlMpzoVvMfGhfuxJxaMwYWzOZz"/>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex items-start justify-between mb-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                                    Religion
+                                </span>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons-outlined">bookmark_border</span></button>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 line-clamp-1">History of Saint Joseph</h3>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-icons-outlined text-[16px]">person</span>
+<span>Fr. M. Thompson</span>
+</div>
+<div class="mt-auto pt-4 border-t border-border-light dark:border-border-dark flex items-center justify-between">
+<span class="text-xs text-slate-400">890 KB • Oct 15</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-lg transition-colors shadow-sm shadow-blue-500/30">
+<span class="material-icons-outlined text-[18px]">download</span>
+                                    Download
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 6: Question Bank -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg transition-shadow duration-300 group flex flex-col">
+<div class="h-32 bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center relative p-4">
+<span class="absolute top-3 right-3 bg-white dark:bg-slate-800 rounded px-2 py-1 text-[10px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide border border-border-light dark:border-border-dark shadow-sm">ZIP</span>
+<div class="w-20 h-24 bg-white/60 dark:bg-white/10 backdrop-blur rounded flex flex-col items-center justify-center shadow-md transform group-hover:-translate-y-1 transition-transform duration-300">
+<span class="material-icons-outlined text-4xl text-primary opacity-80">quiz</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex items-start justify-between mb-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300">
+                                    Question Bank
+                                </span>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons-outlined">bookmark_border</span></button>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 line-clamp-1">Grade 8 Final Exam Prep</h3>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
+<span class="material-icons-outlined text-[16px]">person</span>
+<span>Exam Committee</span>
+</div>
+<div class="mt-auto pt-4 border-t border-border-light dark:border-border-dark flex items-center justify-between">
+<span class="text-xs text-slate-400">5.6 MB • Oct 10</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-lg transition-colors shadow-sm shadow-blue-500/30">
+<span class="material-icons-outlined text-[18px]">download</span>
+                                    Download
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex items-center justify-between border-t border-border-light dark:border-border-dark pt-6">
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-500 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+<span class="material-icons-outlined text-sm">arrow_back</span>
+                        Previous
+                    </button>
+<div class="hidden sm:flex gap-2">
+<button class="w-10 h-10 rounded-lg bg-primary text-white font-medium flex items-center justify-center">1</button>
+<button class="w-10 h-10 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium flex items-center justify-center transition-colors">2</button>
+<button class="w-10 h-10 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium flex items-center justify-center transition-colors">3</button>
+<span class="w-10 h-10 flex items-center justify-center text-slate-400">...</span>
+<button class="w-10 h-10 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium flex items-center justify-center transition-colors">12</button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-500 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                        Next
+                        <span class="material-icons-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</main>
+</div>
+</div>
+</body></html>

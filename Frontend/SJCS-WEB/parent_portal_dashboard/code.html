@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Parent Portal Dashboard - SJCS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-dark": "#0e45b5",
+                        "primary-light": "#eef4ff",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2233",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Logo -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-icons">school</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-gray-900 dark:text-white leading-none">SJCS</h1>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Parent Portal</p>
+</div>
+</div>
+<!-- Center: Child Selector -->
+<div class="hidden md:flex items-center bg-background-light dark:bg-background-dark rounded-full p-1 border border-gray-200 dark:border-gray-700">
+<div class="flex items-center gap-3 px-4 py-1.5 cursor-pointer hover:bg-white dark:hover:bg-surface-dark rounded-full transition-colors">
+<img alt="Student portrait" class="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 object-cover" data-alt="Portrait of a young student boy smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr9ZGkms8pwaIgenZ1kL58R6FPstQ7Q6nUhpuIL8P8LWeQ8xB-HbgoEcOHTBVhAz6-8kz3LgGnRVH9XtWIEaw-sHXRoaAa4my1eMBwxnkS7qkFNWQSP40TvvdJgiRMmyJpcme8wnRFAWromW2Ff2TWMdGBuLLAd6dcv70rTayBL_8NFJkgY6F3yg_rkDSjs3ETguyT25nMuvbOtMcMdJrOquOY0bViEGSxgY1YoLkA_RVJ3Xzd5yWPLxM-6eVuiTX3KpMYymXU3Rj8"/>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-gray-900 dark:text-white leading-none">Leo Anderson</span>
+<span class="text-[10px] text-gray-500 dark:text-gray-400 font-medium">Grade 5 • Ms. Thompson</span>
+</div>
+<span class="material-icons text-gray-400 ml-2 text-lg">expand_more</span>
+</div>
+</div>
+<!-- Right: User Profile & Notifications -->
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-gray-500 hover:text-primary transition-colors">
+<span class="material-icons">notifications_none</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-surface-dark"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-gray-200 dark:border-gray-700">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold text-gray-900 dark:text-white">Sarah Anderson</p>
+<p class="text-xs text-gray-500">Guardian</p>
+</div>
+<img alt="Parent Profile" class="w-10 h-10 rounded-full border-2 border-gray-100 dark:border-gray-700" data-alt="Portrait of a woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiN4Mg3YRqElL6U6IhQVbY9LOBthNa3PJc3WiuC5R2iOVDBDuP2VkCyjEpALuUicvl-rKJC2t-E1hUORpl8hw3OtB4R7A-n-Ms6ZCWarbWakl_AZogMoYPUPhyFDJisLrHwCOuD4a6D_ZLeU1oZVQjC5Kx_Er9URmZuZJmBhVlrdUtlBcPCU7BtPZ3hWNC1T_v3ANHr9xem_LljOTjz1g96Y4-88nd0RnmDplTRMOMWVDILTxybQJYNcPsyBxyRmuZHRjws5XuAAxz"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+<!-- Mobile Child Selector (Visible only on small screens) -->
+<div class="md:hidden mb-6">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Viewing Student</label>
+<select class="w-full bg-surface-light dark:bg-surface-dark border-gray-200 dark:border-gray-700 rounded-lg py-3 px-4 text-gray-900 dark:text-white focus:ring-primary focus:border-primary">
+<option>Leo Anderson (Grade 5)</option>
+<option>Maya Anderson (Grade 2)</option>
+</select>
+</div>
+<!-- Metric Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Academic Progress Card -->
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 relative overflow-hidden group hover:border-primary/30 transition-all">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-icons text-6xl text-primary">school</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium uppercase tracking-wide">Academic Progress</h3>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="text-4xl font-bold text-gray-900 dark:text-white">3.8</span>
+<span class="text-sm text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400 px-2 py-0.5 rounded-full font-medium flex items-center">
+<span class="material-icons text-xs mr-1">trending_up</span>GPA
+                            </span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-gray-600 dark:text-gray-300">Mathematics</span>
+<span class="font-bold text-gray-900 dark:text-white">A (96%)</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 96%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-gray-600 dark:text-gray-300">Science</span>
+<span class="font-bold text-gray-900 dark:text-white">B+ (89%)</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-primary/70 h-2 rounded-full" style="width: 89%"></div>
+</div>
+</div>
+</div>
+<a class="mt-6 inline-flex items-center text-sm font-medium text-primary hover:text-primary-dark transition-colors" href="#">
+                    View Full Report Card <span class="material-icons text-base ml-1">arrow_forward</span>
+</a>
+</div>
+<!-- Attendance Card -->
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-all">
+<h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium uppercase tracking-wide mb-4">Attendance Rate</h3>
+<div class="flex items-center gap-6">
+<div class="relative w-24 h-24 flex-shrink-0">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-gray-100 dark:text-gray-700" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-green-500" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="12.5" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="text-xl font-bold text-gray-900 dark:text-white">95%</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="px-3 py-1 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-xs font-semibold rounded-full w-fit">
+                            Good Standing
+                        </div>
+<p class="text-sm text-gray-600 dark:text-gray-300 leading-snug">
+                            Only <span class="font-bold text-gray-900 dark:text-white">2 absences</span> this semester. Keep it up!
+                        </p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700 grid grid-cols-3 gap-2 text-center">
+<div>
+<span class="block text-xl font-bold text-gray-900 dark:text-white">38</span>
+<span class="text-[10px] text-gray-500 uppercase">Present</span>
+</div>
+<div>
+<span class="block text-xl font-bold text-red-500">2</span>
+<span class="text-[10px] text-gray-500 uppercase">Absent</span>
+</div>
+<div>
+<span class="block text-xl font-bold text-yellow-500">0</span>
+<span class="text-[10px] text-gray-500 uppercase">Tardy</span>
+</div>
+</div>
+</div>
+<!-- Payment Status Card -->
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-all flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium uppercase tracking-wide">Tuition &amp; Fees</h3>
+<span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 text-xs font-bold rounded-md">
+                        PAYMENT DUE
+                    </span>
+</div>
+<div class="mt-4 mb-6">
+<p class="text-sm text-gray-500 dark:text-gray-400">Total Outstanding Balance</p>
+<p class="text-4xl font-bold text-gray-900 dark:text-white mt-1">$450.00</p>
+<p class="text-xs text-red-500 font-medium mt-2 flex items-center">
+<span class="material-icons text-sm mr-1">error_outline</span> Due by Oct 15, 2023
+                    </p>
+</div>
+<div class="mt-auto space-y-3">
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-icons text-sm">credit_card</span> Pay Now
+                    </button>
+<button class="w-full bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 font-medium py-2.5 px-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-colors text-sm">
+                        View Payment History
+                    </button>
+</div>
+</div>
+</div>
+<!-- Lower Section Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Calendar Widget -->
+<div class="lg:col-span-2 bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">October 2023 Attendance</h3>
+<div class="flex gap-4 text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> Present
+                        </div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Absent
+                        </div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span> Tardy
+                        </div>
+</div>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-7 gap-4 mb-4 text-center">
+<div class="text-xs font-semibold text-gray-400 uppercase">Sun</div>
+<div class="text-xs font-semibold text-gray-400 uppercase">Mon</div>
+<div class="text-xs font-semibold text-gray-400 uppercase">Tue</div>
+<div class="text-xs font-semibold text-gray-400 uppercase">Wed</div>
+<div class="text-xs font-semibold text-gray-400 uppercase">Thu</div>
+<div class="text-xs font-semibold text-gray-400 uppercase">Fri</div>
+<div class="text-xs font-semibold text-gray-400 uppercase">Sat</div>
+</div>
+<div class="grid grid-cols-7 gap-4 text-center text-sm">
+<!-- Empty Previous Month Days -->
+<div class="h-10 text-gray-300 dark:text-gray-700 p-2">29</div>
+<div class="h-10 text-gray-300 dark:text-gray-700 p-2">30</div>
+<!-- Days -->
+<!-- Week 1 -->
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">1</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">2</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">3</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">4</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 text-gray-400">5</div>
+<!-- Week 2 -->
+<div class="h-10 p-2 text-gray-400">6</div>
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">7</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 rounded-lg bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 cursor-pointer">
+<span class="block text-red-700 dark:text-red-400 font-bold">8</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-red-500"></div>
+</div>
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">9</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">10</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">11</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 text-gray-400">12</div>
+<!-- Week 3 -->
+<div class="h-10 p-2 text-gray-400">13</div>
+<div class="h-10 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<span class="block text-gray-900 dark:text-white font-medium">14</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-green-500"></div>
+</div>
+<div class="h-10 p-2 rounded-lg bg-primary/10 border border-primary/20 cursor-pointer relative">
+<span class="block text-primary font-bold">15</span>
+<div class="w-1.5 h-1.5 mx-auto mt-1 rounded-full bg-transparent border border-primary"></div>
+</div>
+<div class="h-10 p-2 text-gray-400">16</div>
+<div class="h-10 p-2 text-gray-400">17</div>
+<div class="h-10 p-2 text-gray-400">18</div>
+<div class="h-10 p-2 text-gray-400">19</div>
+</div>
+</div>
+</div>
+<!-- Alerts & Notifications Panel -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
+<span class="material-icons text-primary text-xl">notifications_active</span> Alerts &amp; Notices
+                    </h3>
+<span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">3 New</span>
+</div>
+<div class="flex-1 p-4 space-y-4 overflow-y-auto max-h-[400px]">
+<!-- High Priority Alert -->
+<div class="bg-red-50 dark:bg-red-900/10 p-4 rounded-lg border-l-4 border-red-500">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wide">Action Required</span>
+<span class="text-[10px] text-gray-500 dark:text-gray-400">Today, 9:00 AM</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white mb-1">Field Trip Slip Due</h4>
+<p class="text-sm text-gray-600 dark:text-gray-300">Signed permission slip for the Science Museum trip is due tomorrow morning.</p>
+<button class="mt-3 text-xs font-medium text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 flex items-center">
+                            Sign Digitally <span class="material-icons text-sm ml-1">chevron_right</span>
+</button>
+</div>
+<!-- Info Alert -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-primary uppercase tracking-wide">Upcoming Event</span>
+<span class="text-[10px] text-gray-500 dark:text-gray-400">Yesterday</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white mb-1">PTA Meeting</h4>
+<p class="text-sm text-gray-600 dark:text-gray-300">Join us on Nov 5th at 6 PM in the auditorium to discuss the winter festival.</p>
+</div>
+<!-- General Alert -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-gray-500 uppercase tracking-wide">General</span>
+<span class="text-[10px] text-gray-500 dark:text-gray-400">Oct 10</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white mb-1">Uniform Shop Hours</h4>
+<p class="text-sm text-gray-600 dark:text-gray-300">The uniform shop will have extended hours next week for winter gear.</p>
+</div>
+</div>
+<div class="p-4 border-t border-gray-100 dark:border-gray-800">
+<button class="w-full text-center text-sm font-medium text-primary hover:text-primary-dark transition-colors">
+                        View All Notifications
+                    </button>
+</div>
+</div>
+</div>
+<!-- Quick Actions Footer -->
+<div class="bg-primary/5 dark:bg-surface-dark border border-primary/10 dark:border-gray-800 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-icons">help_outline</span>
+</div>
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white">Need help with something?</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400">Quickly access common parent resources.</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 justify-center md:justify-end">
+<button class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 py-2 px-4 rounded-lg border border-gray-200 dark:border-gray-600 text-sm font-medium shadow-sm transition-all flex items-center gap-2">
+<span class="material-icons text-lg text-primary">email</span> Contact Teacher
+                </button>
+<button class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 py-2 px-4 rounded-lg border border-gray-200 dark:border-gray-600 text-sm font-medium shadow-sm transition-all flex items-center gap-2">
+<span class="material-icons text-lg text-green-500">restaurant</span> Add Lunch Money
+                </button>
+<button class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 py-2 px-4 rounded-lg border border-gray-200 dark:border-gray-600 text-sm font-medium shadow-sm transition-all flex items-center gap-2">
+<span class="material-icons text-lg text-yellow-500">directions_bus</span> Bus Schedule
+                </button>
+</div>
+</div>
+</main>
+<footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center border-t border-gray-200 dark:border-gray-800 mt-12">
+<p class="text-sm text-gray-400 dark:text-gray-500">© 2023 Saint Joseph Catholic School. All rights reserved.</p>
+<div class="flex justify-center gap-4 mt-2">
+<a class="text-xs text-gray-400 hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-xs text-gray-400 hover:text-primary" href="#">Terms of Service</a>
+<a class="text-xs text-gray-400 hover:text-primary" href="#">Support</a>
+</div>
+</footer>
+</body></html>

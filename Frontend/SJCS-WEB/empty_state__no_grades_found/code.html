@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>No Grades Found - SJCS Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "primary-dark": "#0e45b5",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+              "card-light": "#ffffff",
+              "card-dark": "#18202f",
+              "text-secondary-light": "#64748b",
+              "text-secondary-dark": "#94a3b8",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="h-16 bg-card-light dark:bg-card-dark border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30">
+<div class="h-full px-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-white transition-colors">
+<span class="material-icons-round">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-sm">SJ</div>
+<span class="font-bold text-lg hidden sm:block tracking-tight">Saint Joseph Catholic School</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-white transition-colors">
+<span class="material-icons-round">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-card-dark"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-slate-700">
+<div class="text-right hidden md:block">
+<p class="text-sm font-semibold leading-none">Alex Johnson</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1">Grade 11 Student</p>
+</div>
+<div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border-2 border-white dark:border-slate-600 shadow-sm">
+<img alt="Student Profile" class="w-full h-full object-cover" data-alt="Portrait of a smiling male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPs-sUebiNM15zCaq6jyuvvNfYECS2v6kGfTUs81FqgjJD63CpNvgKj5GGh0TexLmq5NJ6ti_ZyZcg4lgOtqRLUmMgGwwo5uK-bMoZ89z4USIxoKDdcDVAYkfKV-3uSWp13NVlZxa8qN2PQTIB0Qym6aYEY6_VUhKR-vp1V6rwQIUBiQyKBJ2X90yNISzCbs1wdB-P1VU157DT19HyWwBsUJgvPd2ObEGAtoUmiGKumo2Gmu94LcdEJU9jNcbhvrSJ8ZZ9-CryI3Sa"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- Sidebar Navigation -->
+<aside class="w-64 bg-card-light dark:bg-card-dark border-r border-slate-200 dark:border-slate-800 hidden lg:flex flex-col flex-shrink-0">
+<div class="p-4 space-y-1">
+<div class="text-xs font-semibold text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider px-3 mb-2 mt-4">Academic</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-icons-round text-slate-400 group-hover:text-primary transition-colors">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-icons-round text-slate-400 group-hover:text-primary transition-colors">schedule</span>
+<span class="font-medium">Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary font-semibold" href="#">
+<span class="material-icons-round">school</span>
+<span>Grades</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-icons-round text-slate-400 group-hover:text-primary transition-colors">assignment</span>
+<span class="font-medium">Assignments</span>
+</a>
+</div>
+<div class="mt-auto p-4 border-t border-slate-200 dark:border-slate-700">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400 transition-colors" href="#">
+<span class="material-icons-round">logout</span>
+<span class="font-medium">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-6 lg:p-10 flex flex-col relative overflow-hidden">
+<!-- Breadcrumbs -->
+<nav class="flex text-sm text-text-secondary-light dark:text-text-secondary-dark mb-8">
+<ol class="flex items-center space-x-2">
+<li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li><span class="material-icons-round text-[14px]">chevron_right</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">Academics</a></li>
+<li><span class="material-icons-round text-[14px]">chevron_right</span></li>
+<li class="font-semibold text-slate-800 dark:text-slate-100">Grades</li>
+</ol>
+</nav>
+<!-- Empty State Card -->
+<div class="flex-1 flex items-center justify-center">
+<div class="w-full max-w-2xl bg-card-light dark:bg-card-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 md:p-12 text-center relative overflow-hidden">
+<!-- Decorative Background Element -->
+<div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-blue-400"></div>
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Illustration -->
+<div class="relative w-48 h-48 mx-auto mb-8">
+<div class="absolute inset-0 bg-blue-50 dark:bg-slate-800 rounded-full scale-90"></div>
+<!-- Custom SVG Illustration built with Tailwind classes + SVG -->
+<svg class="w-full h-full relative z-10 drop-shadow-xl" fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<!-- Paper -->
+<rect class="fill-white dark:fill-slate-700" height="130" rx="8" stroke="#e2e8f0" stroke-width="2" width="100" x="50" y="40"></rect>
+<!-- Paper Lines -->
+<rect class="fill-slate-200 dark:fill-slate-600" height="8" rx="4" width="40" x="65" y="60"></rect>
+<rect class="fill-slate-100 dark:fill-slate-600" height="6" rx="3" width="70" x="65" y="80"></rect>
+<rect class="fill-slate-100 dark:fill-slate-600" height="6" rx="3" width="70" x="65" y="96"></rect>
+<rect class="fill-slate-100 dark:fill-slate-600" height="6" rx="3" width="50" x="65" y="112"></rect>
+<!-- Magnifying Glass Handle -->
+<path d="M125 125 L155 155" stroke="#135bec" stroke-linecap="round" stroke-width="12"></path>
+<!-- Magnifying Glass Rim -->
+<circle class="fill-white/90 dark:fill-slate-800/90 stroke-primary" cx="115" cy="115" r="35" stroke-width="6"></circle>
+<!-- Glass Reflection -->
+<path d="M125 95 Q 135 95 135 105" fill="none" stroke="#bfdbfe" stroke-linecap="round" stroke-width="4"></path>
+<!-- Question Mark inside Glass -->
+<text dominant-baseline="middle" fill="#135bec" font-family="Manrope" font-size="32" font-weight="800" text-anchor="middle" x="115" y="125">?</text>
+</svg>
+</div>
+<!-- Text Content -->
+<h2 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-4">
+                        No grades available for this term yet
+                    </h2>
+<p class="text-text-secondary-light dark:text-text-secondary-dark max-w-lg mx-auto mb-8 text-base md:text-lg leading-relaxed">
+                        It looks like your instructors haven't posted any results for the current semester. Grades are typically finalized 1 week after exams.
+                    </p>
+<!-- Helpful Tip Box -->
+<div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-lg p-4 mb-8 text-left max-w-md mx-auto flex gap-3">
+<span class="material-icons-round text-primary flex-shrink-0 mt-0.5">info</span>
+<div class="text-sm text-slate-700 dark:text-slate-300">
+<p class="font-semibold mb-1">Need assistance?</p>
+<p>If you believe this is an error, please check with the registrar or <a class="text-primary hover:underline font-medium" href="#">contact your homeroom teacher</a>.</p>
+</div>
+</div>
+<!-- Action Button -->
+<div class="flex justify-center">
+<button class="bg-gradient-to-r from-primary to-[#3b82f6] hover:to-primary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-primary/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-2 group">
+<span class="material-icons-round text-white group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                            Return to Dashboard
+                        </button>
+</div>
+</div>
+</div>
+<!-- School Crest Watermark (Optional Branding Touch) -->
+<div class="absolute bottom-6 right-6 opacity-5 pointer-events-none">
+<!-- Simple Shield SVG representing school crest -->
+<svg fill="currentColor" height="140" viewbox="0 0 100 120" width="120">
+<path d="M50 115C50 115 90 95 90 30V10L50 0L10 10V30C10 95 50 115 50 115Z"></path>
+</svg>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Study Intelligence Hub - Student Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-50": "#eff6ff",
+                        "primary-100": "#dbeafe",
+                        "primary-200": "#bfdbfe",
+                        "primary-300": "#93c5fd",
+                        "primary-400": "#60a5fa",
+                        "primary-500": "#3b82f6",
+                        "primary-600": "#2563eb",
+                        "primary-700": "#1d4ed8",
+                        "primary-800": "#1e40af",
+                        "primary-900": "#1e3a8a",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display min-h-screen flex overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-20 lg:w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-all duration-300 z-20 h-screen fixed lg:relative shadow-sm">
+<div>
+<div class="h-20 flex items-center justify-center lg:justify-start lg:px-6 border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30">
+                        S
+                    </div>
+<div class="hidden lg:block">
+<h1 class="font-bold text-slate-900 dark:text-white leading-tight">SJCS</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400">Study Hub</p>
+</div>
+</div>
+</div>
+<nav class="mt-6 flex flex-col gap-2 px-3">
+<a class="flex items-center gap-4 px-3 py-3 bg-primary/10 text-primary rounded-lg transition-colors group" href="#">
+<span class="material-icons text-2xl group-hover:scale-110 transition-transform">dashboard</span>
+<span class="hidden lg:block font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white rounded-lg transition-colors group" href="#">
+<span class="material-icons text-2xl group-hover:scale-110 transition-transform">calendar_today</span>
+<span class="hidden lg:block font-medium">Schedule</span>
+</a>
+<a class="flex items-center gap-4 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white rounded-lg transition-colors group" href="#">
+<span class="material-icons text-2xl group-hover:scale-110 transition-transform">school</span>
+<span class="hidden lg:block font-medium">Courses</span>
+</a>
+<a class="flex items-center gap-4 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white rounded-lg transition-colors group" href="#">
+<span class="material-icons text-2xl group-hover:scale-110 transition-transform">bar_chart</span>
+<span class="hidden lg:block font-medium">Grades</span>
+</a>
+<a class="flex items-center gap-4 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white rounded-lg transition-colors group" href="#">
+<span class="material-icons text-2xl group-hover:scale-110 transition-transform">chat_bubble_outline</span>
+<span class="hidden lg:block font-medium">Messages</span>
+</a>
+</nav>
+</div>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<button class="flex items-center gap-4 px-3 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-red-500 dark:hover:text-red-400 rounded-lg transition-colors w-full group">
+<span class="material-icons text-2xl group-hover:rotate-180 transition-transform duration-500">logout</span>
+<span class="hidden lg:block font-medium">Sign Out</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden relative ml-20 lg:ml-0">
+<!-- Header -->
+<header class="h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 z-10 sticky top-0">
+<div>
+<h2 class="text-xl font-bold text-slate-800 dark:text-white">Good afternoon, Michael</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Ready for a focused study session?</p>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons">notifications_none</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex items-center gap-3 cursor-pointer">
+<img alt="Student profile avatar" class="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm" data-alt="Young student smiling portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa6cani9vz5RjaDg98H-iLTlyJty79-1TuwDSM2ScHcDpVqWaQD9N3Y1ZUGjoIXc5ARcPcGTxd5_qcMlYkFT_FEnH6ThxaG261ZRicbG_WTp7ioRX5-oQU9F4CN3w7p0Hcq4J0YsxjNuz_mR4IRNrO9Tz61XQ1hb3kl-xFmof5DHipmcfLcVhTv4sZ9cCuWbyUXXxQbrAg9azlU593Sj_7NZZCOtEucb_fqCwpjk-QQkza03XxHlSEIrA4y7uAWeMtXi8x18bZhBxG"/>
+<div class="hidden md:block text-right">
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Michael Rivera</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Grade 11</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 pb-20">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Hero Section: Focus Timer -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Timer Card (Left / Main) -->
+<div class="lg:col-span-8 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 flex flex-col justify-center items-center relative overflow-hidden group">
+<!-- Abstract Background Decoration -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+<div class="z-10 w-full max-w-lg text-center">
+<div class="flex items-center justify-center mb-8">
+<div class="relative inline-block text-left w-64">
+<select class="block w-full rounded-lg border-0 py-2.5 pl-4 pr-10 text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-slate-800 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 focus:ring-2 focus:ring-primary text-sm sm:leading-6 cursor-pointer shadow-sm">
+<option>Mathematics</option>
+<option>Theology IV</option>
+<option>AP U.S. History</option>
+<option>Physics</option>
+<option>English Lit</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+<span class="material-icons text-slate-400 text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Timer Display -->
+<div class="font-display font-light text-[8rem] leading-none tracking-tighter text-slate-800 dark:text-white mb-8 tabular-nums select-none">
+                                25:00
+                            </div>
+<!-- Timer Controls -->
+<div class="flex items-center justify-center gap-6">
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary transition-all hover:bg-white hover:shadow-md">
+<span class="material-icons text-2xl">refresh</span>
+</button>
+<button class="h-16 px-10 bg-primary hover:bg-primary-600 active:bg-primary-700 text-white rounded-full flex items-center gap-3 shadow-lg shadow-primary/25 transition-all transform active:scale-95 group-hover:shadow-primary/40">
+<span class="material-icons text-3xl">play_arrow</span>
+<span class="text-lg font-medium tracking-wide">Start Focus</span>
+</button>
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-primary transition-all hover:bg-white hover:shadow-md">
+<span class="material-icons text-2xl">settings</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Quick Stats & Tasks -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Mini Stats Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between h-32">
+<div class="flex items-center justify-between">
+<span class="p-2 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg">
+<span class="material-icons text-xl">bolt</span>
+</span>
+<span class="text-xs font-medium text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">+12%</span>
+</div>
+<div>
+<h4 class="text-2xl font-bold text-slate-800 dark:text-white">4.2h</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Study Time Today</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between h-32">
+<div class="flex items-center justify-between">
+<span class="p-2 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg">
+<span class="material-icons text-xl">local_fire_department</span>
+</span>
+</div>
+<div>
+<h4 class="text-2xl font-bold text-slate-800 dark:text-white">5 Days</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Current Streak</p>
+</div>
+</div>
+</div>
+<!-- Upcoming Tasks Widget -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex-1 flex flex-col overflow-hidden">
+<div class="p-5 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="font-semibold text-slate-800 dark:text-white">Next Up</h3>
+<button class="text-xs text-primary font-medium hover:underline">View All</button>
+</div>
+<div class="p-4 space-y-3 overflow-y-auto max-h-64">
+<div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer group border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="mt-1 w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">Calculus Quiz Prep</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Tomorrow, 9:00 AM • Math</p>
+</div>
+<div class="w-6 h-6 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-transparent hover:text-primary hover:border-primary transition-all">
+<span class="material-icons text-sm">check</span>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer group border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="mt-1 w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">Read "The Great Gatsby" Ch. 4</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Friday • English</p>
+</div>
+<div class="w-6 h-6 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-transparent hover:text-primary hover:border-primary transition-all">
+<span class="material-icons text-sm">check</span>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer group border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="mt-1 w-2 h-2 rounded-full bg-primary flex-shrink-0"></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">Theology Reflection Paper</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Monday • Theology</p>
+</div>
+<div class="w-6 h-6 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-transparent hover:text-primary hover:border-primary transition-all">
+<span class="material-icons text-sm">check</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Productivity Chart Section -->
+<div class="w-full">
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 lg:p-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+<div>
+<h3 class="text-lg font-bold text-slate-800 dark:text-white">Weekly Productivity</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Total hours focused per day vs. goal</p>
+</div>
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 p-1 rounded-lg self-start sm:self-auto">
+<button class="px-3 py-1.5 text-xs font-medium bg-white dark:bg-slate-700 text-slate-900 dark:text-white rounded-md shadow-sm">This Week</button>
+<button class="px-3 py-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Last Week</button>
+</div>
+</div>
+<!-- Chart Bars -->
+<div class="h-48 flex items-end justify-between gap-2 sm:gap-4 px-2">
+<!-- Mon -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[3rem] bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/40 group-hover:bg-primary/60 transition-all duration-500 h-[40%] rounded-t-lg relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded pointer-events-none transition-opacity">2.5h</div>
+</div>
+</div>
+<span class="text-xs font-medium text-slate-400 dark:text-slate-500">Mon</span>
+</div>
+<!-- Tue -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[3rem] bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/60 group-hover:bg-primary/80 transition-all duration-500 h-[65%] rounded-t-lg relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded pointer-events-none transition-opacity">4.1h</div>
+</div>
+</div>
+<span class="text-xs font-medium text-slate-400 dark:text-slate-500">Tue</span>
+</div>
+<!-- Wed -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[3rem] bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary group-hover:bg-primary-600 transition-all duration-500 h-[80%] rounded-t-lg relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded pointer-events-none transition-opacity">5.2h</div>
+</div>
+</div>
+<span class="text-xs font-medium text-slate-800 dark:text-white font-bold">Wed</span>
+</div>
+<!-- Thu -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[3rem] bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/30 group-hover:bg-primary/50 transition-all duration-500 h-[30%] rounded-t-lg relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded pointer-events-none transition-opacity">1.8h</div>
+</div>
+</div>
+<span class="text-xs font-medium text-slate-400 dark:text-slate-500">Thu</span>
+</div>
+<!-- Fri -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[3rem] bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/20 group-hover:bg-primary/40 transition-all duration-500 h-[20%] rounded-t-lg relative">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded pointer-events-none transition-opacity">1.2h</div>
+</div>
+</div>
+<span class="text-xs font-medium text-slate-400 dark:text-slate-500">Fri</span>
+</div>
+<!-- Sat -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[3rem] bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-slate-200 dark:bg-slate-700 transition-all duration-500 h-[10%] rounded-t-lg relative"></div>
+</div>
+<span class="text-xs font-medium text-slate-400 dark:text-slate-500">Sat</span>
+</div>
+<!-- Sun -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full max-w-[3rem] bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-slate-200 dark:bg-slate-700 transition-all duration-500 h-[5%] rounded-t-lg relative"></div>
+</div>
+<span class="text-xs font-medium text-slate-400 dark:text-slate-500">Sun</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Branding -->
+<div class="mt-12 text-center pb-6">
+<div class="flex items-center justify-center gap-2 opacity-40">
+<span class="material-icons text-lg">shield</span>
+<span class="text-xs font-bold uppercase tracking-widest">Saint Joseph Catholic School</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>
