@@ -95,6 +95,30 @@ const PortalHome = () => {
           </Link>
           <Link
             className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/study-hub"
+          >
+            Study Intelligence Hub
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/clubs"
+          >
+            Clubs & Activities
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/clubs/robotics"
+          >
+            Club Detail (Robotics)
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/kanban"
+          >
+            Group Projects Kanban
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
             to="/admin/users"
           >
             User Management
@@ -104,6 +128,54 @@ const PortalHome = () => {
             to="/admin/configuration"
           >
             Admin System Configuration
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/admin/management"
+          >
+            Admin Management Dashboard
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/admin/finance"
+          >
+            Admin Payment Collection
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/admin/reports"
+          >
+            Institutional Reports
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/settings/profile"
+          >
+            User Profile
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/settings/security"
+          >
+            Account Security Settings
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/settings/notifications"
+          >
+            Notification Preferences
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/registration/step-2"
+          >
+            Registration Step 2
+          </Link>
+          <Link
+            className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"
+            to="/registration/success"
+          >
+            Registration Success
           </Link>
           <Link
             className="rounded-lg border border-sjcs-blue px-4 py-2 text-sm font-semibold text-sjcs-blue"

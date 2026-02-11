@@ -26,6 +26,11 @@ const AccountSecuritySettingsPage = lazy(() => import("../pages/AccountSecurityS
 const UserProfilePage = lazy(() => import("../pages/UserProfilePage.jsx"));
 const NotificationPreferencesPage = lazy(() => import("../pages/NotificationPreferencesPage.jsx"));
 const StudyIntelligenceHubPage = lazy(() => import("../pages/StudyIntelligenceHubPage.jsx"));
+const ClubsActivitiesPage = lazy(() => import("../pages/ClubsActivitiesPage.jsx"));
+const ClubDetailPage = lazy(() => import("../pages/ClubDetailPage.jsx"));
+const GroupProjectsKanbanPage = lazy(() => import("../pages/GroupProjectsKanbanPage.jsx"));
+const RegistrationStepTwoPage = lazy(() => import("../pages/RegistrationStepTwoPage.jsx"));
+const RegistrationSuccessPage = lazy(() => import("../pages/RegistrationSuccessPage.jsx"));
 const EmptyStateGradesPage = lazy(() => import("../pages/EmptyStateGradesPage.jsx"));
 const EmptyStateMaterialsPage = lazy(() => import("../pages/EmptyStateMaterialsPage.jsx"));
 const EmptyStateNotificationsPage = lazy(() => import("../pages/EmptyStateNotificationsPage.jsx"));
@@ -35,6 +40,8 @@ const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/role-selection", element: <RoleSelectionPage /> },
+  { path: "/registration/step-2", element: <RegistrationStepTwoPage /> },
+  { path: "/registration/success", element: <RegistrationSuccessPage /> },
   {
     element: <ProtectedRoute allowedRoles={["Admin", "Teacher", "Student", "Parent"]} />,
     children: [
@@ -51,6 +58,9 @@ const router = createBrowserRouter([
       { path: "/materials", element: <LearningMaterialsLibraryPage /> },
       { path: "/materials/upload", element: <UploadLearningMaterialsPage /> },
       { path: "/study-hub", element: <StudyIntelligenceHubPage /> },
+      { path: "/clubs", element: <ClubsActivitiesPage /> },
+      { path: "/clubs/:clubId", element: <ClubDetailPage /> },
+      { path: "/kanban", element: <GroupProjectsKanbanPage /> },
       { path: "/settings/security", element: <AccountSecuritySettingsPage /> },
       { path: "/settings/profile", element: <UserProfilePage /> },
       { path: "/settings/notifications", element: <NotificationPreferencesPage /> },

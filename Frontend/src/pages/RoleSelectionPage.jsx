@@ -36,7 +36,8 @@ const RoleSelectionPage = () => {
 
   const handleContinue = () => {
     setRole(selectedRole);
-    navigate(`/login?role=${encodeURIComponent(selectedRole)}`);
+    // navigate(`/login?role=${encodeURIComponent(selectedRole)}`);
+    navigate(`/registration/step-2?role=${encodeURIComponent(selectedRole)}`); // for the time being.
   };
 
   return (

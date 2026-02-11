@@ -14,6 +14,9 @@ import reportsRoutes from "./reports.routes.js";
 import settingsRoutes from "./settings.routes.js";
 import profileRoutes from "./profile.routes.js";
 import studyHubRoutes from "./studyHub.routes.js";
+import clubsRoutes from "./clubs.routes.js";
+import kanbanRoutes from "./kanban.routes.js";
+import registrationRoutes from "./registration.routes.js";
 
 const router = express.Router();
 
@@ -32,5 +35,8 @@ router.use("/reports", reportsRoutes);
 router.use("/settings", settingsRoutes);
 router.use("/profile", profileRoutes);
 router.use("/study-hub", studyHubRoutes);
+router.use("/clubs", clubsRoutes);
+router.use("/kanban", kanbanRoutes);
+router.use("/registration", registrationRoutes);
 
 export default router;
