@@ -3,14 +3,40 @@ import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 import routes from "./routes/index.js";
-import connectDB from "./config/db.js"; // Import connectDB
+import connectDB from "./config/db.js"; // Ensures we can trigger connection
 import { errorHandler } from "./middleware/error.middleware.js";
 
 const app = express();
 
-// --- DATABASE GUARD MIDDLEWARE ---
-// This prevents "Operation buffering timed out" by ensuring 
-// the connection is ready before any route runs.
+// 1. TRUST PROXY (Essential for Vercel + Rate Limiting)
+app.set("trust proxy", 1);
+
+// 2. CONFIGURE CORS
+// Added your specific localhost and Vercel origins
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://sjcs-web-a65p.vercel.app"
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or Postman)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, // Required for cookies and auth headers
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "x-request-id"]
+}));
+
+// 3. DATABASE GUARD MIDDLEWARE
+// This forces the app to wait for MongoDB before running any route logic
 app.use(async (req, res, next) => {
   try {
     await connectDB();
@@ -18,24 +44,23 @@ app.use(async (req, res, next) => {
   } catch (error) {
     res.status(503).json({ 
       error: "Database Unavailable", 
-      message: "The server is currently unable to handle the request due to a database connection failure." 
+      message: "The server is currently unable to handle the request due to a connection issue." 
     });
   }
 });
 
-app.use(cors());
 app.use(express.json());
 
+// 4. RATE LIMITER
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 300,
   standardHeaders: true,
   legacyHeaders: false
 });
-
 app.use(limiter);
 
-// FULL HTML ROOT ROUTE PRESERVED
+// 5. ROOT HTML ROUTE (Full Preservation)
 app.get("/", (req, res) => {
   res.status(200).send(`<!doctype html>
 <html lang="en">
@@ -123,8 +148,10 @@ app.get("/", (req, res) => {
 </html>`);
 });
 
+// 6. ROUTES
 app.use("/api", routes);
 
+// 7. GLOBAL ERROR HANDLER
 app.use(errorHandler);
 
 export default app;
