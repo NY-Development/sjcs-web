@@ -3,9 +3,25 @@ import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 import routes from "./routes/index.js";
+import connectDB from "./config/db.js"; // Import connectDB
 import { errorHandler } from "./middleware/error.middleware.js";
 
 const app = express();
+
+// --- DATABASE GUARD MIDDLEWARE ---
+// This prevents "Operation buffering timed out" by ensuring 
+// the connection is ready before any route runs.
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    res.status(503).json({ 
+      error: "Database Unavailable", 
+      message: "The server is currently unable to handle the request due to a database connection failure." 
+    });
+  }
+});
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +35,7 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
+// FULL HTML ROOT ROUTE PRESERVED
 app.get("/", (req, res) => {
   res.status(200).send(`<!doctype html>
 <html lang="en">
@@ -27,9 +44,7 @@ app.get("/", (req, res) => {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SJCS API</title>
     <style>
-      :root {
-        color-scheme: light;
-      }
+      :root { color-scheme: light; }
       body {
         margin: 0;
         font-family: "Segoe UI", Tahoma, Arial, sans-serif;
@@ -62,22 +77,9 @@ app.get("/", (req, res) => {
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
-      h1 {
-        margin: 16px 0 8px;
-        font-size: 32px;
-        line-height: 1.2;
-      }
-      p {
-        margin: 0 0 20px;
-        color: #cbd5f5;
-        line-height: 1.6;
-      }
-      .links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 12px;
-      }
+      h1 { margin: 16px 0 8px; font-size: 32px; line-height: 1.2; }
+      p { margin: 0 0 20px; color: #cbd5f5; line-height: 1.6; }
+      .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
       .links a {
         text-decoration: none;
         color: #111827;
@@ -91,11 +93,7 @@ app.get("/", (req, res) => {
         transform: translateY(-2px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
       }
-      .footer {
-        margin-top: 24px;
-        font-size: 12px;
-        color: #9ca3af;
-      }
+      .footer { margin-top: 24px; font-size: 12px; color: #9ca3af; }
       code {
         background: rgba(148, 163, 184, 0.18);
         padding: 2px 6px;

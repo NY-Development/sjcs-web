@@ -2,17 +2,34 @@ import mongoose from "mongoose";
 import { appConfig } from "./appConfig.js";
 import logger from "../utils/logger.js";
 
+// Cache the connection state
+let isConnected = false;
+
 const connectDB = async () => {
+  mongoose.set("strictQuery", true);
+
+  // If already connected, skip
+  if (isConnected || mongoose.connection.readyState === 1) {
+    return;
+  }
+
   try {
-    mongoose.set("strictQuery", true);
-    await mongoose.connect(appConfig.mongoUri, {
-      bufferTimeoutMS: 20000,
-      serverSelectionTimeoutMS: 20000,
+    // Disable buffering: Queries will fail immediately if not connected
+    // instead of waiting 20,000ms.
+    mongoose.set("bufferCommands", false);
+
+    const db = await mongoose.connect(appConfig.mongoUri, {
+      serverSelectionTimeoutMS: 5000, // Fail fast if IP is blocked
     });
-    logger.info("MongoDB connected ✅");
+
+    isConnected = !!db.connections[0].readyState;
+    
+    // Explicit Log for DB Connection
+    logger.info(`DATABASE_CONNECTED: ${isConnected} ✅`);
   } catch (error) {
-    logger.error(`MongoDB connection error: ${error.message}`);
-    process.exit(1);
+    logger.error(`DATABASE_CONNECTION_ERROR: ${error.message} ❌`);
+    isConnected = false;
+    throw error; // Propagate to middleware
   }
 };
 
