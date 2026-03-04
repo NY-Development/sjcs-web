@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../lib/api.js";
 import { useAuthStore } from "../lib/authStore.js";
@@ -92,6 +93,7 @@ const accentStyles = {
 
 const MockExamsPortalPage = () => {
   const { accessToken, user } = useAuthStore();
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [subjectFilter, setSubjectFilter] = useState("All Subjects");
   const [statusFilter, setStatusFilter] = useState("Any Status");
@@ -298,10 +300,15 @@ const MockExamsPortalPage = () => {
                     </td>
                     <td className="px-6 py-4 text-right text-sm font-medium">
                       <button
-                        className={`rounded-lg px-5 py-2 text-sm font-semibold shadow-sm ${
+                        className={`cursor-pointer rounded-lg px-5 py-2 text-sm font-semibold shadow-sm ${
                           actionStyles[exam.status]
                         }`}
                         type="button"
+                        onClick={() => {
+                          if (exam.status === "Available" || exam.status === "In Progress") {
+                            navigate("/proctor/exam"); // Route to ExamProctorScreen
+                          }
+                        }}
                       >
                         {exam.status === "Available"
                           ? "Start Exam"

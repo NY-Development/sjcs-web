@@ -35,6 +35,7 @@ const EmptyStateGradesPage = lazy(() => import("../pages/EmptyStateGradesPage.js
 const EmptyStateMaterialsPage = lazy(() => import("../pages/EmptyStateMaterialsPage.jsx"));
 const EmptyStateNotificationsPage = lazy(() => import("../pages/EmptyStateNotificationsPage.jsx"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage.jsx"));
+const ExamProctorScreen = lazy(() => import("../pages/ExamProctorScreen.jsx"));
 
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
@@ -71,7 +72,8 @@ const router = createBrowserRouter([
       { path: "/admin/reports", element: <InstitutionalReportsPage /> },
       { path: "/empty/grades", element: <EmptyStateGradesPage /> },
       { path: "/empty/materials", element: <EmptyStateMaterialsPage /> },
-      { path: "/empty/notifications", element: <EmptyStateNotificationsPage /> }
+      { path: "/empty/notifications", element: <EmptyStateNotificationsPage /> },
+      { path: "/proctor/exam", element: <ExamProctorScreen /> }
     ]
   },
   { path: "*", element: <NotFoundPage /> }
