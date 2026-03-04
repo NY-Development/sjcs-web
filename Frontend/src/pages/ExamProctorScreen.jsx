@@ -65,7 +65,7 @@ const ExamProctorScreen = () => {
               <ExamProctor
                 onViolationChange={handleViolationChange}
                 onHeadWarningChange={handleHeadWarningChange}
-                containerClassName="h-full w-full"
+                containerClassName="relative h-full w-full"
               />
             </div>
           </div>

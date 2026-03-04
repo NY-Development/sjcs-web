@@ -134,14 +134,14 @@ const ExamProctor = ({ onViolationChange, onHeadWarningChange, containerClassNam
       <div
         className={
           containerClassName ||
-          "w-full overflow-hidden rounded-lg border-2 border-emerald-500 bg-slate-900 shadow-lg"
+          "relative h-full w-full overflow-hidden rounded-lg border-2 border-emerald-500 bg-slate-900 shadow-lg"
         }
       >
         <Webcam
           ref={webcamRef}
           audio={false}
           mirrored
-          className="h-28 w-full object-cover"
+          className="h-full w-full object-cover opacity-80"
           onUserMedia={(stream) => {
             streamRef.current = stream;
           }}
